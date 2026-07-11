@@ -23,17 +23,17 @@ The following software was used:
 I created a new virtual machine in VirtualBox that will act as the domain controller for this lab
 
 ### *Step 2 - Configure Hardware*
-![VM Configuration](img/VM_Config.png)
+![Attaching ISO](img/VM_Config.png)
 
 I allocated 8 GB of RAM and 2 virtual CPUs to the server. Active Directory itself is not particularly resource intensive, but providing additional memory leaves room for future services and expansion within the lab environment
 
 ### *Step 3 - Attach the Windows Server ISO*
-![VM Configuration](img/Attaching_ISO.png)
+![Windows Server Installationn](img/Attaching_ISO.png)
 
 I attached the Windows Server 2022 Evaluation ISO file that was downloaded before this lab began and selected “Mount and Retry Boot” to start the boot process.
 
 ### *Step 4 - Install Windows Server*
-![VM Configuration](img/Windows_Server_Installation.png)
+![Server Profile Creation](img/Windows_Server_Installation.png)
 
 I selected Windows Server 2022 Desktop Experience because it includes a graphical user interface (GUI). The non Desktop Experience version installs Server Core, which is command-line only.
 
@@ -42,4 +42,4 @@ Since this is a new virtual machine, I selected Custom Installation because ther
 For this home lab I installed Windows directly to the default virtual disk instead of creating multiple partitions. This keeps the lab simple while still allowing me to practice Active Directory administration.
 
 ### *Step 5 - Rename the Server*
-![VM Configuration](img/Server_Name_Change.png)
+![Server Name Change](img/Server_Name_Change.png)
