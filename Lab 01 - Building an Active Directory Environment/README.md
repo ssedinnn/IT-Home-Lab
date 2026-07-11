@@ -71,3 +71,21 @@ Promoting the server to a Domain Controller creates the foundation of the Active
 ## *Challenges*
 While documentating the lab, VirtualBox initially captured keyboard inputs which prevented screenshots from being taken. This issue was resolved by disabling the keyboard capture settings, allowing screenshots to be taken normally.
 
+## *What I Learned*
+- Learned how to create and configure a Windows Server virtual machine.
+- Learned the difference between Server Core and Desktop Experience installations.
+- Learned how to install Active Directory Domain Services (AD DS).
+- Learned how a server is promoted to a Domain Controller.
+- Learned the purpose of a new forest and domain structure within Active Directory.
+- Learned the role of Directory Services Restore Mode (DSRM) during Domain Controller deployment.
+
+## *Next Steps*
+In the next lab I will:
+- Install Guest Addition (We will see)
+- Install Windows 11 VM
+- Join Windows 11 VM to Domain
+
+## *References*
+- KEVTECH IT Support Youtube Series
+- Microsoft Learn Documentation
+- Oracle VirtualBox Documentation
