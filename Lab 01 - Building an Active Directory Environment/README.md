@@ -32,6 +32,8 @@ I allocated 8 GB of RAM and 2 virtual CPUs to the server. Active Directory itsel
 
 I attached the Windows Server 2022 Evaluation ISO file that was downloaded before this lab began and selected “Mount and Retry Boot” to start the boot process.
 
+The ISO file acts as the installation media for Windows Server 2022 and allows the virtual machine to boot into the operating system installer.
+
 ### *Step 4 - Install Windows Server*
 ![Server Profile Creation](img/Windows_Server_Installation.png)
 
@@ -43,3 +45,29 @@ For this home lab I installed Windows directly to the default virtual disk inste
 
 ### *Step 5 - Rename the Server*
 ![Server Name Change](img/Server_Name_Change.png)
+
+I first click on the Local Server Tab on the Server Manager app. I click on the computer name and then I click Change in order to change the Name to “CA-DC-01”. 
+
+Renaming computers makes it easier for troubleshooting and administration is much more efficient than using default computer names.
+
+### *Step 6 - Install Active Directory*
+![Active Directory Installation](img/Active_Directory_Installation.png)
+
+Using Server Manager, I installed the Active Directory Domain Services (AD DS) role.
+
+AD DS allows the server to function as a Domain Controller capable of managing users, computers, authentication, and security policies within a Windows domain environment.
+
+### *Step 7 - Promote Server to Domain Controller*
+![Active Directory Setup](img/Active_Directory_Installation.png)
+
+In Server Manager, I click the notification flag to begin promoting the server to a domain controller. Since this is a new environment, I choose "Add a new forest" and create the domain lab.local. 
+
+I then continue through the setup wizard, set a Directory Services Restore Mode (DSRM) password, and complete the installation. 
+
+After the server restarts, I open Server Manager and navigate to Local Server, where I can see the domain name lab.local, confirming that the domain controller was successfully configured.
+
+Promoting the server to a Domain Controller creates the foundation of the Active Directory environment. Creating a new forest establishes the first domain within the lab environment.
+
+## *Challenges*
+While documentating the lab, VirtualBox initially captured keyboard inputs which prevented screenshots from being taken. This issue was resolved by disabling the keyboard capture settings, allowing screenshots to be taken normally.
+
