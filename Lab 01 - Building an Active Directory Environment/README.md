@@ -24,3 +24,8 @@ I created a new virtual machine in VirtualBox that will act as the domain contro
 
 ### *Step 2 - Configure Hardware*
 ![VM Configuration](img/VM_Config.png)
+
+I allocated 8 GB of RAM and 2 virtual CPUs to the server. Active Directory itself is not particularly resource intensive, but providing additional memory leaves room for future services and expansion within the lab environment
+
+### *Step 3 - Attach the Windows Server ISO*
+![VM Configuration](img/Attaching_ISO.png)
