@@ -18,4 +18,4 @@ The following software was used:
 ## *Steps*
 
 ### *Step 1 - Create the Windows Server Virtual Machine*
-![VM Configuration](img/VM_Config.png)
+![VM Configuration](img/Server_2022_Profile_Creation.png)
