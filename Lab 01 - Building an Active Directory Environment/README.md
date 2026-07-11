@@ -14,3 +14,8 @@ The following software was used:
 - Active Directory Domain Services
 - Domain Controller Deployment
 - Server Configuration
+
+## *Steps*
+
+### *Step 1 - Create the Windows Server Virtual Machine*
+![VM Configuration](images/VM_Config.png)
