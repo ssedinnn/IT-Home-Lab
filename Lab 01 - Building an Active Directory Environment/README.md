@@ -40,3 +40,6 @@ I selected Windows Server 2022 Desktop Experience because it includes a graphica
 Since this is a new virtual machine, I selected Custom Installation because there was no existing operating system to upgrade.
 
 For this home lab I installed Windows directly to the default virtual disk instead of creating multiple partitions. This keeps the lab simple while still allowing me to practice Active Directory administration.
+
+### *Step 5 - Rename the Server*
+![VM Configuration](img/Server_Name_Change.png)
