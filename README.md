@@ -29,11 +29,10 @@ Each lab is designed to reinforce my understanding of the technology while creat
 - Technical Documentation
 
 ## Lab Projects
-| Lab | Description | Status |
 **Lab 01 – Building an Active Directory Environment** 
 - Installed Windows Server 2022, configured Active Directory Domain Services, and promoted the server to a domain controller
-**Lab 02 – Coming Soon** Additional home lab projects will be added as I continue learning and expanding my environment. | 🚧 |
 
+**Lab 02 – Coming Soon** Additional home lab projects will be added as I continue learning and expanding my environment
 ## Goals
 
 The purpose of this repository is to:
