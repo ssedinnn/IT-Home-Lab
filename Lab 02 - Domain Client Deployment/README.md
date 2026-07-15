@@ -15,7 +15,7 @@ The following software was used:
 
 ## *Steps*
 
-### *Step 1 - Install Guest Addition for VirtualBox
+### *Step 1 - Install Guest Addition for VirtualBox*
 
 ![VirtualBox Guest Addition](img/VirtualBox_Guest_Addition.png)
 
