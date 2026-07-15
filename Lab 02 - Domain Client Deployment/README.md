@@ -15,6 +15,12 @@ The following software was used:
 
 ## *Steps*
 
+### *Step 1 - Install Guest Addition for Virtual Box
+
+After opening the Windows Server 2022 VM, go up towards devices on top left for the VM and click "Insert Guest Additions CD image". Going into file explorer and finding a CD drive thats mounted in the Windows Server 2022 VM. Then click on the application "VBoxWindowsAddition-amd64" to start the installation process. Then i got through the setup wizard clicking next and then install. Once it finishes you reboot the file.
+
+
+
 ## *Challenges*
 
 ## *What I Learned*
