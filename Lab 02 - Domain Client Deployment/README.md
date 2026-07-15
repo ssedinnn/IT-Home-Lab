@@ -10,3 +10,7 @@ The following software was used:
 - VirtualBox Guest Additions
 - Windows 11
 - Active Directory Domain Services (AD DS)
+
+## *Skills Demonstrated*
+
+## *Steps*
