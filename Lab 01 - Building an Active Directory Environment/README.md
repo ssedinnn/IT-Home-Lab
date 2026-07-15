@@ -6,7 +6,7 @@ The goal of this lab is to build a basic Active Directory environment using Virt
 ## *Environment*
 The following software was used:
 - Oracle VirtualBox
-- Windows Server 2022 Evaluation ISO
+- Windows Server 2022
 
 ## *Skills Demonstrated*
 - Windows Server 2022 Administration
