@@ -25,6 +25,7 @@ Installing Guest Additions enables features such as file sharing, improved displ
 
 ### *Step 2 Add a New Shared Folder*
 
+![Adding Shared Folder](img/Adding_Shared_Folder.png)
 
 To configure a shared folder, I open the **Devices** menu in VirtualBox and navigate to **Shared Folders > Shared Folder Settings**. I then click the **Add Shared Folder** icon, select the folder on my host computer that I want to share with the virtual machine, and name it **IT_homelab**.
 
