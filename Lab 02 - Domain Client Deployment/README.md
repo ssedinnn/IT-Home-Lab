@@ -19,10 +19,16 @@ The following software was used:
 
 ![VirtualBox Guest Addition](img/VirtualBox_Guest_Addition.png)
 
-After creating the Windows Server 2022 virtual machine, I install **VirtualBox Guest Additions** by selecting **Devices > Insert Guest Additions CD Image** from the VirtualBox menu. I then open File Explorer, locate the mounted CD drive, and run **VBoxWindowsAdditions-amd64**. After completing the installation wizard, I restart the virtual machine to apply the changes.
+After opening the Windows Server 2022 virtual machine, I install **VirtualBox Guest Additions** by selecting **Devices > Insert Guest Additions CD Image** from the VirtualBox menu. I then open File Explorer inside the Windows Server 2022 virtual machine, locate the mounted CD drive, and run **VBoxWindowsAdditions-amd64**. After completing the installation wizard, I restart the virtual machine to apply the changes.
 
 Installing Guest Additions enables features such as file sharing, improved display support, and better integration between the host computer and the virtual machine. Since my Windows Server VM will use a static IP address and won't have internet access later in the lab, shared folders allow me to easily transfer software and other files from my host computer to the server whenever needed.
 
+### *Step 2 Add a New Shared Folder*
+
+
+To configure a shared folder, I open the **Devices** menu in VirtualBox and navigate to **Shared Folders > Shared Folder Settings**. I then click the **Add Shared Folder** icon, select the folder on my host computer that I want to share with the virtual machine, and name it **IT_homelab**.
+
+Finally, I enable **Auto-mount** and **Make Permanent** so the shared folder is automatically available each time the virtual machine starts.
 
 ## *Challenges*
 
