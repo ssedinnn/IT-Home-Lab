@@ -15,12 +15,13 @@ The following software was used:
 
 ## *Steps*
 
-### *Step 1 - Install Guest Addition for Virtual Box
+### *Step 1 - Install Guest Addition for VirtualBox
 
 ![VirtualBox Guest Addition](img/VirtualBox_Guest_Addition.png)
 
-After opening the Windows Server 2022 VM, go up towards devices on top left for the VM and click "Insert Guest Additions CD image". Going into file explorer and finding a CD drive thats mounted in the Windows Server 2022 VM. Then click on the application "VBoxWindowsAddition-amd64" to start the installation process. Then i got through the setup wizard clicking next and then install. Once it finishes you reboot the file.
+After creating the Windows Server 2022 virtual machine, I install **VirtualBox Guest Additions** by selecting **Devices > Insert Guest Additions CD Image** from the VirtualBox menu. I then open File Explorer, locate the mounted CD drive, and run **VBoxWindowsAdditions-amd64**. After completing the installation wizard, I restart the virtual machine to apply the changes.
 
+Installing Guest Additions enables features such as file sharing, improved display support, and better integration between the host computer and the virtual machine. Since my Windows Server VM will use a static IP address and won't have internet access later in the lab, shared folders allow me to easily transfer software and other files from my host computer to the server whenever needed.
 
 
 ## *Challenges*
