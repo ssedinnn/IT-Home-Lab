@@ -14,3 +14,9 @@ The following software was used:
 ## *Skills Demonstrated*
 
 ## *Steps*
+
+## *Challenges*
+
+## *What I Learned*
+
+## *Next Steps*
