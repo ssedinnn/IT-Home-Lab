@@ -81,7 +81,7 @@ While documentating the lab, VirtualBox initially captured keyboard inputs which
 
 ## *Next Steps*
 In the next lab I will:
-- Install Guest Addition (We will see)
+- Install Guest Addition on VirtualBox
 - Install Windows 11 VM
 - Join Windows 11 VM to Domain
 
