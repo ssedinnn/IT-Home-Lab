@@ -41,8 +41,9 @@ To test the shared folder, I added an image to the folder on my host computer. T
 
 ![Creating Active Directory Account](img/Creating_Active_Directory_Account.png)
 
-I opened active directory users and computers, and then made my way to the lab.local domain, right click the users folder and then click new>user. Fill out information, for this Il fill out the first name, log on name, and then set up the password. For the password I unchecked the "User must change password at next logon"
+To create a domain user, I open **Active Directory Users and Computers** and navigate to the **lab.local** domain. I then right-click the **Users** folder and select **New > User**. For this lab, I fill in the user's first name, logon name, and password. Since this is a test account, I uncheck **"User must change password at next logon"** before completing the user creation wizard.
 
+Active Directory provides a centralized way to manage user accounts and their settings. From here, administrators can reset passwords, configure logon hours, manage group memberships, update user information, and perform many other administrative tasks. Most user account management within a Windows domain is performed through **Active Directory Users and Computers**.
 
 ## *Challenges*
 
