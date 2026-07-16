@@ -51,6 +51,10 @@ You can also use the **`net user <username> /domain`** command to view additiona
 
 ![Creating Windows 11 VM](img/Windows_11_VM_Setup.png)
 
+I create a user profile for the Windows 11 virtual machine using the same process outlined in **Lab 01** for the Windows Server 2022 virtual machine. Since the setup is identical, I won't repeat each step here.
+
+### *Step 6 - Setting up Windows 11*
+
 ## *Challenges*
 
 ## *What I Learned*
