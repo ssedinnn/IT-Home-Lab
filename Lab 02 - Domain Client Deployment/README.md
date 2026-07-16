@@ -53,13 +53,17 @@ You can also use the **`net user <username> /domain`** command to view additiona
 
 I create a user profile for the Windows 11 virtual machine using the same process outlined in **Lab 01** for the Windows Server 2022 virtual machine. Since the setup is identical, I won't repeat each step here.
 
-### *Step 6 - Setting up Windows 11*
+### *Step 6 - Installing Windows 11*
+
+
 
 I start up the VM and go through the Setup Wizard, I don't have a product key for it which is fine. Important thing to do is to ensure you click to install Windows 11 Pro instead of just Windows 11. Windows 11 Pro is needed as that has the feature of being able to join domains.
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
-Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements.
-## *What I Learned*
+Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I searched alot online but honestly I just remade the VM profile with the appropiate storage.
 
+## *What I Learned*
+- Read documentation on software before setting it up.
+- 
 ## *Next Steps*
