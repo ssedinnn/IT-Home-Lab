@@ -35,7 +35,7 @@ Finally, I enable **Auto-mount** and **Make Permanent** so the shared folder is 
 
 ![Mounted_Folder_Verification](img/Mounted_Folder_Verification.png)
 
-
+To test the shared folder, I added an image to the folder and it ended up appearing in both folders, showing the shared folder functions correctly.
 
 ## *Challenges*
 
