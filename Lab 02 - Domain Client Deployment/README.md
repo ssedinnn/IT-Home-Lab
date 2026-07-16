@@ -35,7 +35,7 @@ Finally, I enable **Auto-mount** and **Make Permanent** so the shared folder is 
 
 ![Mounted_Folder_Verification](img/Mounted_Folder_Verification.png)
 
-To test the shared folder, I added an image to the folder and it ended up appearing in both folders, showing the shared folder functions correctly.
+To test the shared folder, I added an image to the folder on my host computer. The image also appeared in the shared folder on the Windows Server virtual machine, confirming that the shared folder was working correctly.
 
 ## *Challenges*
 
