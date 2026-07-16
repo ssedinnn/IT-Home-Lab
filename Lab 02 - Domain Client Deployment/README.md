@@ -39,7 +39,7 @@ To test the shared folder, I added an image to the folder on my host computer. T
 
 ### *Step 4 - Creating Users in Active Directory*
 
-![Creating Active Directory Account](img/Mounted_Folder_Verification.png)
+![Creating Active Directory Account](img/Creating_Active_Directory_Account.png)
 
 I opened active directory users and computers, and then made my way to the lab.local domain, right click the users folder and then click new>user. Fill out information, for this Il fill out the first name, log on name, and then set up the password. For the password I unchecked the "User must change password at next logon"
 
