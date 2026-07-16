@@ -47,6 +47,10 @@ Active Directory provides a centralized way to manage user accounts and their se
 
 You can also use the **`net user <username> /domain`** command to view additional information about a domain user, such as password expiration, account status, and the last logon time. For example, running **`net user sedin /domain`** displays information for the user account named **sedin**.
 
+### *Step 5 - Creating Windows 11 VM*
+
+![Creating Windows 11 VM](img/Windows_11_VM_Setup.png)
+
 ## *Challenges*
 
 ## *What I Learned*
