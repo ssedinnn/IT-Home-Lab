@@ -59,6 +59,7 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
+Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements.
 ## *What I Learned*
 
 ## *Next Steps*
