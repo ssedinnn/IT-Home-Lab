@@ -45,6 +45,8 @@ To create a domain user, I open **Active Directory Users and Computers** and nav
 
 Active Directory provides a centralized way to manage user accounts and their settings. From here, administrators can reset passwords, configure logon hours, manage group memberships, update user information, and perform many other administrative tasks. Most user account management within a Windows domain is performed through **Active Directory Users and Computers**.
 
+You can also use the **`net user <username> /domain`** command to view additional information about a domain user, such as password expiration, account status, and the last logon time. For example, running **`net user sedin /domain`** displays information for the user account named **sedin**.
+
 ## *Challenges*
 
 ## *What I Learned*
