@@ -55,7 +55,7 @@ I create a user profile for the Windows 11 virtual machine using the same proces
 
 ### *Step 6 - Installing Windows 11*
 
-
+![Installing Windows 11](img/Windows_11_Installation.png)
 
 I start up the VM and go through the Setup Wizard, I don't have a product key for it which is fine. Important thing to do is to ensure you click to install Windows 11 Pro instead of just Windows 11. Windows 11 Pro is needed as that has the feature of being able to join domains.
 
