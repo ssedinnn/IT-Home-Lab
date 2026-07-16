@@ -31,6 +31,12 @@ To configure a shared folder, I open the **Devices** menu in VirtualBox and navi
 
 Finally, I enable **Auto-mount** and **Make Permanent** so the shared folder is automatically available each time the virtual machine starts.
 
+### *Step 3 Test Shared Folder*
+
+![Mounted_Folder_Verification](img/Mounted_Folder_Verification.png)
+
+
+
 ## *Challenges*
 
 ## *What I Learned*
