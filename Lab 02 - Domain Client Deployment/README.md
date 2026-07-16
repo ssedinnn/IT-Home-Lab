@@ -23,7 +23,7 @@ After opening the Windows Server 2022 virtual machine, I install **VirtualBox Gu
 
 Installing Guest Additions enables features such as file sharing, improved display support, and better integration between the host computer and the virtual machine. Since my Windows Server VM will use a static IP address and won't have internet access later in the lab, shared folders allow me to easily transfer software and other files from my host computer to the server whenever needed.
 
-### *Step 2 Add a New Shared Folder*
+### *Step 2 - Add a New Shared Folder*
 
 ![Adding Shared Folder](img/Adding_Shared_Folder.png)
 
@@ -31,11 +31,15 @@ To configure a shared folder, I open the **Devices** menu in VirtualBox and navi
 
 Finally, I enable **Auto-mount** and **Make Permanent** so the shared folder is automatically available each time the virtual machine starts.
 
-### *Step 3 Test Shared Folder*
+### *Step 3 - Test Shared Folder*
 
 ![Mounted_Folder_Verification](img/Mounted_Folder_Verification.png)
 
 To test the shared folder, I added an image to the folder on my host computer. The image also appeared in the shared folder on the Windows Server virtual machine, confirming that the shared folder was working correctly.
+
+### *Step 4 - Creating Users in Active Directory*
+
+I opened active directory users and computers, and then made my way to the lab.local domain, right click the users folder and then click new>user. Fill out information, for this Il fill out the first name, log on name, and then set up the password. For the password I unchecked the "User must change password at next logon"
 
 ## *Challenges*
 
