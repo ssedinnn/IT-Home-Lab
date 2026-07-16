@@ -55,8 +55,10 @@ I create a user profile for the Windows 11 virtual machine using the same proces
 
 ### *Step 6 - Setting up Windows 11*
 
-## *Challenges*
+I start up the VM and go through the Setup Wizard, I don't have a product key for it which is fine. Important thing to do is to ensure you click to install Windows 11 Pro instead of just Windows 11. Windows 11 Pro is needed as that has the feature of being able to join domains.
 
+## *Challenges*
+When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
 ## *What I Learned*
 
 ## *Next Steps*
