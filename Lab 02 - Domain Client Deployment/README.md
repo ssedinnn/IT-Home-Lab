@@ -71,6 +71,10 @@ I restart the VM and continue through the Windows setup wizard. Once I reach the
 
 After running the command, the virtual machine restarts. I go through the setup wizard again, and when I reach the internet connection screen, a new **"I don't have internet"** option is available. I select this option and continue through the rest of the setup until I can log in and reach the Windows desktop.
 
+### *Step 8 - Rename PC*
+
+I press the **Windows** key, open **Settings**, and select **Rename**. Renaming the computer makes it easier to identify, locate, and manage within **Active Directory**.
+
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
