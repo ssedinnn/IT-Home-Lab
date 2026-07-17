@@ -61,7 +61,11 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 ### *Step 7 - Setting up Windows 11*
 
-Once installed go into the VM settings and go into devices > network > network settings and change the adapter settings from NAT to host only, as this is needed to bypass the microsoft account step so we can get through to the home screen. I restart the VM and then go through the set up wizard and once you get to the point where it asks for internet connection, hit shift + F10 to open up the Windows command line and paste *OOBE\BYPASSNRO*. It should say operation successful and restart the OS. Going through the set up wizard again at the internet connection point there now should be a button that says "I don't have internet". Click that button and go through the rest of the setup wizard until you can log into the computer and get to the home screen.
+Once installed, I go into the VM settings and navigate to **Network**. I then change the adapter from **NAT** to **Host-Only Adapter**, as this is needed to bypass the Microsoft account step so I can continue to the Windows desktop.
+
+I restart the VM and continue through the Windows setup wizard. Once I reach the screen asking for an internet connection, I press **Shift + F10** to open Command Prompt and run the following command **OOBE\BYPASSNRO**. 
+
+After running the command, the virtual machine restarts. I go through the setup wizard again, and when I reach the internet connection screen, a new **"I don't have internet"** option is available. I select this option and continue through the rest of the setup until I can log in and reach the Windows desktop.
 
 
 ## *Challenges*
