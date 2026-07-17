@@ -61,6 +61,10 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 ### *Step 7 - Setting up Windows 11*
 
+![Windows 11 Bypass](img/Windows_11_Account_Bypass.png)
+
+![Windows 11 Home Screen](img/Windows_11_Home_Screen.png)
+
 Once installed, I go into the VM settings and navigate to **Network**. I then change the adapter from **NAT** to **Host-Only Adapter**, as this is needed to bypass the Microsoft account step so I can continue to the Windows desktop.
 
 I restart the VM and continue through the Windows setup wizard. Once I reach the screen asking for an internet connection, I press **Shift + F10** to open Command Prompt and run the following command **OOBE\BYPASSNRO**. 
