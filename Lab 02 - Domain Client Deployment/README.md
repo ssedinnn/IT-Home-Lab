@@ -73,6 +73,8 @@ After running the command, the virtual machine restarts. I go through the setup 
 
 ### *Step 8 - Rename PC*
 
+![Renaming Windows 11 PC](img/Renaming_Windows_11_PC.png)
+
 I press the **Windows** key, open **Settings**, and select **Rename**. Renaming the computer makes it easier to identify, locate, and manage within **Active Directory**.
 
 
