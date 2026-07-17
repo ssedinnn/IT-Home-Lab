@@ -61,11 +61,13 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 ### *Step 7 - Setting up Windows 11*
 
-Once installed I go through the setup process and applying setting that match what I need.
+Once installed go into the VM settings and go into devices > network > network settings and change the adapter settings from NAT to host only, as this is needed to bypass the microsoft account step so we can get through to the home screen. I restart the VM and then go through the set up wizard and once you get to the point where it asks for internet connection, hit shift + F10 to open up the Windows command line and paste *OOBE\BYPASSNRO*. It should say operation successful and restart the OS. Going through the set up wizard again at the internet connection point there now should be a button that says "I don't have internet". Click that button and go through the rest of the setup wizard until you can log into the computer and get to the home screen.
+
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
 Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I just remade the profile since at this point nothing is really on the computer so its fine to delete it all.
+
 
 ## *What I Learned*
 - Read documentation on software before setting it up.
