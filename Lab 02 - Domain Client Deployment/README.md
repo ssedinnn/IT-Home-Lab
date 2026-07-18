@@ -97,6 +97,12 @@ Follow the same steps outlined above to access **Internet Protocol Version 4 (TC
 
 On the Windows 11 VM, I open **Terminal** by right-clicking on the desktop and selecting **Open in Terminal**. I then type `ping 10.1.0.2`, or you can type `ping lab.local`, to verify that the VM is on the same virtual network as the **Windows Server 2022** VM.
 
+### *Step 12 - Joining Windows 11 to the Domain*
+
+First, I double-check the server's domain name by opening **Server Manager** and selecting **Local Server**. The domain name for my server is `lab.local`.
+
+On the Windows 11 VM, I open **File Explorer**, right-click **This PC**, and select **Properties**. I scroll down until I find **Domain or Workgroup** and click it. I then select **Change**, choose **Domain**, and enter `lab.local`. After entering the administrator credentials, the Windows 11 VM joins the domain. I restart the computer to apply the changes.
+
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
 Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I just remade the profile since at this point nothing is really on the computer so its fine to delete it all.
