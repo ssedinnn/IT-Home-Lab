@@ -65,7 +65,7 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 ![Windows 11 Home Screen](img/Windows_11_Home_Screen.png)
 
-Once installed, I go into the VM settings and navigate to **Network**. I then change the adapter from **NAT** to **Host-Only Adapter**, as this is needed to bypass the Microsoft account step so I can continue to the Windows desktop.
+Once installed, I go into the VM settings and navigate to **Devices** > **Network** > **Network Settings**. I then change the adapter from **NAT** to **Host-Only Adapter**, as this is needed to bypass the Microsoft account step so I can continue to the Windows desktop.
 
 I restart the VM and continue through the Windows setup wizard. Once I reach the screen asking for an internet connection, I press **Shift + F10** to open Command Prompt and run the following command **OOBE\BYPASSNRO**. 
 
@@ -77,6 +77,9 @@ After running the command, the virtual machine restarts. I go through the setup 
 
 I press the **Windows** key, open **Settings**, and select **Rename**. Renaming the computer makes it easier to identify, locate, and manage within **Active Directory**.
 
+### *Step 9 - Setup Stactic IP For Server 2022 VM*
+
+I boot up the Server 2022 VM and change the VM's network settings to **Host-only adapter** just like with the Windows 11 VM. I then log in and open up control panel. Under **Network and Internet** I click **View network status and tasks** > **Change adapter settings** > **Ethernet**. I then click on properties and find **Internet Protocol Version 4 (TCP/IP)** and select it. I then click **Use the following IP address** and input the addresses that are shown in the image above and click ok.
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
