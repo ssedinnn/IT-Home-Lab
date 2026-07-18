@@ -67,7 +67,7 @@ I start up the VM and go through the Setup Wizard, I don't have a product key fo
 
 Once installed, I go into the VM settings and navigate to **Devices** > **Network** > **Network Settings**. I then change the adapter from **NAT** to **Host-Only Adapter**, as this is needed to bypass the Microsoft account step so I can continue to the Windows desktop.
 
-I restart the VM and continue through the Windows setup wizard. Once I reach the screen asking for an internet connection, I press **Shift + F10** to open Command Prompt and run the following command **OOBE\BYPASSNRO**. 
+I restart the VM and continue through the Windows setup wizard. Once I reach the screen asking for an internet connection, I press **Shift + F10** to open Command Prompt and run the following command `OOBE\BYPASSNRO`. 
 
 After running the command, the virtual machine restarts. I go through the setup wizard again, and when I reach the internet connection screen, a new **"I don't have internet"** option is available. I select this option and continue through the rest of the setup until I can log in and reach the Windows desktop.
 
