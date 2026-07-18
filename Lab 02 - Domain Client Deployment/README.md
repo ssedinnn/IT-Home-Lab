@@ -85,6 +85,13 @@ I boot up the **Windows Server 2022** VM and change the VM's network adapter to 
 
 Next, I click **Properties**, select **Internet Protocol Version 4 (TCP/IPv4)**, and click **Properties**. I then select **Use the following IP address**, enter the IP settings shown in the image above, and click **OK**.
 
+### *Step 10 - Setup Stactic IP For Windows 11 VM*
+
+
+
+Follow the same steps outlined above to access **Internet Protocol Version 4 (TCP/IPv4)**. Enter the IP settings shown in the image above, then click **OK**.
+
+
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
 Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I just remade the profile since at this point nothing is really on the computer so its fine to delete it all.
