@@ -126,11 +126,21 @@ After restarting the Windows 11 VM, There should be an option to log in as a oth
 I open **Active Directory Users and Computers** and navigate to **lab.local > Computers**. As shown in the image above, `DESKTOP-01` appears in the list, confirming that the Windows 11 VM successfully joined the domain. This is also confirmed by the fact that I was able to log in using the domain account in the previous step.
 
 ## *Challenges*
-When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
-Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I just remade the profile since at this point nothing is really on the computer so its fine to delete it all.
+When I first created the Windows 11 VM, I did not configure it with the correct system requirements. The VM needed at least two processor cores, TPM 2.0, and Secure Boot support. I fixed this by opening the VM settings in VirtualBox and enabling or adjusting each of the required settings.
 
+Another issue was that I did not assign enough storage to the Windows 11 VM. Windows 11 required more storage than I originally provided, so I recreated the VM profile with at least 52 GB of storage. Since I had not installed or configured much on the VM yet, recreating it was the easiest solution.
 
 ## *What I Learned*
-- Read documentation on software before setting it up.
-- 
+- I learned the importance of reviewing software and hardware requirements before creating a virtual machine.
+- I learned how static IP addresses and DNS settings allow a client workstation to communicate with a domain controller.
+- I learned that successful network connectivity does not automatically confirm a domain join.
+- I learned how to verify a domain join through Active Directory Users and Computers and by logging in with a domain account.
+- I learned how Active Directory provides centralized management for users and computers.
+- I learned how to troubleshoot common Windows 11 installation and virtual machine configuration issues.
+ 
 ## *Next Steps*
+- Create additional users and organizational units in Active Directory.
+- Practice resetting passwords and unlocking user accounts.
+- Create and apply Group Policy settings to the Windows 11 workstation.
+- Organize users and computers into separate organizational units.
+- Configure shared network folders and permissions.
