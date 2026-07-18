@@ -87,7 +87,7 @@ Next, I click **Properties**, select **Internet Protocol Version 4 (TCP/IPv4)**,
 
 ### *Step 10 - Setup Stactic IP For Windows 11 VM*
 
-
+![Windows 11 Static IPs ](img/Windows_11_Static_IPs.png)
 
 Follow the same steps outlined above to access **Internet Protocol Version 4 (TCP/IPv4)**. Enter the IP settings shown in the image above, then click **OK**.
 
