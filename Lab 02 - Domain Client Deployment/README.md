@@ -99,6 +99,8 @@ On the Windows 11 VM, I open **Terminal** by right-clicking on the desktop and s
 
 ### *Step 12 - Joining Windows 11 to the Domain*
 
+![Windows 11 Domain Join](img/Windows_11_Domain_Join.png)
+
 First, I double-check the server's domain name by opening **Server Manager** and selecting **Local Server**. The domain name for my server is `lab.local`.
 
 On the Windows 11 VM, I open **File Explorer**, right-click **This PC**, and select **Properties**. I scroll down until I find **Domain or Workgroup** and click it. I then select **Change**, choose **Domain**, and enter `lab.local`. After entering the administrator credentials, the Windows 11 VM joins the domain. I restart the computer to apply the changes.
