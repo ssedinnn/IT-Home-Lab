@@ -91,6 +91,11 @@ Next, I click **Properties**, select **Internet Protocol Version 4 (TCP/IPv4)**,
 
 Follow the same steps outlined above to access **Internet Protocol Version 4 (TCP/IPv4)**. Enter the IP settings shown in the image above, then click **OK**.
 
+### *Step 11 - Testing Connectivity*
+
+![Windows 11 Static IPs ](img/Windows_11_Static_IPs.png)
+
+On the Windows 11 VM, I open **Terminal** by right-clicking on the desktop and selecting **Open in Terminal**. I then type `ping 10.1.0.2`, or you can type `ping lab.local`, to verify that the VM is on the same virtual network as the **Windows Server 2022** VM.
 
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
