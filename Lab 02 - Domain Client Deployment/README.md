@@ -79,6 +79,8 @@ I press the **Windows** key, open **Settings**, and select **Rename**. Renaming 
 
 ### *Step 9 - Setup Stactic IP For Server 2022 VM*
 
+![Server 2022 Static IPs ](img/Server_2022_Static_IPs.png)
+
 I boot up the **Windows Server 2022** VM and change the VM's network adapter to **Host-Only Adapter**, just as I did with the Windows 11 VM. I then log in and open **Control Panel**. Under **Network and Internet**, I click **View network status and tasks** > **Change adapter settings** > **Ethernet**. 
 
 Next, I click **Properties**, select **Internet Protocol Version 4 (TCP/IPv4)**, and click **Properties**. I then select **Use the following IP address**, enter the IP settings shown in the image above, and click **OK**.
