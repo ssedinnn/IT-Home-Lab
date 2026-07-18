@@ -12,6 +12,18 @@ The following software was used:
 - Active Directory Domain Services (AD DS)
 
 ## *Skills Demonstrated*
+- Installing and configuring VirtualBox Guest Additions
+- Creating and testing shared folders between a host computer and a virtual machine
+- Creating and managing Active Directory user accounts
+- Configuring static IPv4 addresses
+- Configuring DNS settings for a domain environment
+- Testing network connectivity with the `ping` command
+- Creating and configuring a Windows 11 virtual machine
+- Renaming a workstation for easier identification
+- Joining a Windows 11 workstation to an Active Directory domain
+- Authenticating with an Active Directory domain account
+- Verifying computer membership through Active Directory Users and Computers
+- Troubleshooting Windows 11 virtual machine system requirements
 
 ## *Steps*
 
@@ -108,6 +120,8 @@ On the Windows 11 VM, I open **File Explorer**, right-click **This PC**, and sel
 After restarting the Windows 11 VM, There should be an option to log in as a other user. Im gonna log in with the user I made earlier in the lab named **Sedin**. 
 
 ### *Step 13 - Checking Domain Connection on Server 2022*
+
+![Domain Checking](img/Domain_Join_Check.png)
 
 I open **Active Directory Users and Computers** and navigate to **lab.local > Computers**. As shown in the image above, `DESKTOP-01` appears in the list, confirming that the Windows 11 VM successfully joined the domain. This is also confirmed by the fact that I was able to log in using the domain account in the previous step.
 
