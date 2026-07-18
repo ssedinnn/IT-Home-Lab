@@ -105,6 +105,12 @@ First, I double-check the server's domain name by opening **Server Manager** and
 
 On the Windows 11 VM, I open **File Explorer**, right-click **This PC**, and select **Properties**. I scroll down until I find **Domain or Workgroup** and click it. I then select **Change**, choose **Domain**, and enter `lab.local`. After entering the administrator credentials, the Windows 11 VM joins the domain. I restart the computer to apply the changes.
 
+After restarting the Windows 11 VM, There should be an option to log in as a other user. Im gonna log in with the user I made earlier in the lab named **Sedin**. 
+
+### *Step 13 - Checking Domain Connection on Server 2022*
+
+I open **Active Directory Users and Computers** and navigate to **lab.local > Computers**. As shown in the image above, `DESKTOP-01` appears in the list, confirming that the Windows 11 VM successfully joined the domain. This is also confirmed by the fact that I was able to log in using the domain account in the previous step.
+
 ## *Challenges*
 When setting up the windows 11 VM i didn't give it the correct system requirements of 2 cores, supporting TPM 2.0 and supporting secure boot. I fixed this by going into the settings of the VM and changing those respective settings to go through.
 Another issue was not giving the VM enough storage as well so i made sure it could handle the 52gb requirements. To fix this I just remade the profile since at this point nothing is really on the computer so its fine to delete it all.
