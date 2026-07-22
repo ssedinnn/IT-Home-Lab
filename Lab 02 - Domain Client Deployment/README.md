@@ -140,7 +140,6 @@ Another issue was that I did not assign enough storage to the Windows 11 VM. Win
  
 ## *Next Steps*
 - Create additional users and organizational units in Active Directory.
-- Practice resetting passwords and unlocking user accounts.
-- Create and apply Group Policy settings to the Windows 11 workstation.
-- Organize users and computers into separate organizational units.
-- Configure shared network folders and permissions.
+- Practice resetting passwords
+- Practice unlocking user accountes
+- Practice disabling and deleting accounts
