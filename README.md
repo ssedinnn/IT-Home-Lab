@@ -32,8 +32,8 @@ Each lab is designed to reinforce my understanding of the technology while creat
 **Lab 01 – Building an Active Directory Environment** 
 - Installed Windows Server 2022, configured Active Directory Domain Services, and promoted the server to a domain controller
 
-**Lab 02 – Coming Soon** Additional home lab projects will be added as I continue learning and expanding my environment
-## Goals
+**Lab 02 – Domain Client Deployment**
+- Installed Guested Addition for virtual box, setup up Windows 11 VM, and joined Windows 11 VM to the Server 2022 VM through Active Directory.
 
 The purpose of this repository is to:
 - Gain hands-on experience with enterprise IT technologies.
