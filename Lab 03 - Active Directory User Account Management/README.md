@@ -81,7 +81,13 @@ In the Windows 11 VM, I sign out of the current account and attempt to log back 
 Deleting a user account permanently removes it from Active Directory. Many organizations first disable accounts before permanently deleting them after a retention period. This helps prevent accidental data loss while allowing administrators time to recover the account if necessary.
 
 ## *Challenges*
+This lab built on the environment configured in previous labs, so I did not encounter any major issues. Instead, I focused on understanding how each account management task changed the user's ability to authenticate and access the domain.
 
 ## *What I Learned*
+- I learned how to create and manage Active Directory user accounts.
+- I learned how to force users to change their password at their next logon.
+- I learned how IT administrators reset passwords while maintaining account security.
+- I learned the differences between disabling and deleting user accounts.
+- I learned how changes made in Active Directory immediately affect a user's ability to log into a domain-joined workstation.
 
 ## *Next Steps*
