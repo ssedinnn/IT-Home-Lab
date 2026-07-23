@@ -14,6 +14,13 @@ The following software was used:
 
 ## *Steps*
 
+### *Step 1 - Create a New User*
+
+
+
+In the Windows Server 2022 VM, I open **Active Directory Users and Computers** and navigate to the `lab.local` domain. I then open the **Users** folder, right-click it, and select **New > User**. From there, I fill out the user's information, including their name, user logon name, and password.
+
+
 ## *Challenges*
 
 ## *What I Learned*
