@@ -11,6 +11,14 @@ The following software was used:
 - Active Directory Domain Services (AD DS)
 
 ## *Skills Demonstrated*
+- Creating Active Directory user accounts
+- Testing domain user authentication
+- Configuring user account properties
+- Forcing password changes at next logon
+- Resetting Active Directory user passwords
+- Disabling Active Directory user accounts
+- Deleting Active Directory user accounts
+- Verifying user account changes from a domain-joined Windows 11 workstation
 
 ## *Steps*
 
