@@ -42,11 +42,11 @@ When creating a new user account or resetting a user's password, IT administrato
 
 ![Reset Password](img/Reset_Password.png)
 
-In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Properties**. I then open the **Account** tab, check **User must change password at next logon**, and click **Apply**.
+In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Reset Password**. I assign the user a temporary password and check the **User must change password at next logon** option before clicking **OK**.
 
-In the Windows 11 VM, I sign out of the current account and log back in using the temporary password. Windows requires the user to create a new password before continuing. I enter and confirm the new password, then complete the login process.
+In the Windows 11 VM, I sign out of the current account and log back in using the temporary password. Windows prompts me to create a new password before allowing me to sign in. After creating a new password, I successfully log in to the domain account.
 
-When creating a new user account or resetting a user's password, IT administrators often assign a temporary password and require the user to change it at the next logon. This helps ensure that only the account owner knows the permanent password, reducing the risk of unauthorized access to company resources and confidential information.
+Password resets are among the most common support requests handled by IT administrators. Administrators often assign a temporary password and require users to create a new one during their next login. This ensures that only the account owner knows the permanent password, reducing the risk of unauthorized access to company resources and confidential information.
 
 ## *Challenges*
 
