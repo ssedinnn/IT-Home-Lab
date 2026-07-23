@@ -60,6 +60,14 @@ In the Windows 11 VM, I sign out of the current account and attempt to log back 
 
 Organizations disable user accounts immediately when employees leave the company or when suspicious activity is detected. This prevents unauthorized access while preserving the user's account, permissions, and data for future administrative or auditing purposes.
 
+### *Step 6 - Deleting Account*
+
+In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Delete**. I then click **Yes** when prompted to confirm that I want to permanently delete the account.
+
+In the Windows 11 VM, I sign out of the current account and attempt to log back in using the deleted account. Windows displays the message shown in the second image, confirming that the account can no longer be authenticated because it no longer exists in Active Directory.
+
+Deleting a user account permanently removes it from Active Directory. Many organizations first disable accounts before permanently deleting them after a retention period. This helps prevent accidental data loss while allowing administrators time to recover the account if necessary.
+
 ## *Challenges*
 
 ## *What I Learned*
