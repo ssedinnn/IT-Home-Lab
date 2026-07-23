@@ -48,6 +48,8 @@ In the Windows 11 VM, I sign out of the current account and log back in using th
 
 Password resets are among the most common support requests handled by IT administrators. Administrators often assign a temporary password and require users to create a new one during their next login. This ensures that only the account owner knows the permanent password, reducing the risk of unauthorized access to company resources and confidential information.
 
+### *Step 5 - Disabling Account*
+
 ## *Challenges*
 
 ## *What I Learned*
