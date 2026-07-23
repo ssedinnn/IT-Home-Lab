@@ -20,6 +20,10 @@ The following software was used:
 
 In the Windows Server 2022 VM, I open **Active Directory Users and Computers** and navigate to the `lab.local` domain. I then open the **Users** folder, right-click it, and select **New > User**. From there, I fill out the user's information, including their name, user logon name, and password.
 
+### *Step 2 - Testing New User Login*
+
+In the Windows 11 VM, I select **Other user** and enter the user logon name and password created in the previous step. Successfully logging in confirms that the new domain user account is working correctly.
+
 
 ## *Challenges*
 
