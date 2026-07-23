@@ -62,6 +62,10 @@ Organizations disable user accounts immediately when employees leave the company
 
 ### *Step 6 - Deleting Account*
 
+![Account Deletion](img/Account_Deletion.png)
+
+![Account Deletion Message](img/Account_Deletion_Message.png)
+
 In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Delete**. I then click **Yes** when prompted to confirm that I want to permanently delete the account.
 
 In the Windows 11 VM, I sign out of the current account and attempt to log back in using the deleted account. Windows displays the message shown in the second image, confirming that the account can no longer be authenticated because it no longer exists in Active Directory.
