@@ -50,6 +50,12 @@ Password resets are among the most common support requests handled by IT adminis
 
 ### *Step 5 - Disabling Account*
 
+In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Disable Account**.
+
+In the Windows 11 VM, I sign out of the current account and attempt to log back in using the disabled account. Windows displays the message shown in the second image, confirming that the account has been disabled and can no longer be used to sign in.
+
+Organizations disable user accounts immediately when employees leave the company or when suspicious activity is detected. This prevents unauthorized access while preserving the user's account, permissions, and data for future administrative or auditing purposes.
+
 ## *Challenges*
 
 ## *What I Learned*
