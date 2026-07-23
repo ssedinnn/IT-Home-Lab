@@ -40,6 +40,8 @@ When creating a new user account or resetting a user's password, IT administrato
 
 ### *Step 4 - Resetting Password*
 
+![Reset Password](img/Reset_Password.png)
+
 In the Windows Server 2022 VM, I locate the user account created earlier in **Active Directory Users and Computers**, right-click it, and select **Properties**. I then open the **Account** tab, check **User must change password at next logon**, and click **Apply**.
 
 In the Windows 11 VM, I sign out of the current account and log back in using the temporary password. Windows requires the user to create a new password before continuing. I enter and confirm the new password, then complete the login process.
