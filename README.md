@@ -5,7 +5,7 @@ A collection of hands-on IT home lab projects documenting my journey learning en
 
 This repository showcases the IT projects I complete while building and expanding my home lab.
 
-As I learn technologies such as Windows Server, Active Directory, networking, and system administration, I document each project with step-by-step explanations, screenshots, and reflections on what I learned. I use a combination of tutorials, Microsoft documentation, and independent research to better understand enterprise IT concepts while improving my technical documentation skills.
+As I learn technologies such as Windows Server, Active Directory, networking, system administration, and Windows client management, I document each project with step-by-step explanations, screenshots, and reflections on what I learned. I use a combination of tutorials, Microsoft documentation, and independent research to better understand enterprise IT concepts while improving my technical documentation skills.
 
 Each lab is designed to reinforce my understanding of the technology while creating a portfolio that demonstrates my continued learning and hands-on experience.
 
@@ -25,6 +25,8 @@ Each lab is designed to reinforce my understanding of the technology while creat
 - Active Directory Domain Services (AD DS)
 - Virtual Machine Configuration (VirtualBox)
 - Domain Controller Deployment
+- Active Directory User Account Management
+- User Authentication & Password Management
 - Basic Server Configuration
 - Technical Documentation
 
@@ -35,6 +37,10 @@ Each lab is designed to reinforce my understanding of the technology while creat
 **Lab 02 – Domain Client Deployment**
 - Installed Guested Addition for virtual box, setup up Windows 11 VM, and joined Windows 11 VM to the Server 2022 VM through Active Directory.
 
+**Lab 03 – Active Directory User Account Management**
+- Created and managed Active Directory user accounts by creating users, testing domain logins, configuring account properties, forcing password changes, resetting passwords, disabling accounts, and deleting user accounts while verifying each change from a domain-joined Windows 11 workstation.
+
+  
 The purpose of this repository is to:
 - Gain hands-on experience with enterprise IT technologies.
 - Practice troubleshooting and system administration.
