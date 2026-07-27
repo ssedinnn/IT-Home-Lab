@@ -9,3 +9,13 @@ Learn how Organizational Units (OUs) and Group Policy Objects (GPOs) work togeth
 - Windows 11
 - Active Directory Domain Services
 - Group Policy Management Console (GPMC)
+
+## *Skills Demonstrated*
+
+## *Steps*
+
+## *Challenges*
+
+## *What I Learned*
+
+## *Next Steps*
