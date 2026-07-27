@@ -14,6 +14,10 @@ Learn how Organizational Units (OUs) and Group Policy Objects (GPOs) work togeth
 
 ## *Steps*
 
+### *Step 1 - Create an Organizational Unit (OU)*
+
+![Creating OU](img/OU_Creation.png)
+
 ## *Challenges*
 
 ## *What I Learned*
