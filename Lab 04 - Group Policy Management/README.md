@@ -24,6 +24,8 @@ Organizational Units (OUs) are containers used to organize users, computers, and
 
 ### *Step 2 - Move the User into the OU*
 
+![Move User to OU](img/Move_User_To_OU.png)
+
 I move the test user created in the previous lab into the new Organizational Unit. 
 
 Because Group Policies are linked to OUs, placing the user inside this OU allows any policies applied to it to automatically affect that user.
