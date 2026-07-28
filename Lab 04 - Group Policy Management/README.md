@@ -32,6 +32,8 @@ Because Group Policies are linked to OUs, placing the user inside this OU allows
 
 ### *Step 3 - Create a Group Policy Object*
 
+![Created GPO](img/GPO_Creation.png)
+
 In the Windows Server 2022 VM, I open **Group Policy Management** from the Start menu. I then expand the `lab.local` domain until I locate the **Accounting** Organizational Unit (OU) created earlier. I right-click the OU and select **Create a GPO in this domain, and Link it here...**. I then give the Group Policy Object (GPO) a descriptive name. For this lab, I name it **Lab 04 User Policies**.
 
 Group Policy Objects (GPOs) are collections of Windows settings that administrators use to centrally manage users and computers in an Active Directory domain. By linking a GPO to an Organizational Unit, the configured settings are automatically applied to the users or computers within that OU. This allows organizations to efficiently enforce security settings, standardize system configurations, and simplify administration across multiple devices.
