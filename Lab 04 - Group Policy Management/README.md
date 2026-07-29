@@ -56,6 +56,12 @@ Organizations commonly use desktop wallpaper policies to maintain company brandi
 
 ### *Step 5 - Disable Control Panel*
 
+![Control Panel before GPO Change](img/Control_Panel_Before.png)
+
+![Control Panel GPO](img/Control_Panel_GPO.png)
+
+![Control Panel after GPO Change](img/Control_Panel_After.png)
+
 In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Prohibit access to Control Panel and PC settings**. I enable the policy and run `gpupdate /force` to update Group Policy. I then restart the Windows 11 VM and sign back into the domain account to ensure the updated policy is applied.
 
 After signing back in, attempting to open the Control Panel displays a message indicating that the operation has been restricted by the system administrator, confirming that the policy has been successfully applied.
