@@ -54,6 +54,14 @@ Storing the wallpaper image in the domain's **SYSVOL** share provides a centrali
 
 Organizations commonly use desktop wallpaper policies to maintain company branding, display important information, or provide a standardized desktop experience across managed devices.
 
+### *Step 5 - Disable Control Panel*
+
+In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Prohibit access to Control Panel and PC settings**. I enable the policy and run `gpupdate /force` to update Group Policy. I then restart the Windows 11 VM and sign back into the domain account to ensure the updated policy is applied.
+
+After signing back in, attempting to open the Control Panel displays a message indicating that the operation has been restricted by the system administrator, confirming that the policy has been successfully applied.
+
+Organizations commonly restrict access to the Control Panel to prevent users from modifying important system settings, installing unauthorized software, or making configuration changes that could affect security or require IT support.
+
 ## *Challenges*
 - While configuring the desktop wallpaper policy, I initially selected the **Force a specific default lock screen and logon image** policy instead of the **Desktop Wallpaper** policy. After reviewing the available Group Policy settings, I realized the lock screen policy only controls the Windows lock screen and sign-in image, while the **Desktop Wallpaper** policy is responsible for configuring the user's desktop background.
 - After correcting the policy, I stored the wallpaper image in the domain's **SYSVOL** share and referenced it using a UNC path so it could be accessed by domain users. Although I initially ran `gpupdate /force` and signed back into the Windows 11 VM, the wallpaper did not immediately appear. After restarting the virtual machine and logging back into the domain account, the wallpaper applied successfully.
