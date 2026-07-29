@@ -38,7 +38,7 @@ In the Windows Server 2022 VM, I open **Group Policy Management** from the Start
 
 Group Policy Objects (GPOs) are collections of Windows settings that administrators use to centrally manage users and computers in an Active Directory domain. By linking a GPO to an Organizational Unit, the configured settings are automatically applied to the users or computers within that OU. This allows organizations to efficiently enforce security settings, standardize system configurations, and simplify administration across multiple devices.
 
-Step 4 – Configure Desktop Wallpaper
+### *Step 4 – Configure Desktop Wallpaper*
 
 ![Wallpaper before GPO Change](img/Wallpaper_Before.png)
 
