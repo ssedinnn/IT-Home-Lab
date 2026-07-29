@@ -40,6 +40,12 @@ Group Policy Objects (GPOs) are collections of Windows settings that administrat
 
 Step 4 – Configure Desktop Wallpaper
 
+![Wallpaper before GPO Change](img/Wallpaper_Before.png)
+
+![Wallpaper GPO](img/Wallpaper_GPO.png)
+
+![Wallpaper after GPO Change](img/Wallpaper_After.png)
+
 In the Windows Server 2022 VM, I configure the **Desktop Wallpaper** policy and specify a wallpaper image stored in the domain's **SYSVOL** share using a UNC path. After saving the policy, I run `gpupdate /force` to refresh Group Policy. 
 
 I then restart the Windows 11 VM and sign back into the domain account to ensure the updated policy is applied. Once the system finishes processing the policy, the desktop wallpaper is successfully displayed.
