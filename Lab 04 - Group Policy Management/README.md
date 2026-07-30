@@ -68,7 +68,7 @@ After signing back in, attempting to open the Control Panel displays a message i
 
 Organizations commonly restrict access to the Control Panel to prevent users from modifying important system settings, installing unauthorized software, or making configuration changes that could affect security or require IT support.
 
-### Step 6 - Disable Command Prompt
+### *Step 6 - Disable Command Prompt*
 
 ![Command Prompt Before](img/Command_Prompt_Before.png)
 
@@ -81,6 +81,14 @@ In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy 
 After signing back in, attempting to open **Command Prompt (cmd.exe)** displays a message indicating that the command prompt has been disabled by the system administrator before closing. This confirms that the policy has been successfully applied.
 
 Organizations commonly restrict access to Command Prompt to prevent users from executing unauthorized commands, running scripts, or modifying system settings that could compromise security or disrupt normal business operations. Disabling command script processing also helps prevent unauthorized batch files from being used to automate administrative or potentially harmful actions.
+
+### *Step 7 - Configure a Login Banner*
+
+In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options**. I configure both **Interactive logon: Message title for users attempting to log on** and **Interactive logon: Message text for users attempting to log on** with a custom security notice.
+
+Since the login banner is a **Computer Configuration** policy, I move the Windows 11 computer account **DESKTOP-01** into the **Accounting** Organizational Unit so the computer can receive the Group Policy Object. I then run `gpupdate /force`, restart the Windows 11 VM, and verify that the custom login banner is displayed before the user can sign in.
+
+Organizations commonly use login banners to notify users that computer systems are intended for authorized use only and that activity may be monitored or recorded. These notices help communicate security policies and may support legal and regulatory compliance requirements.
 
 ## *Challenges*
 - While configuring the desktop wallpaper policy, I initially selected the **Force a specific default lock screen and logon image** policy instead of the **Desktop Wallpaper** policy. After reviewing the available Group Policy settings, I realized the lock screen policy only controls the Windows lock screen and sign-in image, while the **Desktop Wallpaper** policy is responsible for configuring the user's desktop background.
