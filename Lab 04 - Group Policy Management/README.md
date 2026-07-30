@@ -70,6 +70,12 @@ Organizations commonly restrict access to the Control Panel to prevent users fro
 
 ### Step 6 - Disable Command Prompt
 
+![Command Prompt Before](img/Command_Prompt_Before.png)
+
+![Command Prompt Policy](img/Command_Prompt_Policy.png)
+
+![Command Prompt Before](img/Command_Prompt_After.png)
+
 In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **User Configuration > Policies > Administrative Templates > System > Prevent access to the command prompt**. I enable the policy and set **Disable the command prompt script processing also?** to **Yes** to prevent users from accessing Command Prompt and executing batch scripts. I then run `gpupdate /force` to update Group Policy before restarting the Windows 11 VM and signing back into the domain account.
 
 After signing back in, attempting to open **Command Prompt (cmd.exe)** displays a message indicating that the command prompt has been disabled by the system administrator before closing. This confirms that the policy has been successfully applied.
