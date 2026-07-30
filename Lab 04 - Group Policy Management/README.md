@@ -68,6 +68,14 @@ After signing back in, attempting to open the Control Panel displays a message i
 
 Organizations commonly restrict access to the Control Panel to prevent users from modifying important system settings, installing unauthorized software, or making configuration changes that could affect security or require IT support.
 
+### Step 6 - Disable Command Prompt
+
+In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **User Configuration > Policies > Administrative Templates > System > Prevent access to the command prompt**. I enable the policy and set **Disable the command prompt script processing also?** to **Yes** to prevent users from accessing Command Prompt and executing batch scripts. I then run `gpupdate /force` to update Group Policy before restarting the Windows 11 VM and signing back into the domain account.
+
+After signing back in, attempting to open **Command Prompt (cmd.exe)** displays a message indicating that the command prompt has been disabled by the system administrator before closing. This confirms that the policy has been successfully applied.
+
+Organizations commonly restrict access to Command Prompt to prevent users from executing unauthorized commands, running scripts, or modifying system settings that could compromise security or disrupt normal business operations. Disabling command script processing also helps prevent unauthorized batch files from being used to automate administrative or potentially harmful actions.
+
 ## *Challenges*
 - While configuring the desktop wallpaper policy, I initially selected the **Force a specific default lock screen and logon image** policy instead of the **Desktop Wallpaper** policy. After reviewing the available Group Policy settings, I realized the lock screen policy only controls the Windows lock screen and sign-in image, while the **Desktop Wallpaper** policy is responsible for configuring the user's desktop background.
 - After correcting the policy, I stored the wallpaper image in the domain's **SYSVOL** share and referenced it using a UNC path so it could be accessed by domain users. Although I initially ran `gpupdate /force` and signed back into the Windows 11 VM, the wallpaper did not immediately appear. After restarting the virtual machine and logging back into the domain account, the wallpaper applied successfully.
