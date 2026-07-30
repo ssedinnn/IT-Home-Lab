@@ -91,3 +91,4 @@ This lab built on the environment configured in previous labs, so I did not enco
 - I learned how changes made in Active Directory immediately affect a user's ability to log into a domain-joined workstation.
 
 ## *Next Steps*
+In the next lab, I will build upon the Active Directory environment by learning how to centrally manage users through **Group Policy**. This will include creating Organizational Units (OUs), linking Group Policy Objects (GPOs), and configuring policies to standardize user settings, enforce security restrictions, and simplify administration across domain-joined computers.
