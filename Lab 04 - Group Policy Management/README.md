@@ -84,6 +84,14 @@ Organizations commonly restrict access to Command Prompt to prevent users from e
 
 ### *Step 7 - Configure a Login Banner*
 
+![Before Logon Banner](img/Before_Logon_Banner.png)
+
+![Logon Title Policy](img/Logon_Title_Policy.png)
+
+![Logon Text Policy](img/Logon_Text_Policy.png)
+
+![After Logon Banner](img/After_Logon_Banner.png)
+
 In the Windows Server 2022 VM, I edit the **Lab 04 User Policies** Group Policy Object and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options**. I configure both **Interactive logon: Message title for users attempting to log on** and **Interactive logon: Message text for users attempting to log on** with a custom security notice.
 
 Since the login banner is a **Computer Configuration** policy, I move the Windows 11 computer account **DESKTOP-01** into the **Accounting** Organizational Unit so the computer can receive the Group Policy Object. I then run `gpupdate /force`, restart the Windows 11 VM, and verify that the custom login banner is displayed before the user can sign in.
