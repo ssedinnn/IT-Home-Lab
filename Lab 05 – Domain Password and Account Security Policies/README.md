@@ -1,2 +1,2 @@
-# *Lab 04 - Group Policy Management*
+# *Lab 05 - Domain Password and Account Security Policies*
 
