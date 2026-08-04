@@ -22,6 +22,14 @@ In the Windows Server 2022 VM, I open **Group Policy Management**, expand the `l
 
 Unlike the Group Policy Object created in the previous lab, password and account lockout policies are configured through the **Default Domain Policy** because they apply to every user account in the Active Directory domain. Configuring these settings at the domain level ensures that all domain users follow the same security requirements.
 
+### *Step 2 – Configure Screen Saver Lock*
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Personalization**. I enable **Enable screen saver**, **Password protect the screen saver**, and **Screen saver timeout**, configuring the timeout to **2 minutes**. I then run `gpupdate /force` to update Group Policy before restarting the Windows 11 VM.
+
+After signing back into the domain account and remaining idle for two minutes, the Windows 11 VM automatically locks and requires the user's password to regain access, confirming that the policy has been successfully applied.
+
+Organizations commonly configure automatic workstation locking to protect sensitive information when employees leave their computers unattended. Requiring users to authenticate after a period of inactivity helps reduce the risk of unauthorized access while still allowing employees to securely resume their work. For demonstration purposes, I configured the timeout to **2 minutes** so the policy could be tested quickly within the lab.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
