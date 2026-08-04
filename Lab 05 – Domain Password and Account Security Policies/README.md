@@ -24,9 +24,9 @@ Unlike the Group Policy Object created in the previous lab, password and account
 
 ### *Step 2 – Configure Screen Saver Lock*
 
-In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Personalization**. I enable Enable screen saver, Force specific screen saver, Password protect the screen saver, and Screen saver timeout, configuring the timeout to 2 minutes. I specify `scrnsave.scr` as the screen saver and then run gpupdate /force before restarting the Windows 11 VM.
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Personalization**. I enable **Enable screen saver**, **Force specific screen saver**, **Password protect the screen saver**, and **Screen saver timeout**, configuring the timeout to **2 minutes**. I specify **scrnsave.scr** as the screen saver, then run `gpupdate /force` before restarting the Windows 11 VM.
 
-After signing back into the domain account and remaining idle for two minutes, the Windows 11 VM automatically locks and requires the user's password to regain access, confirming that the policy has been successfully applied.
+After signing back into the domain account and remaining idle for two minutes, the screen saver activates and the workstation locks. When I move the mouse or press a key, Windows returns to the sign-in screen and requires the user's password before access is restored, confirming that the policy has been successfully applied.
 
 Organizations commonly configure automatic workstation locking to protect sensitive information when employees leave their computers unattended. Requiring users to authenticate after a period of inactivity helps reduce the risk of unauthorized access while still allowing employees to securely resume their work. For demonstration purposes, I configured the timeout to **2 minutes** so the policy could be tested quickly within the lab.
 
