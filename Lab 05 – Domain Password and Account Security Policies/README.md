@@ -48,10 +48,17 @@ Organizations commonly configure automatic workstation locking to protect sensit
 
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I enable **Password must meet complexity requirements**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
-To verify the policy, I attempt to change the user's password from the Windows 11 VM using a password that does not meet the configured complexity requirements. Windows rejects the password and displays a message indicating that it does not satisfy the domain's password policy. I then create a password that meets the configured requirements, which is successfully accepted.
+To verify the policy, I attempt to change the user's password from the Windows 11 VM using **password123**, which contains only lowercase letters and numbers. Windows rejects the password and displays a message indicating that it does not satisfy the domain's password policy. I then create a password containing uppercase letters, lowercase letters, and numbers, such as **Password123**, which Windows accepts because it satisfies the configured complexity requirements.
 
 Organizations enforce password complexity requirements to reduce the likelihood of weak or easily guessed passwords. Requiring users to create more complex passwords helps protect accounts against brute-force attacks, dictionary attacks, and other common password-related threats.
 
+### *Step 4 - Configure Minimum Password Length*
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I configure **Minimum password length** to require passwords to be at least **12 characters** long. I then run `gpupdate /force` before restarting the Windows 11 VM.
+
+To verify the policy, I attempt to change the user's password from the Windows 11 VM using **Password1**, which satisfies the password complexity requirements but is only **9 characters** long. Windows rejects the password and displays a message indicating that it does not satisfy the domain's password policy, confirming that the minimum password length requirement has been successfully applied.
+
+Organizations commonly require longer passwords because they are more resistant to brute-force attacks and generally provide stronger protection for user accounts and sensitive organizational data.
 
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
