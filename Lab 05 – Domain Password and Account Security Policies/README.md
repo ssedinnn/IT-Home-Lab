@@ -42,6 +42,10 @@ Organizations commonly configure automatic workstation locking to protect sensit
 
 ### *Step 3 – Password Complexity*
 
+![Password Complexity Policy](img/Password_Complexity_Policy.png)
+
+![Password Complexity Confirmed](img/Password_Complexity_Confirmed.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I enable **Password must meet complexity requirements**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
 To verify the policy, I attempt to change the user's password from the Windows 11 VM using a password that does not meet the configured complexity requirements. Windows rejects the password and displays a message indicating that it does not satisfy the domain's password policy. I then create a password that meets the configured requirements, which is successfully accepted.
