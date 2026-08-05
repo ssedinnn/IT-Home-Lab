@@ -30,6 +30,10 @@ Unlike the Group Policy Object created in the previous lab, password and account
 
 ![Password Protect the Screen Saver](img/Password_Protect_Screen_Saver.png)
 
+![Screen Saver Timeout](img/Screen_Saver_Timeout.png)
+
+![Screen Saver Working](img/Screen_Saver_Working.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **User Configuration > Policies > Administrative Templates > Control Panel > Personalization**. I enable **Enable screen saver**, **Force specific screen saver**, **Password protect the screen saver**, and **Screen saver timeout**, configuring the timeout to **2 minutes**. I specify **scrnsave.scr** as the screen saver, then run `gpupdate /force` before restarting the Windows 11 VM.
 
 After signing back into the domain account and remaining idle for two minutes, the screen saver activates and the workstation locks. When I move the mouse or press a key, Windows returns to the sign-in screen and requires the user's password before access is restored, confirming that the policy has been successfully applied.
