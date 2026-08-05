@@ -54,6 +54,10 @@ Organizations enforce password complexity requirements to reduce the likelihood 
 
 ### *Step 4 - Configure Minimum Password Length*
 
+![Minimum Password Policy](img/Minimum_Password_Policy.png)
+
+![Minimum Password Applied](img/Minimum_Password_Applied.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I configure **Minimum password length** to require passwords to be at least **12 characters** long. I then run `gpupdate /force` before restarting the Windows 11 VM.
 
 To verify the policy, I attempt to change the user's password from the Windows 11 VM using **Password1**, which satisfies the password complexity requirements but is only **9 characters** long. Windows rejects the password and displays a message indicating that it does not satisfy the domain's password policy, confirming that the minimum password length requirement has been successfully applied.
