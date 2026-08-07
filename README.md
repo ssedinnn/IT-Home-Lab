@@ -54,7 +54,7 @@ Each lab is designed to reinforce my understanding of the technology while creat
 
 - Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Configured desktop wallpaper deployment, restricted Control Panel and Command Prompt access, implemented an interactive logon banner, and verified policy application while troubleshooting Group Policy deployment using `gpupdate` and `gpresult`.
 
-The purpose of this repository is to:
+## The purpose of this repository is to:
 
 - Gain hands-on experience with enterprise IT technologies.
 - Practice troubleshooting and system administration.
