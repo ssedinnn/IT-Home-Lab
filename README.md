@@ -1,4 +1,5 @@
 # IT-Home-Lab
+
 A collection of hands-on IT home lab projects documenting my journey learning enterprise technologies through practical experience. This repository serves as both a technical portfolio and a place to practice documenting real-world IT tasks.
 
 ## About
@@ -10,6 +11,7 @@ As I learn technologies such as Windows Server, Active Directory, networking, sy
 Each lab is designed to reinforce my understanding of the technology while creating a portfolio that demonstrates my continued learning and hands-on experience.
 
 ## Technologies
+
 - Windows Server 2022
 - Active Directory Domain Services (AD DS)
 - Windows 11
@@ -21,27 +23,39 @@ Each lab is designed to reinforce my understanding of the technology while creat
 - Git & GitHub
 
 ## Skills Demonstrated
+
 - Windows Server 2022 Administration
 - Active Directory Domain Services (AD DS)
 - Virtual Machine Configuration (VirtualBox)
 - Domain Controller Deployment
 - Active Directory User Account Management
+- Organizational Unit (OU) Management
+- Group Policy Management
 - User Authentication & Password Management
 - Basic Server Configuration
 - Technical Documentation
+- Group Policy Troubleshooting
 
 ## Lab Projects
-**Lab 01 – Building an Active Directory Environment** 
-- Installed Windows Server 2022, configured Active Directory Domain Services, and promoted the server to a domain controller
+
+**Lab 01 – Building an Active Directory Environment**
+
+- Installed Windows Server 2022, configured Active Directory Domain Services, and promoted the server to a domain controller.
 
 **Lab 02 – Domain Client Deployment**
-- Installed Guested Addition for virtual box, setup up Windows 11 VM, and joined Windows 11 VM to the Server 2022 VM through Active Directory.
+
+- Installed VirtualBox Guest Additions, configured a Windows 11 virtual machine, and joined the Windows 11 client to the Windows Server 2022 Active Directory domain.
 
 **Lab 03 – Active Directory User Account Management**
+
 - Created and managed Active Directory user accounts by creating users, testing domain logins, configuring account properties, forcing password changes, resetting passwords, disabling accounts, and deleting user accounts while verifying each change from a domain-joined Windows 11 workstation.
 
-  
+**Lab 04 – Group Policy Management**
+
+- Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Configured desktop wallpaper deployment, restricted Control Panel and Command Prompt access, implemented an interactive logon banner, and verified policy application while troubleshooting Group Policy deployment using `gpupdate` and `gpresult`.
+
 The purpose of this repository is to:
+
 - Gain hands-on experience with enterprise IT technologies.
 - Practice troubleshooting and system administration.
 - Improve technical documentation skills.
@@ -51,7 +65,8 @@ The purpose of this repository is to:
 ## Future Labs
 
 This repository will continue to grow as I build new projects and learn additional technologies. Future labs may include topics such as:
-- Group Policy
+
+- Domain Password & Account Lockout Policies
 - DNS
 - DHCP
 - Windows Client Management
@@ -64,4 +79,5 @@ This repository will continue to grow as I build new projects and learn addition
 - Microsoft 365 Administration
 
 ## Feedback
+
 I'm continuously learning and improving my skills. If you have suggestions for improving my documentation or recommendations for future lab projects, feel free to open an issue or reach out.
