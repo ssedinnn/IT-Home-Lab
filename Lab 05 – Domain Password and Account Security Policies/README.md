@@ -1,4 +1,4 @@
-# Lab 05 - Domain Password and Account Security Policies*
+# *Lab 05 - Domain Password and Account Security Policies*
 
 ## *Objective*
 Learn how to configure domain-wide security policies that protect user accounts and workstations by enforcing password requirements, account lockout settings, and automatic workstation locking.
