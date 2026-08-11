@@ -1,16 +1,16 @@
 # **Lab 05 - Domain Password and Account Security Policies**
 
-## *Objective*
+## **Objective**
 Learn how to configure domain-wide security policies that protect user accounts and workstations by enforcing password requirements, account lockout settings, and automatic workstation locking.
 
-## *Environment*
+## **Environment**
 - Oracle VirtualBox
 - Windows Server 2022
 - Windows 11
 - Active Directory Domain Services (AD DS)
 - Group Policy Management
 
-## *Skills Demonstrated*
+## **Skills Demonstrated**
 - Configuring domain-wide Group Policy settings
 - Managing the Default Domain Policy
 - Configuring password complexity requirements
@@ -24,7 +24,7 @@ Learn how to configure domain-wide security policies that protect user accounts 
 - Using `gpupdate` to apply Group Policy changes
 - Active Directory security administration
 
-## *Steps*
+## **Steps**
 
 ### *Step 1 - Open the Default Domain Policy*
 
@@ -134,12 +134,12 @@ The **Reset account lockout counter** determines how long Windows waits before c
 
 Organizations commonly configure this policy alongside the account lockout threshold and lockout duration to balance account security with usability by preventing occasional login mistakes from permanently counting toward an account lockout.
 
-## *Challenges*
+## **Challenges**
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 - While testing the password policies, I learned that Windows displays a similar password policy error message when a password fails due to complexity, minimum length, or password history requirements. To verify each policy individually, I tested passwords that satisfied the other requirements while intentionally failing the specific requirement being tested.
 - While testing the account lockout threshold, repeated incorrect password attempts initially caused Windows to delay additional login attempts. After reaching the configured threshold of five failed attempts, Windows displayed a message confirming that the account was locked. I then verified the lockout in **Active Directory Users and Computers**, manually unlocked the account, and successfully restored access.
 
-## *What I Learned*
+## **What I Learned**
 - I learned the difference between policies applied to specific Organizational Units and security policies that apply across an entire Active Directory domain.
 - I learned how to configure and enforce domain password requirements including complexity, minimum length, password history, and maximum password age.
 - I learned how password requirements work together to determine whether a user's new password is accepted.
@@ -149,5 +149,5 @@ Organizations commonly configure this policy alongside the account lockout thres
 - I learned how to test domain policies from a Windows 11 client to verify that configurations made on the server are actually affecting domain users.
 - I learned how automatic workstation locking can help protect unattended computers from unauthorized access.
 
-## *Next Steps*
+## **Next Steps**
 In future labs, I plan to continue expanding the Active Directory environment by focusing on additional services and administrative tasks commonly used in business networks. Potential next steps include configuring shared folders and NTFS permissions, deploying and managing DHCP, exploring DNS administration and troubleshooting, using PowerShell to automate Active Directory tasks, and practicing remote administration of Windows clients.
