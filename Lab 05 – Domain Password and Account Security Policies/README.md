@@ -76,6 +76,16 @@ To verify the policy, I change the user's password and then attempt to reuse one
 
 Organizations commonly enforce password history policies to prevent users from repeatedly cycling between the same passwords. This encourages users to create new passwords rather than continually reusing previous credentials.
 
+### *Step 6 - Configure Maximum Password Age*
+
+![Maximum Password Age](img/Maximum_Password_Age.png)
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I configure the **Maximum password age** policy to **60 days**, then run `gpupdate /force` before restarting the Windows 11 VM.
+
+The maximum password age determines how long a password may be used before Windows requires the user to create a new one.
+
+Organizations commonly configure password expiration policies to reduce the amount of time a compromised password can remain valid. Requiring periodic password changes helps improve overall account security while encouraging users to regularly update their credentials.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
