@@ -34,6 +34,8 @@ I use a **Global Security** group because the group is being used to organize us
 
 ### *Step 2 - Create the Accounting Shared Folder*
 
+![Accounting Shared Folder Creation](img/Accounting_Shared_Folder_Creation.png)
+
 In the Windows Server 2022 VM, I open **File Explorer** and navigate to the `C:` drive. I create a new folder named **Shares**, and inside it I create another folder named **Accounting**. This creates the folder path `C:\Shares\Accounting`.
 
 Inside the Accounting folder, I create a text document named **Accounting Test** that will be used later to verify that users can access and modify files through the network share.
