@@ -1,16 +1,16 @@
-# *Lab 03 - Active Directory User Account Management*
+# **Lab 03 - Active Directory User Account Management**
 
-## *Objective*
+## **Objective**
 Learning how to manage user accounts in Active Directory by creating, modifying, securing, and removing users.
 
-## *Environment*
+## **Environment**
 The following software was used:
 - Oracle VirtualBox
 - Windows Server 2022
 - Windows 11
 - Active Directory Domain Services (AD DS)
 
-## *Skills Demonstrated*
+## **Skills Demonstrated**
 - Creating Active Directory user accounts
 - Testing domain user authentication
 - Configuring user account properties
@@ -20,7 +20,7 @@ The following software was used:
 - Deleting Active Directory user accounts
 - Verifying user account changes from a domain-joined Windows 11 workstation
 
-## *Steps*
+## **Steps**
 
 ### *Step 1 - Create a New User*
 
@@ -80,15 +80,15 @@ In the Windows 11 VM, I sign out of the current account and attempt to log back 
 
 Deleting a user account permanently removes it from Active Directory. Many organizations first disable accounts before permanently deleting them after a retention period. This helps prevent accidental data loss while allowing administrators time to recover the account if necessary.
 
-## *Challenges*
+## **Challenges**
 This lab built on the environment configured in previous labs, so I did not encounter any major issues. Instead, I focused on understanding how each account management task changed the user's ability to authenticate and access the domain.
 
-## *What I Learned*
+## **What I Learned**
 - I learned how to create and manage Active Directory user accounts.
 - I learned how to force users to change their password at their next logon.
 - I learned how IT administrators reset passwords while maintaining account security.
 - I learned the differences between disabling and deleting user accounts.
 - I learned how changes made in Active Directory immediately affect a user's ability to log into a domain-joined workstation.
 
-## *Next Steps*
+## **Next Steps**
 In the next lab, I will build upon the Active Directory environment by learning how to centrally manage users through **Group Policy**. This will include creating Organizational Units (OUs), linking Group Policy Objects (GPOs), and configuring policies to standardize user settings, enforce security restrictions, and simplify administration across domain-joined computers.
