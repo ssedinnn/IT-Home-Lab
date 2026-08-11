@@ -88,6 +88,12 @@ Organizations commonly configure password expiration policies to reduce the amou
 
 ### *Step 7 - Configure Account Lockout Threshold*
 
+![Configure_Account_Threshold](img/Configure_Account_Threshold.png)
+
+![Account_Locked_Out_Threshold](img/Account_Locked_Out_Threshold.png)
+
+![Unlocking Account](img/Unlocking_Account.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure the **Account lockout threshold** to **5 invalid logon attempts**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
 To verify the policy, I intentionally enter the wrong password five consecutive times while attempting to sign in to the Windows 11 VM. After the fifth failed attempt, Windows locks the account and prevents additional login attempts, even if the correct password is entered.
