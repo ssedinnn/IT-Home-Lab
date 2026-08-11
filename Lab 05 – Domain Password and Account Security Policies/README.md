@@ -11,6 +11,18 @@ Learn how to configure domain-wide security policies that protect user accounts 
 - Group Policy Management
 
 ## *Skills Demonstrated*
+- Configuring domain-wide Group Policy settings
+- Managing the Default Domain Policy
+- Configuring password complexity requirements
+- Configuring minimum password length and password history
+- Configuring password expiration policies
+- Configuring account lockout policies
+- Testing Group Policy changes from a domain-joined Windows 11 workstation
+- Troubleshooting user account lockouts
+- Unlocking Active Directory user accounts
+- Configuring automatic workstation locking
+- Using `gpupdate` to apply Group Policy changes
+- Active Directory security administration
 
 ## *Steps*
 
@@ -124,6 +136,18 @@ Organizations commonly configure this policy alongside the account lockout thres
 
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
+- While testing the password policies, I learned that Windows displays a similar password policy error message when a password fails due to complexity, minimum length, or password history requirements. To verify each policy individually, I tested passwords that satisfied the other requirements while intentionally failing the specific requirement being tested.
+- While testing the account lockout threshold, repeated incorrect password attempts initially caused Windows to delay additional login attempts. After reaching the configured threshold of five failed attempts, Windows displayed a message confirming that the account was locked. I then verified the lockout in **Active Directory Users and Computers**, manually unlocked the account, and successfully restored access.
 
 ## *What I Learned*
+- I learned the difference between policies applied to specific Organizational Units and security policies that apply across an entire Active Directory domain.
+- I learned how to configure and enforce domain password requirements including complexity, minimum length, password history, and maximum password age.
+- I learned how password requirements work together to determine whether a user's new password is accepted.
+- I learned how account lockout thresholds can help protect user accounts against repeated password-guessing attempts.
+- I learned the difference between the **account lockout duration** and the **reset account lockout counter**.
+- I learned how to identify and manually unlock a locked Active Directory user account.
+- I learned how to test domain policies from a Windows 11 client to verify that configurations made on the server are actually affecting domain users.
+- I learned how automatic workstation locking can help protect unattended computers from unauthorized access.
 
+## *Next Steps*
+In future labs, I plan to continue expanding the Active Directory environment by focusing on additional services and administrative tasks commonly used in business networks. Potential next steps include configuring shared folders and NTFS permissions, deploying and managing DHCP, exploring DNS administration and troubleshooting, using PowerShell to automate Active Directory tasks, and practicing remote administration of Windows clients.
