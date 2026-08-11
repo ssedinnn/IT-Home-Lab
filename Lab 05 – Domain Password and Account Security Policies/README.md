@@ -86,6 +86,16 @@ The maximum password age determines how long a password may be used before Windo
 
 Organizations commonly configure password expiration policies to reduce the amount of time a compromised password can remain valid. Requiring periodic password changes helps improve overall account security while encouraging users to regularly update their credentials.
 
+### *Step 7 - Configure Account Lockout Threshold*
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure the **Account lockout threshold** to **5 invalid logon attempts**, then run `gpupdate /force` before restarting the Windows 11 VM.
+
+To verify the policy, I intentionally enter the wrong password five consecutive times while attempting to sign in to the Windows 11 VM. After the fifth failed attempt, Windows locks the account and prevents additional login attempts, even if the correct password is entered.
+
+To restore access, I return to the Windows Server 2022 VM and open **Active Directory Users and Computers**. I locate the locked user account, open **Properties > Account**, select **Unlock account**, and apply the change. I then return to the Windows 11 VM and successfully sign in using the correct password, confirming that the account has been unlocked.
+
+Organizations commonly configure account lockout thresholds to help defend against repeated password-guessing attacks by limiting the number of consecutive failed login attempts. IT administrators may also need to unlock accounts when legitimate users accidentally trigger the lockout policy, making account lockout troubleshooting and recovery a common user support task.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
