@@ -114,7 +114,7 @@ Organizations commonly configure a lockout duration to temporarily block unautho
 
 ### *Step 9 - Configure Reset Account Lockout Counter*
 
-![Configure Account Lockout Duration](img/Configure_Account_Lockout_Duration.png)
+![Configure Reset Account Lockout Counter](img/Configure_Reset_Account_Lockout_Counter.png)
 
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure **Reset account lockout counter after** to **15 minutes**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
