@@ -104,6 +104,8 @@ Organizations commonly configure account lockout thresholds to help defend again
 
 ### *Step 8 - Configure Account Lockout Duration*
 
+![Configure Account Lockout Duration](img/Configure_Account_Lockout_Duration.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure the **Account lockout duration** to **15 minutes**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
 The account lockout duration determines how long a locked account remains inaccessible before Windows automatically unlocks it.
