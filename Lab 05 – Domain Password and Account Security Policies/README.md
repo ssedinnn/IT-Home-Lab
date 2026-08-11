@@ -112,6 +112,16 @@ The account lockout duration determines how long a locked account remains inacce
 
 Organizations commonly configure a lockout duration to temporarily block unauthorized login attempts while reducing the need for administrators to manually unlock user accounts after accidental lockouts.
 
+### *Step 9 - Configure Reset Account Lockout Counter*
+
+![Configure Account Lockout Duration](img/Configure_Account_Lockout_Duration.png)
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure **Reset account lockout counter after** to **15 minutes**, then run `gpupdate /force` before restarting the Windows 11 VM.
+
+The **Reset account lockout counter** determines how long Windows waits before clearing the count of failed logon attempts. Unlike the **Account lockout duration**, which controls how long an account remains locked, this policy resets the failed login counter if no additional unsuccessful logon attempts occur during the specified time period.
+
+Organizations commonly configure this policy alongside the account lockout threshold and lockout duration to balance account security with usability by preventing occasional login mistakes from permanently counting toward an account lockout.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
