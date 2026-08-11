@@ -64,6 +64,14 @@ To verify the policy, I attempt to change the user's password from the Windows 1
 
 Organizations commonly require longer passwords because they are more resistant to brute-force attacks and generally provide stronger protection for user accounts and sensitive organizational data.
 
+### *Step 5 - Configure Password History*
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I configure **Enforce password history** to remember the previous **5 passwords**, then run `gpupdate /force` before restarting the Windows 11 VM.
+
+To verify the policy, I change the user's password and then attempt to reuse one of the recently used passwords. Windows prevents the password from being reused, confirming that the policy has been successfully applied.
+
+Organizations commonly enforce password history policies to prevent users from repeatedly cycling between the same passwords. This encourages users to create new passwords rather than continually reusing previous credentials.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
