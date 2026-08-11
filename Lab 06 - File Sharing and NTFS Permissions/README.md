@@ -32,6 +32,14 @@ Creating a security group allows administrators to manage access to resources ba
 
 I use a **Global Security** group because the group is being used to organize users from the same domain and assign them permissions to a network resource.
 
+### *Step 2 - Create the Accounting Shared Folder*
+
+In the Windows Server 2022 VM, I open **File Explorer** and navigate to the `C:` drive. I create a new folder named **Shares**, and inside it I create another folder named **Accounting**. This creates the folder path `C:\Shares\Accounting`.
+
+Inside the Accounting folder, I create a text document named **Accounting Test** that will be used later to verify that users can access and modify files through the network share.
+
+Creating a dedicated `C:\Shares` directory provides an organized location for folders that will be shared across the network. At this point, the Accounting folder only exists locally on the server and has not yet been configured as a network share.
+
 ## **Challenges**
 
 ## **What I Learned**
