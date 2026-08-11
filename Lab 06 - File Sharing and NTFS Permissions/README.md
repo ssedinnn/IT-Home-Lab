@@ -20,6 +20,13 @@ Learn how to configure and manage shared folders in a Windows Server Active Dire
 
 ### *Step 1 - Create an Accounting Security Group*
 
+First, I open the Windows Server 2022 VM and open **Active Directory Users and Computers**. I navigate to the **Accounting** Organizational Unit (OU) that was created in Lab 04. I right-click the Accounting OU, select **New > Group**, and name the group **Accounting Users**. I set the **Group scope** to **Global** and the **Group type** to **Security**, then click **OK** to create the group.
+
+After creating the group, I open **Accounting Users**, select the **Members** tab, and add the domain user that I will be using to test access to the shared folder.
+
+Creating a security group allows administrators to manage access to resources based on group membership instead of assigning permissions individually to each user. For example, if multiple employees need access to the Accounting shared folder, they can be added to the **Accounting Users** group and receive the permissions assigned to that group.
+
+I use a **Global Security** group because the group is being used to organize users from the same domain and assign them permissions to a network resource.
 
 ## **Challenges**
 
