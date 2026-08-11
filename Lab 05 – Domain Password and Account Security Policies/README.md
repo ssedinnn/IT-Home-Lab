@@ -66,6 +66,10 @@ Organizations commonly require longer passwords because they are more resistant 
 
 ### *Step 5 - Configure Password History*
 
+![Configure Password History](img/Configure_Password_History.png)
+
+![Password History Test](img/Password_History_Test.png)
+
 In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy**. I configure **Enforce password history** to remember the previous **5 passwords**, then run `gpupdate /force` before restarting the Windows 11 VM.
 
 To verify the policy, I change the user's password and then attempt to reuse one of the recently used passwords. Windows prevents the password from being reused, confirming that the policy has been successfully applied.
