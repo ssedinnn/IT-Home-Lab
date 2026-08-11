@@ -1,21 +1,21 @@
-# *Lab 01 - Building an Active Directory Environment*
+# **Lab 01 - Building an Active Directory Environment**
 
-## *Objective*
+## **Objective**
 The goal of this lab is to build a basic Active Directory environment using Virtual Box, and Windows Server 2022
 
-## *Environment*
+## **Environment**
 The following software was used:
 - Oracle VirtualBox
 - Windows Server 2022
 
-## *Skills Demonstrated*
+## **Skills Demonstrated**
 - Windows Server 2022 Administration
 - Virtualization (VirtualBox)
 - Active Directory Domain Services
 - Domain Controller Deployment
 - Server Configuration
 
-## *Steps*
+## **Steps**
 
 ### *Step 1 - Create the Windows Server Virtual Machine*
 ![VM Configuration](img/Server_2022_Profile_Creation.png)
@@ -68,10 +68,10 @@ After the server restarts, I open Server Manager and navigate to Local Server, w
 
 Promoting the server to a Domain Controller creates the foundation of the Active Directory environment. Creating a new forest establishes the first domain within the lab environment.
 
-## *Challenges*
+## **Challenges**
 While documentating the lab, VirtualBox initially captured keyboard inputs which prevented screenshots from being taken. This issue was resolved by disabling the keyboard capture settings, allowing screenshots to be taken normally.
 
-## *What I Learned*
+## **What I Learned**
 - Learned how to create and configure a Windows Server virtual machine.
 - Learned the difference between Server Core and Desktop Experience installations.
 - Learned how to install Active Directory Domain Services (AD DS).
@@ -79,13 +79,8 @@ While documentating the lab, VirtualBox initially captured keyboard inputs which
 - Learned the purpose of a new forest and domain structure within Active Directory.
 - Learned the role of Directory Services Restore Mode (DSRM) during Domain Controller deployment.
 
-## *Next Steps*
+## **Next Steps**
 In the next lab I will:
 - Install Guest Addition on VirtualBox
 - Install Windows 11 VM
 - Join Windows 11 VM to Domain
-
-## *References*
-- KEVTECH IT Support Youtube Series
-- Microsoft Learn Documentation
-- Oracle VirtualBox Documentation
