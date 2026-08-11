@@ -1,9 +1,9 @@
-# *Lab 02 - Domain Client Deployment*
+# **Lab 02 - Domain Client Deployment**
 
-## *Objective*
+## **Objective**
 The goal of this lab is to configure a Windows 11 client workstation and connect it to the Active Directory domain created in Lab 01. This includes installing VirtualBox Guest Additions for improved usability, creating Active Directory user accounts, configuring networking, joining the workstation to the domain, and verifiying domain authentication by logging in with a domain user.
 
-## *Environment*
+## **Environment**
 The following software was used:
 - Oracle VirtualBox
 - Windows Server 2022
@@ -11,7 +11,7 @@ The following software was used:
 - Windows 11
 - Active Directory Domain Services (AD DS)
 
-## *Skills Demonstrated*
+## **Skills Demonstrated**
 - Installing and configuring VirtualBox Guest Additions
 - Creating and testing shared folders between a host computer and a virtual machine
 - Creating and managing Active Directory user accounts
@@ -25,7 +25,7 @@ The following software was used:
 - Verifying computer membership through Active Directory Users and Computers
 - Troubleshooting Windows 11 virtual machine system requirements
 
-## *Steps*
+## **Steps**
 
 ### *Step 1 - Install Guest Addition for VirtualBox*
 
@@ -125,12 +125,12 @@ After restarting the Windows 11 VM, There should be an option to log in as a oth
 
 I open **Active Directory Users and Computers** and navigate to **lab.local > Computers**. As shown in the image above, `DESKTOP-01` appears in the list, confirming that the Windows 11 VM successfully joined the domain. This is also confirmed by the fact that I was able to log in using the domain account in the previous step.
 
-## *Challenges*
+## **Challenges**
 When I first created the Windows 11 VM, I did not configure it with the correct system requirements. The VM needed at least two processor cores, TPM 2.0, and Secure Boot support. I fixed this by opening the VM settings in VirtualBox and enabling or adjusting each of the required settings.
 
 Another issue was that I did not assign enough storage to the Windows 11 VM. Windows 11 required more storage than I originally provided, so I recreated the VM profile with at least 52 GB of storage. Since I had not installed or configured much on the VM yet, recreating it was the easiest solution.
 
-## *What I Learned*
+## **What I Learned**
 - I learned the importance of reviewing software and hardware requirements before creating a virtual machine.
 - I learned how static IP addresses and DNS settings allow a client workstation to communicate with a domain controller.
 - I learned that successful network connectivity does not automatically confirm a domain join.
@@ -138,7 +138,7 @@ Another issue was that I did not assign enough storage to the Windows 11 VM. Win
 - I learned how Active Directory provides centralized management for users and computers.
 - I learned how to troubleshoot common Windows 11 installation and virtual machine configuration issues.
  
-## *Next Steps*
+## **Next Steps**
 - Create additional users and organizational units in Active Directory.
 - Practice resetting passwords
 - Practice unlocking user accountes
