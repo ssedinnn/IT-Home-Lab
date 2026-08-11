@@ -102,6 +102,14 @@ To restore access, I return to the Windows Server 2022 VM and open **Active Dire
 
 Organizations commonly configure account lockout thresholds to help defend against repeated password-guessing attacks by limiting the number of consecutive failed login attempts. IT administrators may also need to unlock accounts when legitimate users accidentally trigger the lockout policy, making account lockout troubleshooting and recovery a common user support task.
 
+### *Step 8 - Configure Account Lockout Duration*
+
+In the Windows Server 2022 VM, I edit the **Default Domain Policy** and navigate to **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy**. I configure the **Account lockout duration** to **15 minutes**, then run `gpupdate /force` before restarting the Windows 11 VM.
+
+The account lockout duration determines how long a locked account remains inaccessible before Windows automatically unlocks it.
+
+Organizations commonly configure a lockout duration to temporarily block unauthorized login attempts while reducing the need for administrators to manually unlock user accounts after accidental lockouts.
+
 ## *Challenges*
 - One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
 
