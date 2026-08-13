@@ -31,10 +31,13 @@ Each lab is designed to reinforce my understanding of the technology while creat
 - Active Directory User Account Management
 - Organizational Unit (OU) Management
 - Group Policy Management
+- Domain Password Policy Configuration
+- Account Lockout Policy Configuration
 - User Authentication & Password Management
+- Active Directory Account Unlocking
+- Group Policy Troubleshooting
 - Basic Server Configuration
 - Technical Documentation
-- Group Policy Troubleshooting
 
 ## Lab Projects
 
@@ -54,6 +57,10 @@ Each lab is designed to reinforce my understanding of the technology while creat
 
 - Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Configured desktop wallpaper deployment, restricted Control Panel and Command Prompt access, implemented an interactive logon banner, and verified policy application while troubleshooting Group Policy deployment using `gpupdate` and `gpresult`.
 
+**Lab 05 – Domain Password & Account Lockout Policies**
+
+- Configured domain-wide password and account security policies through the Default Domain Policy, including password complexity, minimum password length, password history, maximum password age, account lockout threshold, lockout duration, and lockout counter reset settings. Tested the policies from a domain-joined Windows 11 workstation and practiced identifying and unlocking a locked Active Directory user account.
+
 ## The purpose of this repository is to:
 
 - Gain hands-on experience with enterprise IT technologies.
@@ -66,7 +73,8 @@ Each lab is designed to reinforce my understanding of the technology while creat
 
 This repository will continue to grow as I build new projects and learn additional technologies. Future labs may include topics such as:
 
-- Domain Password & Account Lockout Policies
+- File Sharing & NTFS Permissions
+- Active Directory Security Groups
 - DNS
 - DHCP
 - Windows Client Management
