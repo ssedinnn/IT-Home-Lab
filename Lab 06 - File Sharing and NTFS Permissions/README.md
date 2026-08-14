@@ -42,6 +42,16 @@ Inside the Accounting folder, I create a text document named **Accounting Test**
 
 Creating a dedicated `C:\Shares` directory provides an organized location for folders that will be shared across the network. At this point, the Accounting folder only exists locally on the server and has not yet been configured as a network share.
 
+### *Step 3 - Configure NTFS Permissions*
+
+In the Windows Server 2022 VM, I right-click the **Accounting** folder located at `C:\Shares\Accounting` and select **Properties > Security > Edit**. I then add the **Accounting Users** security group that was created earlier in the lab.
+
+After adding the group, I grant **Modify** permission to the **Accounting Users** group. This automatically allows the group to read, write, create, edit, and delete files inside the Accounting folder without giving users full administrative control over the folder.
+
+NTFS permissions control what users and groups are allowed to do with files and folders stored on an NTFS-formatted drive. Assigning permissions to a security group instead of individual users makes access easier to manage because administrators can grant or remove access simply by changing a user's group membership.
+
+For this lab, **Modify** permission provides the Accounting users with the level of access they need to work with departmental files while avoiding the broader permissions provided by **Full Control**.
+
 ## **Challenges**
 
 ## **What I Learned**
