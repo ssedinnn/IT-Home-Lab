@@ -54,6 +54,16 @@ NTFS permissions control what users and groups are allowed to do with files and 
 
 For this lab, **Modify** permission provides the Accounting users with the level of access they need to work with departmental files while avoiding the broader permissions provided by **Full Control**.
 
+### *Step 4 - Share the Folder*
+
+In the Windows Server 2022 VM, I right-click the **Accounting** folder and select **Properties > Sharing > Advanced Sharing**. I check **Share this folder** and set the share name to **Accounting**. I then configure the share permissions and apply the changes to make the folder accessible over the network.
+
+Once the folder is shared, domain users can attempt to access it from another computer on the network using its UNC path, such as `\\CA-DC-01\Accounting`.
+
+Share permissions control what users are allowed to do with a folder when accessing it over the network, while the NTFS permissions configured in the previous step control access to the files and folders themselves. When a shared folder is accessed over the network, both share and NTFS permissions must be considered when determining a user's effective access.
+
+For this lab, the **Accounting Users** security group will be used to control which users are authorized to modify the contents of the Accounting folder. This allows access to be managed through Active Directory group membership rather than assigning permissions individually to each user.
+
 ## **Challenges**
 
 ## **What I Learned**
