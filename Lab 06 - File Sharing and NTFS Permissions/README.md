@@ -56,6 +56,8 @@ For this lab, **Modify** permission provides the Accounting users with the level
 
 ### *Step 4 - Share the Folder*
 
+![Advanced Folder Sharing](img/Advanced_Folder_Sharing.png)
+
 In the Windows Server 2022 VM, I right-click the **Accounting** folder and select **Properties > Sharing > Advanced Sharing**. I check **Share this folder** and set the share name to **Accounting**. I then configure the share permissions and apply the changes to make the folder accessible over the network.
 
 Once the folder is shared, domain users can attempt to access it from another computer on the network using its UNC path, such as `\\CA-DC-01\Accounting`.
