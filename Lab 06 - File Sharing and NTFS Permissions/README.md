@@ -44,6 +44,8 @@ Creating a dedicated `C:\Shares` directory provides an organized location for fo
 
 ### *Step 3 - Configure NTFS Permissions*
 
+![NTFS Permissions](img/NTFS_Permissions.png)
+
 In the Windows Server 2022 VM, I right-click the **Accounting** folder located at `C:\Shares\Accounting` and select **Properties > Security > Edit**. I then add the **Accounting Users** security group that was created earlier in the lab.
 
 After adding the group, I grant **Modify** permission to the **Accounting Users** group. This automatically allows the group to read, write, create, edit, and delete files inside the Accounting folder without giving users full administrative control over the folder.
