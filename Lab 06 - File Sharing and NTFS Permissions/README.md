@@ -76,6 +76,9 @@ I open the **Accounting Test** text file that was created earlier and verify tha
 
 This confirms that members of the **Accounting Users** security group have the intended access to the Accounting network share. The user's **Change** share permission and **Modify** NTFS permission allow them to read, create, edit, and delete files within the shared folder without providing Full Control.
 
+### *Step 6 - Test Unauthorized Access*
+
+
 ## **Challenges**
 
 ## **What I Learned**
