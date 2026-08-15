@@ -88,6 +88,20 @@ Windows denies access to the shared folder because the test user is not a member
 
 This confirms that the permissions configured earlier are successfully restricting access to authorized Accounting users rather than allowing every domain user to access the departmental files.
 
+### *Step 7 - Grant Access Through Group Membership*
+
+![Granting Access](img/Granting_Access.png)
+
+![Access Accepted](img/Access_Accepted.png)
+
+In the Windows Server 2022 VM, I open **Active Directory Users and Computers** and add the previously unauthorized test user to the **Accounting Users** security group. Instead of assigning permissions directly to the individual user, I grant access by changing the user's group membership.
+
+After adding the user to the group, I sign out of the Windows 11 VM and sign back in using the same test account. Signing back in allows Windows to update the user's security token with the new group membership.
+
+I then return to `\\CA-DC-01\Accounting` and successfully access the shared folder. To test whether the user also has permission to modify the file, I add **"Jacob"** to the existing text and save the file. The changes save successfully, confirming that the user has both read and modify access to the shared file.
+
+Using security groups to manage permissions makes administration more efficient because access can be granted or removed by changing group membership instead of modifying folder permissions for each individual user.
+
 ## **Challenges**
 
 ## **What I Learned**
