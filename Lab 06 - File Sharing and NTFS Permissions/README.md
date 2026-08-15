@@ -68,6 +68,14 @@ For this lab, the **Accounting Users** security group will be used to control wh
 
 ### *Step 5 - Test Authorized Access*
 
+![Authorized User Test](img/Authorized_User_Test.png)
+
+On the Windows 11 VM, I sign in using the domain user that was previously added to the **Accounting Users** security group. I open **File Explorer** and navigate to the Accounting shared folder on the Windows Server 2022 VM through the network at `\\CA-DC-01\Accounting`.
+
+I open the **Accounting Test** text file that was created earlier and verify that I can read its contents. To test whether the user also has permission to modify the file, I add **"hi"** to the existing text and save the file. The changes save successfully, confirming that the user has both read and modify access to the shared file.
+
+This confirms that members of the **Accounting Users** security group have the intended access to the Accounting network share. The user's **Change** share permission and **Modify** NTFS permission allow them to read, create, edit, and delete files within the shared folder without providing Full Control.
+
 ## **Challenges**
 
 ## **What I Learned**
