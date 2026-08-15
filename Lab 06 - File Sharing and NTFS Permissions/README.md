@@ -104,6 +104,8 @@ Using security groups to manage permissions makes administration more efficient 
 
 ### *Step 8 - Map the Accounting Network Drive*
 
+![Network Drive Mapped](img/Network_Drive_Mapped.png)
+
 On the Windows 11 VM, I open **File Explorer**, navigate to **This PC**, and select **Map network drive**. I choose the drive letter `Z:` and enter the Accounting network share path `\\CA-DC-01\Accounting`. I also select **Reconnect at sign-in** so the mapped drive remains available after the user signs back into Windows.
 
 After completing the setup, the Accounting shared folder appears as a mapped network drive under **This PC**. I open the `Z:` drive and verify that the Accounting files are accessible.
