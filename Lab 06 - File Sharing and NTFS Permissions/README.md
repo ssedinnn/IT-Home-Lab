@@ -66,6 +66,8 @@ Share permissions control what users are allowed to do with a folder when access
 
 For this lab, the **Accounting Users** security group will be used to control which users are authorized to modify the contents of the Accounting folder. This allows access to be managed through Active Directory group membership rather than assigning permissions individually to each user.
 
+### *Step 5 - Test Authorized Access*
+
 ## **Challenges**
 
 ## **What I Learned**
