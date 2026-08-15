@@ -78,6 +78,15 @@ This confirms that members of the **Accounting Users** security group have the i
 
 ### *Step 6 - Test Unauthorized Access*
 
+![Unauthorized User Test](img/Unauthorized_User_Test.png)
+
+In the Windows Server 2022 VM, I open **Active Directory Users and Computers** and create a second domain user that will be used to test unauthorized access to the Accounting shared folder. I do not add this user to the **Accounting Users** security group.
+
+I then sign out of the current account on the Windows 11 VM and sign in using the unauthorized test account. From **File Explorer**, I attempt to access the Accounting network share at `\\CA-DC-01\Accounting`.
+
+Windows denies access to the shared folder because the test user is not a member of the **Accounting Users** security group and therefore does not have the required share and NTFS permissions.
+
+This confirms that the permissions configured earlier are successfully restricting access to authorized Accounting users rather than allowing every domain user to access the departmental files.
 
 ## **Challenges**
 
