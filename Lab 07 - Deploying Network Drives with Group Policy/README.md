@@ -18,6 +18,8 @@ Learn how to use Group Policy to automatically deploy a mapped network drive to 
 
 ## **Steps**
 
+### *Step 1 - Remove the Manually Mapped Network Drive*
+
 ## **Challenges**
 
 ## **What I Learned**
