@@ -28,6 +28,8 @@ After disconnecting the drive, I verify that the **Accounting (Z:)** drive no lo
 
 ### *Step 2 - Create the Drive Mapping GPO*
 
+![Drive Mapping GPO](img/Drive_Mapping_GPO.png)
+
 In the Windows Server 2022 VM, I open **Group Policy Management** and navigate to the **Accounting** Organizational Unit (OU) that was created in a previous lab. I right-click the Accounting OU and select **Create a GPO in this domain, and Link it here...**. I name the new Group Policy Object **Lab 07 Accounting Drive Mapping**.
 
 After creating the GPO, I verify that it is linked to the **Accounting** OU and that the link is enabled. Linking the GPO to the OU allows its user-based settings to be processed for applicable users within the Accounting OU.
