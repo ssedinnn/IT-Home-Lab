@@ -20,6 +20,7 @@ Learn how to use Group Policy to automatically deploy a mapped network drive to 
 
 ### *Step 1 - Remove the Manually Mapped Network Drive*
 
+![Network Drive Disconnected](img/Network_Drive_Disconnected.png)
 
 In the Windows 11 VM, I open **File Explorer** and navigate to **This PC**. I locate the **Accounting (Z:)** network drive that was manually mapped in the previous lab, right-click it, and select **Disconnect**.
 
