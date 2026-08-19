@@ -29,13 +29,22 @@ Each lab is designed to reinforce my understanding of the technology while creat
 - Virtual Machine Configuration (VirtualBox)
 - Domain Controller Deployment
 - Active Directory User Account Management
+- Active Directory Security Group Management
 - Organizational Unit (OU) Management
 - Group Policy Management
 - Domain Password Policy Configuration
 - Account Lockout Policy Configuration
 - User Authentication & Password Management
 - Active Directory Account Unlocking
+- Windows File Sharing
+- NTFS Permission Configuration
+- Share Permission Configuration
+- Group-Based Access Control
+- Network Share Configuration
+- Network Drive Mapping
+- UNC Path Navigation
 - Group Policy Troubleshooting
+- File Permission Troubleshooting
 - Basic Server Configuration
 - Technical Documentation
 
@@ -60,6 +69,10 @@ Each lab is designed to reinforce my understanding of the technology while creat
 **Lab 05 – Domain Password & Account Lockout Policies**
 
 - Configured domain-wide password and account security policies through the Default Domain Policy, including password complexity, minimum password length, password history, maximum password age, account lockout threshold, lockout duration, and lockout counter reset settings. Tested the policies from a domain-joined Windows 11 workstation and practiced identifying and unlocking a locked Active Directory user account.
+
+**Lab 06 – File Sharing & NTFS Permissions**
+
+- Created an Active Directory security group to manage access to an Accounting departmental shared folder. Configured NTFS and share permissions, tested authorized and unauthorized user access from a domain-joined Windows 11 workstation, granted access through security group membership, and mapped the Accounting network share as a `Z:` drive. Troubleshot a permissions issue by identifying the difference between NTFS and share permissions and correcting the user's effective network access.
 
 ## The purpose of this repository is to:
 
