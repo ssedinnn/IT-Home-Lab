@@ -38,6 +38,10 @@ This GPO will be used to automatically map the Accounting network share that was
 
 ### *Step 3 - Configure and Apply the Accounting Drive Mapping*
 
+![Mapped_Drive_Config](img/Mapped_Drive_Config.png)
+
+![Drive_Mapped_Confirmed](img/Drive_Mapped_Confirmed.png)
+
 In the Windows Server 2022 VM, I edit the **Lab 07 Accounting Drive Mapping** Group Policy Object and navigate to **User Configuration > Preferences > Windows Settings > Drive Maps**. I create a new mapped drive and configure the location as `\\CA-DC-01\Accounting`, set the drive letter to `Z:`, and label the drive **Accounting**. I use the **Update** action so the drive can be created if it does not already exist and updated if the configuration changes later.
 
 After saving the configuration, I switch to the Windows 11 VM and run `gpupdate /force` to immediately refresh Group Policy. I then sign out and back into the domain account so the updated user policy can be processed.
