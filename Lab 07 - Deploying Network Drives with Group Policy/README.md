@@ -50,6 +50,18 @@ After signing back in, I open **File Explorer > This PC** and verify that **Acco
 
 Using Group Policy to deploy mapped drives allows administrators to centrally provide users with access to shared network resources without configuring each workstation individually. If the share path or drive configuration needs to be changed later, the administrator can update the Group Policy instead of manually changing every user's computer.
 
+### *Step 4 - Configure Item-Level Targeting*
+
+![Item_Level_Targeting](img/Item_Level_Targeting.png)
+
+In the Windows Server 2022 VM, I edit the **Lab 07 Accounting Drive Mapping** Group Policy Object and navigate to **User Configuration > Preferences > Windows Settings > Drive Maps**. I open the properties for the existing **Accounting (Z:)** drive mapping and select the **Common** tab.
+
+I enable **Item-level targeting** and open the **Targeting Editor**. I then create a new **Security Group** condition and select the **LAB\Accounting Users** security group. I configure the condition so that the drive mapping only applies when the logged-in user is a member of the Accounting Users group.
+
+Item-Level Targeting allows administrators to apply a Group Policy Preference only when specific conditions are met. In this lab, it ensures that the Accounting network drive is automatically mapped only for authorized users who belong to the **Accounting Users** security group.
+
+This provides more precise control than relying only on the Organizational Unit where the GPO is linked, because users within the same OU can receive different settings depending on their group membership.
+
 ## **Challenges**
 
 ## **What I Learned**
