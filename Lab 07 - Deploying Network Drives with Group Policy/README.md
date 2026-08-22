@@ -62,6 +62,8 @@ Item-Level Targeting allows administrators to apply a Group Policy Preference on
 
 This provides more precise control than relying only on the Organizational Unit where the GPO is linked, because users within the same OU can receive different settings depending on their group membership.
 
+### *Step 5 - Test Group-Based Drive Mapping*
+
 ## **Challenges**
 
 ## **What I Learned**
