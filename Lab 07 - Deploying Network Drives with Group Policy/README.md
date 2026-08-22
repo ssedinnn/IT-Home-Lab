@@ -16,6 +16,18 @@ Learn how to use Group Policy to automatically deploy a mapped network drive to 
 
 ## **Skills Demonstrated**
 
+- Creating and linking Group Policy Objects (GPOs)
+- Configuring Group Policy Preferences
+- Deploying mapped network drives through Group Policy
+- Using UNC paths for shared network resources
+- Applying user-based Group Policy settings
+- Refreshing Group Policy with `gpupdate /force`
+- Configuring Item-Level Targeting
+- Using Active Directory security groups for targeted resource deployment
+- Testing Group Policy behavior with multiple domain users
+- Verifying mapped drive deployment from a domain-joined Windows 11 workstation
+- Centralized Windows administration
+
 ## **Steps**
 
 ### *Step 1 - Remove the Manually Mapped Network Drive*
@@ -64,6 +76,10 @@ This provides more precise control than relying only on the Organizational Unit 
 
 ### *Step 5 - Test Group-Based Drive Mapping*
 
+![Group_Based_Confirmed](img/Group_Based_Confirmed.png)
+
+![Group_Based_Denied](img/Group_Based_Denied.png)
+
 To verify that Item-Level Targeting is working correctly, I test the drive mapping using two different domain user accounts on the Windows 11 VM.
 
 First, I sign in using the user account that is a member of the **Accounting Users** security group. After Group Policy is applied, I open **File Explorer > This PC** and confirm that the **Accounting (Z:)** network drive appears under Network locations. This verifies that users who are members of the Accounting Users group receive the mapped drive automatically.
@@ -75,5 +91,20 @@ Because both users are located within the same OU but only the Accounting Users 
 Using security group membership with Item-Level Targeting allows administrators to automatically provide network resources only to the users who require them. This makes drive deployment easier to manage because access can be controlled centrally through Active Directory group membership rather than manually configuring each user's computer.
 
 ## **Challenges**
+- One of the main concepts in this lab was understanding the difference between simply linking a GPO to an Organizational Unit and using **Item-Level Targeting** to control whether a specific Group Policy Preference applies. Although both test users were located in the same **Accounting OU**, only the user who was a member of the **Accounting Users** security group received the mapped drive.
+
+- While working in the Group Policy Management Editor, I initially looked under the **Computer Configuration** section and could not find the **Drive Maps** option. I learned that mapped drives are configured under **User Configuration > Preferences > Windows Settings > Drive Maps** because the network drive is being assigned to the logged-in user rather than directly to the computer.
+
+- Testing the policy with both an authorized and unauthorized user helped confirm that the Item-Level Targeting configuration was working correctly rather than assuming the drive mapping was being applied based only on the OU.
 
 ## **What I Learned**
+- I learned how to automatically deploy a mapped network drive using **Group Policy Preferences** instead of manually configuring the drive on each workstation.
+- I learned how to use the **Update** action when configuring a mapped drive so that the drive can be created if it does not already exist and updated if its configuration changes.
+- I learned that mapped drives are configured through the **User Configuration** section of Group Policy because they are associated with the logged-in user's session.
+- I learned how **Item-Level Targeting** can apply a specific Group Policy Preference only when certain conditions are met.
+- I learned how Active Directory security group membership can be used to control which users automatically receive access to network resources.
+- I learned the difference between the scope of a GPO linked to an Organizational Unit and the additional targeting conditions applied to individual Group Policy Preferences.
+- I learned how to verify Group Policy changes from a domain-joined Windows 11 workstation by running `gpupdate /force`, signing back into the user account, and confirming the expected configuration in File Explorer.
+- I learned how centralized drive deployment can reduce the need for administrators to manually configure shared resources on individual computers.
+
+## **Next Steps**
