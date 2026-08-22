@@ -64,6 +64,16 @@ This provides more precise control than relying only on the Organizational Unit 
 
 ### *Step 5 - Test Group-Based Drive Mapping*
 
+To verify that Item-Level Targeting is working correctly, I test the drive mapping using two different domain user accounts on the Windows 11 VM.
+
+First, I sign in using the user account that is a member of the **Accounting Users** security group. After Group Policy is applied, I open **File Explorer > This PC** and confirm that the **Accounting (Z:)** network drive appears under Network locations. This verifies that users who are members of the Accounting Users group receive the mapped drive automatically.
+
+Next, I sign out and log in using a second test user that is located in the same **Accounting OU** but is not a member of the **Accounting Users** security group. After Group Policy is applied, I open **File Explorer > This PC** again and confirm that the Accounting network drive does not appear.
+
+Because both users are located within the same OU but only the Accounting Users group member receives the mapped drive, this confirms that the **Item-Level Targeting** condition is working correctly.
+
+Using security group membership with Item-Level Targeting allows administrators to automatically provide network resources only to the users who require them. This makes drive deployment easier to manage because access can be controlled centrally through Active Directory group membership rather than manually configuring each user's computer.
+
 ## **Challenges**
 
 ## **What I Learned**
