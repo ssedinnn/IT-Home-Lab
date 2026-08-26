@@ -9,6 +9,9 @@ Learn how DNS supports an Active Directory domain by creating and managing DNS r
 
 ## **Steps**
 
+### *Step 1 — Explore the Existing DNS Configuration*
+
+
 ## **Challenges**
 
 ## **What I Learned**
