@@ -23,6 +23,16 @@ A **Forward Lookup Zone** is used to translate a hostname into an IP address. Fo
 
 This demonstrates how a Forward Lookup Zone allows devices on the network to locate another computer by its hostname instead of requiring the user or application to know its IP address.
 
+### *Step 2 - Create a DNS a Record*
+
+In the Windows Server 2022 VM, I open **DNS Manager** and navigate to **Forward Lookup Zones > lab.local**. I right-click the `lab.local` zone and select **New Host (A or AAAA)...** to create a new DNS record.
+
+I enter `fileserver` as the hostname and `10.1.10.2` as the IP address. This creates the fully qualified domain name (FQDN) `fileserver.lab.local` and maps it to the IP address of my Windows Server 2022 VM.
+
+After creating the record, I verify that `fileserver` appears in the `lab.local` Forward Lookup Zone as a **Host (A)** record pointing to `10.1.10.2`.
+
+An **A record** maps a hostname to an IPv4 address. This allows devices on the network to locate the server using `fileserver.lab.local` instead of having to remember its IP address.
+
 ## **Challenges**
 
 ## **What I Learned**
