@@ -25,6 +25,8 @@ This demonstrates how a Forward Lookup Zone allows devices on the network to loc
 
 ### *Step 2 - Create a DNS a Record*
 
+![DNS Record Creation](img/DNS_Record_Creation.png)
+
 In the Windows Server 2022 VM, I open **DNS Manager** and navigate to **Forward Lookup Zones > lab.local**. I right-click the `lab.local` zone and select **New Host (A or AAAA)...** to create a new DNS record.
 
 I enter `fileserver` as the hostname and `10.1.10.2` as the IP address. This creates the fully qualified domain name (FQDN) `fileserver.lab.local` and maps it to the IP address of my Windows Server 2022 VM.
