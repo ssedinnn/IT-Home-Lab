@@ -37,6 +37,8 @@ An **A record** maps a hostname to an IPv4 address. This allows devices on the n
 
 ### *Step 3 — Test DNS Resolution*
 
+![DNS Test](img/DNS_Test.png)
+
 On the domain-joined Windows 11 VM, I open Command Prompt and run `nslookup fileserver.lab.local` to test whether the DNS server can resolve the hostname that I created in the previous step.
 
 The lookup successfully resolves `fileserver.lab.local` to `10.1.10.2`, confirming that the new Host (A) record is working and that the Windows 11 client can query the DNS server for records within the `lab.local` domain.
