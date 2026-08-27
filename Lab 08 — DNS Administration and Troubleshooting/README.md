@@ -47,6 +47,8 @@ I then run `ping fileserver.lab.local` to test both name resolution and network 
 
 During the `nslookup` test, I also notice that the DNS server initially appears as `Unknown` and the request briefly times out before successfully returning the DNS record. I will explore reverse DNS later in the lab to better understand how DNS can resolve IP addresses back to hostnames.
 
+### *Step 4 — Create a DNS CNAME Record*
+
 ## **Challenges**
 - misinputted the ip in step 2
 
