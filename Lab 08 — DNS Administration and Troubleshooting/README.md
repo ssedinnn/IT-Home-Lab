@@ -37,6 +37,13 @@ An **A record** maps a hostname to an IPv4 address. This allows devices on the n
 
 ### *Step 3 — Test DNS Resolution*
 
+On the domain-joined Windows 11 VM, I open Command Prompt and run `nslookup fileserver.lab.local` to test whether the DNS server can resolve the hostname that I created in the previous step.
+
+The lookup successfully resolves `fileserver.lab.local` to `10.1.10.2`, confirming that the new Host (A) record is working and that the Windows 11 client can query the DNS server for records within the `lab.local` domain.
+
+I then run `ping fileserver.lab.local` to test both name resolution and network connectivity. Windows first resolves the hostname to `10.1.10.2` and then successfully receives four replies from the server with 0% packet loss.
+
+During the `nslookup` test, I also notice that the DNS server initially appears as `Unknown` and the request briefly times out before successfully returning the DNS record. I will explore reverse DNS later in the lab to better understand how DNS can resolve IP addresses back to hostnames.
 
 ## **Challenges**
 
