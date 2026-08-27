@@ -49,6 +49,14 @@ During the `nslookup` test, I also notice that the DNS server initially appears 
 
 ### *Step 4 — Create a DNS CNAME Record*
 
+In the Windows Server 2022 VM, I open **DNS Manager** and navigate to **Forward Lookup Zones > lab.local**. I right-click the `lab.local` zone and select **New Alias (CNAME)**.
+
+For the alias name, I enter `accounting`, which creates the fully qualified domain name `accounting.lab.local`. I then set the target host to `fileserver.lab.local`, which is the DNS A record that I created earlier in the lab.
+
+After entering the information, I click **OK** to create the CNAME record.
+
+A CNAME record allows one hostname to act as an alias for another hostname. In this case, users can use `accounting.lab.local` to reach the same server represented by `fileserver.lab.local`. This makes network resources easier to identify and allows administrators to use descriptive names for different services without creating separate IP address mappings.
+
 ## **Challenges**
 - misinputted the ip in step 2
 
