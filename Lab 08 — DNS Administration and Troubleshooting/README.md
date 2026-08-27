@@ -35,6 +35,9 @@ After creating the record, I verify that `fileserver` appears in the `lab.local`
 
 An **A record** maps a hostname to an IPv4 address. This allows devices on the network to locate the server using `fileserver.lab.local` instead of having to remember its IP address.
 
+### *Step 3 — Test DNS Resolution*
+
+
 ## **Challenges**
 
 ## **What I Learned**
