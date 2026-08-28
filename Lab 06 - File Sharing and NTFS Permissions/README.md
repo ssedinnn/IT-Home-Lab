@@ -128,8 +128,7 @@ Mapping a network drive gives users a convenient way to access shared organizati
 
 ## **Challenges**
 
-- While testing the Accounting shared folder from the Windows 11 VM, I was able to open and read the shared test file but could not edit or save changes. I initially verified that the **Accounting Users** security group had **Modify** NTFS permissions on the folder, so I reviewed the separate share permissions.
-- I discovered that I had not added the **Accounting Users** security group to the folder's share permissions when configuring the network share. I added **Accounting Users** and granted the group **Change** and **Read** permissions while leaving **Full Control** disabled. After applying the changes, I tested the shared folder again from the Windows 11 VM and was able to modify the files successfully.
+- While testing the Accounting shared folder from the Windows 11 VM, I was able to open and read the shared test file but could not edit or save changes. I initially verified that the **Accounting Users** security group had **Modify** NTFS permissions on the folder, so I reviewed the separate share permissions. I discovered that I had not added the **Accounting Users** security group to the folder's share permissions when configuring the network share. I added **Accounting Users** and granted the group **Change** and **Read** permissions while leaving **Full Control** disabled. After applying the changes, I tested the shared folder again from the Windows 11 VM and was able to modify the files successfully.
 - Troubleshooting this issue helped me better understand that **NTFS permissions and share permissions are separate permission layers**. When accessing a folder over the network, both must allow the required level of access. Configuring **Modify** NTFS permissions alone did not provide the intended network access when the share permissions were not configured correctly.
 
 ## **What I Learned**
