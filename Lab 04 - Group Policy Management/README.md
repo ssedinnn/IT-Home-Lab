@@ -1,16 +1,24 @@
 # **Lab 04 - Group Policy Management**
 
 ## **Objective**
+
 Learn how Organizational Units (OUs) and Group Policy Objects (GPOs) work together to centrally manage user and computer settings in an Active Directory environment by creating, linking, and testing common administrative policies.
 
 ## **Environment**
-- Oracle VirtualBox
-- Windows Server 2022
-- Windows 11
-- Active Directory Domain Services
-- Group Policy Management Console (GPMC)
+
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022
+- **Client Operating System:** Windows 11 Pro
+- **Active Directory Domain:** `lab.local`
+- **Core Services & Roles:** Active Directory Domain Services (AD DS), Domain Controller, Group Policy
+- **Active Directory Structure:** Accounting Organizational Unit (OU)
+- **Management Tools:** Active Directory Users and Computers (ADUC), Group Policy Management Console (GPMC), Group Policy Management Editor
+- **Domain Resources:** SYSVOL
+- **Command-Line Tools:** `gpupdate`, `gpresult`
+- **Client Testing:** Domain-joined Windows 11 workstation
 
 ## **Skills Demonstrated**
+
 - Creating and managing Organizational Units (OUs)
 - Creating and linking Group Policy Objects (GPOs)
 - Configuring user and computer Group Policy settings
@@ -109,11 +117,13 @@ Since the login banner is a **Computer Configuration** policy, I move the Window
 Organizations commonly use login banners to notify users that computer systems are intended for authorized use only and that activity may be monitored or recorded. These notices help communicate security policies and may support legal and regulatory compliance requirements.
 
 ## **Challenges**
+
 - While configuring the desktop wallpaper policy, I initially selected the **Force a specific default lock screen and logon image** policy instead of the **Desktop Wallpaper** policy. After reviewing the available Group Policy settings, I realized the lock screen policy only controls the Windows lock screen and sign-in image, while the **Desktop Wallpaper** policy is responsible for configuring the user's desktop background.
 - After correcting the policy, I stored the wallpaper image in the domain's **SYSVOL** share and referenced it using a UNC path so it could be accessed by domain users. Although I initially ran `gpupdate /force` and signed back into the Windows 11 VM, the wallpaper did not immediately appear. After restarting the virtual machine and logging back into the domain account, the wallpaper applied successfully.
 - This lab reinforced the importance of selecting the correct Group Policy setting, verifying that the policy is applied using `gpresult`, and understanding that some Group Policy changes may require a system restart before they fully take effect.
 
 ## **What I Learned**
+
 - I learned how Organizational Units (OUs) are used to organize Active Directory objects and scope Group Policy settings.
 - I learned how to create and link Group Policy Objects (GPOs) to Organizational Units.
 - I learned the difference between **User Configuration** and **Computer Configuration** policies and how each applies to different Active Directory objects.
@@ -122,4 +132,5 @@ Organizations commonly use login banners to notify users that computer systems a
 - I learned how to troubleshoot Group Policy issues by verifying policy application with `gpresult`, using `gpupdate /force`, and recognizing when a system restart is required for certain policies to fully apply.
 
 ## **Next Steps**
+
 In the next lab, I will configure **domain-wide password and account lockout policies** using the **Default Domain Policy**. This will include password complexity requirements, minimum password length, password history, maximum password age, account lockout thresholds, lockout duration, and reset account lockout settings to further strengthen security within the Active Directory environment.
