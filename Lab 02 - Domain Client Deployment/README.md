@@ -133,9 +133,9 @@ I open **Active Directory Users and Computers** and navigate to **lab.local > Co
 
 ## **Challenges**
 
-When I first created the Windows 11 VM, I did not configure it with the correct system requirements. The VM needed at least two processor cores, TPM 2.0, and Secure Boot support. I fixed this by opening the VM settings in VirtualBox and enabling or adjusting each of the required settings.
+- When I first created the Windows 11 VM, I did not configure it with the correct system requirements. The VM needed at least two processor cores, TPM 2.0, and Secure Boot support. I fixed this by opening the VM settings in VirtualBox and enabling or adjusting each of the required settings.
 
-Another issue was that I did not assign enough storage to the Windows 11 VM. Windows 11 required more storage than I originally provided, so I recreated the VM profile with at least 52 GB of storage. Since I had not installed or configured much on the VM yet, recreating it was the easiest solution.
+- Another issue was that I did not assign enough storage to the Windows 11 VM. Windows 11 required more storage than I originally provided, so I recreated the VM profile with at least 52 GB of storage. Since I had not installed or configured much on the VM yet, recreating it was the easiest solution.
 
 ## **What I Learned**
 
