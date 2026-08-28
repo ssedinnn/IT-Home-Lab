@@ -1,11 +1,33 @@
 # **Lab 08 - DNS Administration and Troubleshooting**
 
 ## **Objective**
+
 Learn how DNS supports an Active Directory domain by creating and managing DNS records, testing name resolution from a domain-joined workstation, and troubleshooting common DNS issues.
 
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022 (Domain Controller)
+- **Client Operating System:** Windows 11
+- **Domain:** `lab.local`
+- **Core Services & Roles:** Active Directory Domain Services (AD DS), DNS Server
+- **Management Tools:** DNS Manager
+- **Command-Line Tools:** Command Prompt, `nslookup`, `ping`, `ipconfig`
+
 ## **Skills Demonstrated**
+
+- DNS Administration
+- Forward DNS Lookup Configuration
+- Reverse DNS Lookup Configuration
+- Host (A) Record Creation
+- CNAME Record Creation
+- PTR Record Creation
+- DNS Name Resolution Testing
+- DNS Client Configuration
+- DNS Cache Management
+- Network Connectivity Testing
+- DNS Troubleshooting
+- Command-Line Troubleshooting
 
 ## **Steps**
 
@@ -77,7 +99,7 @@ This confirms that the CNAME record is working correctly and allows the server t
 
 ![Reverse Lookup Setup](img/Reverse_Lookup_Setup.png)
 
-![Reverse Lookup False](img/Reverse_Lookup_True.png)
+![Reverse Lookup True](img/Reverse_Lookup_True.png)
 
 Before configuring reverse DNS, I open **Command Prompt** on the Windows 11 VM and run `nslookup 10.1.10.2` to test whether the server's IP address can be resolved back to a hostname. The lookup does not return the expected hostname because a reverse lookup zone and PTR record have not yet been configured.
 
@@ -112,9 +134,26 @@ The hostname successfully resolves to `10.1.10.2`, and the server responds to th
 This troubleshooting exercise demonstrated how an incorrect DNS server configuration can prevent a client from resolving hostnames even when the network itself is functioning. It also reinforced a basic troubleshooting process of identifying the problem, reviewing the client's network configuration, correcting the DNS settings, clearing the DNS cache, and testing again to confirm the solution.
 
 ## **Challenges**
-- misinputted the ip in step 2
+
+- While creating the Host (A) record in Step 2, I initially entered the incorrect IP address for the server. This caused the DNS record to point to the wrong address. I reviewed the server's network configuration, identified the mistake, and corrected the A record to use the proper IP address of `10.1.10.2`.
+
+- While testing DNS resolution, I noticed that `nslookup` initially displayed the DNS server as `Unknown` and occasionally timed out even though the requested DNS record was successfully returned. This led me to explore reverse DNS and understand how PTR records allow an IP address to resolve back to a hostname.
+
+- During the DNS troubleshooting simulation, I intentionally configured the Windows 11 client to use the incorrect DNS server address `10.1.10.99`. This caused `nslookup` to time out and prevented `ping fileserver.lab.local` from resolving the hostname. I used `ipconfig /all` to identify the incorrect DNS server configuration, restored the correct DNS server address of `10.1.10.2`, flushed the DNS cache, and verified that name resolution was restored.
 
 ## **What I Learned**
 
-## **Next Steps**
+- I learned how DNS allows devices to locate resources using hostnames instead of requiring users to remember IP addresses.
 
+- I learned the purpose of different DNS record types, including **A records** for mapping hostnames to IPv4 addresses, **CNAME records** for creating aliases, and **PTR records** for resolving IP addresses back to hostnames.
+
+- I learned the difference between **forward DNS resolution** and **reverse DNS resolution** and how Forward and Reverse Lookup Zones are used to manage each type.
+
+- I learned how to use tools such as `nslookup`, `ping`, and `ipconfig` to test DNS resolution, verify network connectivity, and troubleshoot DNS configuration problems.
+
+- I learned that successful network connectivity does not necessarily mean DNS is configured correctly. A device may still be reachable by IP address while hostname-based communication fails because of an incorrect DNS configuration.
+
+- I gained experience following a troubleshooting process by reproducing a DNS problem, identifying its cause, correcting the configuration, clearing cached DNS information, and retesting to verify the solution.
+
+## **Next Steps**
+In future labs, I plan to continue expanding the networking side of my Active Directory environment. Potential next projects include configuring **DHCP** to automatically assign network settings to client devices, integrating DHCP with DNS, practicing additional Windows network troubleshooting, and eventually using PowerShell to automate common Active Directory and system administration tasks.
