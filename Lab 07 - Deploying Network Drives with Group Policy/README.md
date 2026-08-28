@@ -6,13 +6,17 @@ Learn how to use Group Policy to automatically deploy a mapped network drive to 
 
 ## **Environment**
 
-- Oracle VirtualBox
-- Windows Server 2022
-- Windows 11
-- Active Directory Domain Services (AD DS)
-- Group Policy Management Console (GPMC)
-- Active Directory Security Groups
-- Windows File Sharing
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022
+- **Client Operating System:** Windows 11 Pro
+- **Active Directory Domain:** `lab.local`
+- **Core Services & Roles:** Active Directory Domain Services (AD DS), Domain Controller, Group Policy, Windows File Sharing
+- **Active Directory Structure:** Accounting Organizational Unit (OU), Accounting Users Security Group
+- **Group Policy Configuration:** Group Policy Preferences, Drive Maps, Item-Level Targeting
+- **Management Tools:** Group Policy Management Console (GPMC), Group Policy Management Editor, Active Directory Users and Computers (ADUC), File Explorer
+- **Network Resources:** `\\CA-DC-01\Accounting` UNC Share, Accounting (`Z:`) Network Drive
+- **Command-Line Tools:** `gpupdate`
+- **Client Testing:** Domain-joined Windows 11 workstation
 
 ## **Skills Demonstrated**
 
@@ -91,13 +95,11 @@ Because both users are located within the same OU but only the Accounting Users 
 Using security group membership with Item-Level Targeting allows administrators to automatically provide network resources only to the users who require them. This makes drive deployment easier to manage because access can be controlled centrally through Active Directory group membership rather than manually configuring each user's computer.
 
 ## **Challenges**
-- One of the main concepts in this lab was understanding the difference between simply linking a GPO to an Organizational Unit and using **Item-Level Targeting** to control whether a specific Group Policy Preference applies. Although both test users were located in the same **Accounting OU**, only the user who was a member of the **Accounting Users** security group received the mapped drive.
 
 - While working in the Group Policy Management Editor, I initially looked under the **Computer Configuration** section and could not find the **Drive Maps** option. I learned that mapped drives are configured under **User Configuration > Preferences > Windows Settings > Drive Maps** because the network drive is being assigned to the logged-in user rather than directly to the computer.
 
-- Testing the policy with both an authorized and unauthorized user helped confirm that the Item-Level Targeting configuration was working correctly rather than assuming the drive mapping was being applied based only on the OU.
-
 ## **What I Learned**
+
 - I learned how to automatically deploy a mapped network drive using **Group Policy Preferences** instead of manually configuring the drive on each workstation.
 - I learned how to use the **Update** action when configuring a mapped drive so that the drive can be created if it does not already exist and updated if its configuration changes.
 - I learned that mapped drives are configured through the **User Configuration** section of Group Policy because they are associated with the logged-in user's session.
@@ -108,3 +110,5 @@ Using security group membership with Item-Level Targeting allows administrators 
 - I learned how centralized drive deployment can reduce the need for administrators to manually configure shared resources on individual computers.
 
 ## **Next Steps**
+
+In the next lab, I will expand my understanding of the networking services that support the Active Directory environment by focusing on **DNS administration and troubleshooting**. I will explore the existing DNS configuration for the `lab.local` domain, create and test DNS records, configure forward and reverse name resolution, and use tools such as `nslookup` and `ping` to verify DNS functionality from the Windows 11 client. I will also simulate a DNS configuration problem and practice identifying, troubleshooting, and correcting the issue to gain more experience with common network troubleshooting techniques.
