@@ -61,6 +61,8 @@ A CNAME record allows one hostname to act as an alias for another hostname. In t
 
 ### *Step 5 - Test the CNAME Alias*
 
+![DNS Alias](img/DNS_Alias.png)
+
 After creating the CNAME record, I switch to the Windows 11 VM to verify that the new DNS alias resolves correctly.
 
 I open **Command Prompt** and run `nslookup accounting.lab.local` to query the DNS server for the new alias. The result shows that `accounting.lab.local` points to `fileserver.lab.local`, which resolves to the server's IP address of `10.1.10.2`.
