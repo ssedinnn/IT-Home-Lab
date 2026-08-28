@@ -144,9 +144,7 @@ Organizations commonly configure this policy alongside the account lockout thres
 
 ## **Challenges**
 
-- One of the key concepts in this lab was understanding the difference between **OU-linked Group Policy Objects** and the **Default Domain Policy**. Unlike the policies configured in the previous lab, password and account lockout settings must be configured through the Default Domain Policy because they are intended to apply consistently across the entire Active Directory domain.
-- While testing the password policies, I learned that Windows displays a similar password policy error message when a password fails due to complexity, minimum length, or password history requirements. To verify each policy individually, I tested passwords that satisfied the other requirements while intentionally failing the specific requirement being tested.
-- While testing the account lockout threshold, repeated incorrect password attempts initially caused Windows to delay additional login attempts. After reaching the configured threshold of five failed attempts, Windows displayed a message confirming that the account was locked. I then verified the lockout in **Active Directory Users and Computers**, manually unlocked the account, and successfully restored access.
+- While testing the password policies, I initially created a password that satisfied the specific policy I was testing but Windows still rejected it. I realized that multiple password policies were being enforced at the same time, so a password could pass one requirement while still failing another. For example, a password could meet the minimum length requirement but still fail the complexity requirement. I adjusted my testing by creating passwords that satisfied all of the other active requirements while intentionally failing only the specific policy I wanted to verify. This allowed me to test each password policy more accurately.
 
 ## **What I Learned**
 
