@@ -71,6 +71,20 @@ I then run `ping accounting.lab.local` to test name resolution and connectivity 
 
 This confirms that the CNAME record is working correctly and allows the server to be accessed using the more descriptive `accounting.lab.local` alias instead of its original hostname or IP address.
 
+### *Step 6 - Configure and Test Reverse DNS Lookup*
+
+Before configuring reverse DNS, I open **Command Prompt** on the Windows 11 VM and run `nslookup 10.1.10.2` to test whether the server's IP address can be resolved back to a hostname. The lookup does not return the expected hostname because a reverse lookup zone and PTR record have not yet been configured.
+
+Next, in the Windows Server 2022 VM, I open **DNS Manager**, right-click **Reverse Lookup Zones**, and select **New Zone**. I create a new IPv4 reverse lookup zone using the network ID `10.1.10`, which corresponds to the network being used by my lab environment.
+
+After creating the reverse lookup zone, I create a new **Pointer (PTR) record** for the server and configure the IP address `10.1.10.2` to point back to `fileserver.lab.local`.
+
+I then return to the Windows 11 VM and run `nslookup 10.1.10.2` again. This time, the lookup successfully returns `fileserver.lab.local`, confirming that the reverse lookup zone and PTR record are functioning correctly.
+
+Comparing the results before and after configuring reverse DNS demonstrates the difference between **forward and reverse DNS resolution**. A forward DNS record allows a hostname such as `fileserver.lab.local` to resolve to an IP address, while a PTR record allows the IP address `10.1.10.2` to resolve back to its associated hostname.
+
+This step helped me understand how reverse DNS works and how PTR records are used to associate IP addresses with hostnames.
+
 ## **Challenges**
 - misinputted the ip in step 2
 
