@@ -6,13 +6,16 @@ Learn how to configure and manage shared folders in a Windows Server Active Dire
 
 ## **Environment**
 
-- Oracle VirtualBox
-- Windows Server 2022
-- Windows 11
-- Active Directory Domain Services (AD DS)
-- Active Directory Users and Computers (ADUC)
-- Windows File Sharing
-- NTFS File System
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022
+- **Client Operating System:** Windows 11 Pro
+- **Active Directory Domain:** `lab.local`
+- **Core Services & Roles:** Active Directory Domain Services (AD DS), Domain Controller, Windows File Sharing
+- **Active Directory Structure:** Accounting Organizational Unit (OU), Accounting Users Security Group
+- **File System & Permissions:** NTFS, NTFS Permissions, Share Permissions
+- **Management Tools:** Active Directory Users and Computers (ADUC), File Explorer
+- **Network Resources:** `\\CA-DC-01\Accounting` UNC Share, Mapped Network Drive (`Z:`)
+- **Client Testing:** Domain-joined Windows 11 workstation
 
 ## **Skills Demonstrated**
 
@@ -124,13 +127,17 @@ After completing the setup, the Accounting shared folder appears as a mapped net
 Mapping a network drive gives users a convenient way to access shared organizational resources without having to manually enter a UNC path each time. In business environments, mapped drives are commonly used to provide employees with quick access to departmental or shared company folders.
 
 ## **Challenges**
+
 - While testing the Accounting shared folder from the Windows 11 VM, I was able to open and read the shared test file but could not edit or save changes. I initially verified that the **Accounting Users** security group had **Modify** NTFS permissions on the folder, so I reviewed the separate share permissions.
 - I discovered that I had not added the **Accounting Users** security group to the folder's share permissions when configuring the network share. I added **Accounting Users** and granted the group **Change** and **Read** permissions while leaving **Full Control** disabled. After applying the changes, I tested the shared folder again from the Windows 11 VM and was able to modify the files successfully.
 - Troubleshooting this issue helped me better understand that **NTFS permissions and share permissions are separate permission layers**. When accessing a folder over the network, both must allow the required level of access. Configuring **Modify** NTFS permissions alone did not provide the intended network access when the share permissions were not configured correctly.
 
 ## **What I Learned**
+
 - This lab helped me understand how file access can be centrally managed in an Active Directory environment using security groups, NTFS permissions, and share permissions. Instead of assigning permissions individually to each user, I learned how users can be placed into an Active Directory security group and receive access to resources based on that group membership.
 - I also gained a better understanding of the difference between **NTFS permissions** and **share permissions**. NTFS permissions control access to the files and folders themselves, while share permissions affect access when the folder is accessed across the network. Troubleshooting the read-only access issue demonstrated how both permission layers can affect a user's effective access.
 - Finally, I learned how to verify permissions by testing both authorized and unauthorized accounts from a domain-joined Windows 11 workstation. I also practiced granting access by changing group membership and mapping a shared folder as a network drive to make the resource easier for users to access.
 
 ## **Next Steps**
+
+In the next lab, I will build on the Accounting network share created in this lab by using **Group Policy** to automatically deploy the shared folder as a mapped network drive to authorized users. Instead of manually mapping the `\\CA-DC-01\Accounting` share on each workstation, I will create and configure a **Group Policy Object (GPO)** that automatically maps the Accounting share as the `Z:` drive. I will also use **Item-Level Targeting** with the **Accounting Users** security group to ensure that the mapped drive is only deployed to authorized users. This will demonstrate how Active Directory security groups and Group Policy can work together to centrally manage access to network resources.
