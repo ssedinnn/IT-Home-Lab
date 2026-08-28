@@ -93,6 +93,12 @@ This step helped me understand how reverse DNS works and how PTR records are use
 
 ### *Step 7 - Simulate and Troubleshoot a DNS Failure*
 
+![DNS Failure](img/DNS_Failure.png)
+
+![DNS Problem](img/DNS_Problem.png)
+
+![DNS Fixed](img/DNS_Fixed.png)
+
 To practice troubleshooting a DNS issue, I intentionally configure the Windows 11 VM with an incorrect DNS server address. Instead of using the domain controller and DNS server at `10.1.10.2`, I temporarily change the preferred DNS server to an incorrect address such as `10.1.10.99`.
 
 After applying the incorrect configuration, I open **Command Prompt** and attempt to run `nslookup fileserver.lab.local` and `ping fileserver.lab.local`. Because the Windows 11 client is no longer pointing to the correct DNS server, it is unable to properly resolve the hostname.
