@@ -49,35 +49,35 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 
 ### Lab 01 – Building an Active Directory Environment
 
-Installed and configured Windows Server 2022, deployed Active Directory Domain Services (AD DS), created the `lab.local` forest, and promoted the server to a Domain Controller.
+- Installed and configured Windows Server 2022, deployed Active Directory Domain Services (AD DS), created the `lab.local` forest, and promoted the server to a Domain Controller.
 
 ### Lab 02 – Domain Client Deployment
 
-Configured a Windows 11 Pro virtual machine, established static IPv4 networking between the client and server, joined the workstation to the Active Directory domain, and verified domain authentication.
+- Configured a Windows 11 Pro virtual machine, established static IPv4 networking between the client and server, joined the workstation to the Active Directory domain, and verified domain authentication.
 
 ### Lab 03 – Active Directory User Account Management
 
-Created and managed Active Directory user accounts while practicing password resets, forced password changes, account disabling, account deletion, and domain authentication testing from Windows 11.
+- Created and managed Active Directory user accounts while practicing password resets, forced password changes, account disabling, account deletion, and domain authentication testing from Windows 11.
 
 ### Lab 04 – Group Policy Management
 
-Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Deployed desktop settings, system restrictions, and a login banner while troubleshooting Group Policy application.
+- Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Deployed desktop settings, system restrictions, and a login banner while troubleshooting Group Policy application.
 
 ### Lab 05 – Domain Password & Account Security Policies
 
-Configured domain-wide password and account lockout policies through the Default Domain Policy. Tested password requirements, account lockouts, workstation locking, and Active Directory account recovery from a domain-joined workstation.
+- Configured domain-wide password and account lockout policies through the Default Domain Policy. Tested password requirements, account lockouts, workstation locking, and Active Directory account recovery from a domain-joined workstation.
 
 ### Lab 06 – Windows File Sharing & NTFS Permissions
 
-Created and secured an Accounting network share using Active Directory security groups, NTFS permissions, and share permissions. Tested authorized and unauthorized access and troubleshot effective network permissions.
+- Created and secured an Accounting network share using Active Directory security groups, NTFS permissions, and share permissions. Tested authorized and unauthorized access and troubleshot effective network permissions.
 
 ### Lab 07 – Deploying Network Drives with Group Policy
 
-Automated deployment of the Accounting network drive using Group Policy Preferences. Configured Item-Level Targeting so the drive is automatically mapped only for authorized members of the Accounting Users security group.
+- Automated deployment of the Accounting network drive using Group Policy Preferences. Configured Item-Level Targeting so the drive is automatically mapped only for authorized members of the Accounting Users security group.
 
 ### Lab 08 – DNS Administration & Troubleshooting
 
-Configured and tested DNS records including A, CNAME, and PTR records. Practiced forward and reverse DNS resolution using `nslookup` and `ping`, then simulated an incorrect client DNS configuration to diagnose and restore name resolution.
+- Configured and tested DNS records including A, CNAME, and PTR records. Practiced forward and reverse DNS resolution using `nslookup` and `ping`, then simulated an incorrect client DNS configuration to diagnose and restore name resolution.
 
 ## Repository Goals
 
