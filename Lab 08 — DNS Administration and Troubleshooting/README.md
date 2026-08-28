@@ -73,6 +73,12 @@ This confirms that the CNAME record is working correctly and allows the server t
 
 ### *Step 6 - Configure and Test Reverse DNS Lookup*
 
+![Reverse Lookup False](img/Reverse_Lookup_False.png)
+
+![Reverse Lookup Setup](img/Reverse_Lookup_Setup.png)
+
+![Reverse Lookup False](img/Reverse_Lookup_True.png)
+
 Before configuring reverse DNS, I open **Command Prompt** on the Windows 11 VM and run `nslookup 10.1.10.2` to test whether the server's IP address can be resolved back to a hostname. The lookup does not return the expected hostname because a reverse lookup zone and PTR record have not yet been configured.
 
 Next, in the Windows Server 2022 VM, I open **DNS Manager**, right-click **Reverse Lookup Zones**, and select **New Zone**. I create a new IPv4 reverse lookup zone using the network ID `10.1.10`, which corresponds to the network being used by my lab environment.
