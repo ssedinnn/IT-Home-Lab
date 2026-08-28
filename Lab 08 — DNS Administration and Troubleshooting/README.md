@@ -137,10 +137,6 @@ This troubleshooting exercise demonstrated how an incorrect DNS server configura
 
 - While creating the Host (A) record in Step 2, I initially entered the incorrect IP address for the server. This caused the DNS record to point to the wrong address. I reviewed the server's network configuration, identified the mistake, and corrected the A record to use the proper IP address of `10.1.10.2`.
 
-- While testing DNS resolution, I noticed that `nslookup` initially displayed the DNS server as `Unknown` and occasionally timed out even though the requested DNS record was successfully returned. This led me to explore reverse DNS and understand how PTR records allow an IP address to resolve back to a hostname.
-
-- During the DNS troubleshooting simulation, I intentionally configured the Windows 11 client to use the incorrect DNS server address `10.1.10.99`. This caused `nslookup` to time out and prevented `ping fileserver.lab.local` from resolving the hostname. I used `ipconfig /all` to identify the incorrect DNS server configuration, restored the correct DNS server address of `10.1.10.2`, flushed the DNS cache, and verified that name resolution was restored.
-
 ## **What I Learned**
 
 - I learned how DNS allows devices to locate resources using hostnames instead of requiring users to remember IP addresses.
