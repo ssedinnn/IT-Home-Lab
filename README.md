@@ -1,104 +1,111 @@
-# IT-Home-Lab
+# IT Home Lab
 
-A collection of hands-on IT home lab projects documenting my journey learning enterprise technologies through practical experience. This repository serves as both a technical portfolio and a place to practice documenting real-world IT tasks.
+A collection of hands-on IT home lab projects focused on Windows Server, Active Directory, Group Policy, networking, security, and IT troubleshooting.
+
+This repository documents my continued development of practical IT support and system administration skills through a virtualized Windows domain environment.
 
 ## About
 
-This repository showcases the IT projects I complete while building and expanding my home lab.
+I built this home lab to gain hands-on experience with technologies and administrative tasks commonly encountered in IT support and Windows enterprise environments.
 
-As I learn technologies such as Windows Server, Active Directory, networking, system administration, and Windows client management, I document each project with step-by-step explanations, screenshots, and reflections on what I learned. I use a combination of tutorials, Microsoft documentation, and independent research to better understand enterprise IT concepts while improving my technical documentation skills.
+Using Windows Server 2022 and Windows 11 virtual machines, I have built and expanded an Active Directory environment while practicing user administration, Group Policy, account security, file permissions, network resource deployment, DNS, and troubleshooting.
 
-Each lab is designed to reinforce my understanding of the technology while creating a portfolio that demonstrates my continued learning and hands-on experience.
+Each lab includes step-by-step documentation, screenshots, challenges encountered, troubleshooting performed, and key concepts learned.
 
-## Technologies
+## Lab Environment
 
-- Windows Server 2022
-- Active Directory Domain Services (AD DS)
-- Windows 11
-- VirtualBox
-- DNS
-- DHCP
-- Group Policy
-- PowerShell *(Future Labs)*
-- Git & GitHub
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022
+- **Client Operating System:** Windows 11 Pro
+- **Active Directory Domain:** `lab.local`
+- **Core Services & Technologies:** Active Directory Domain Services (AD DS), DNS, Group Policy, Windows File Sharing
+- **Administration Tools:** Server Manager, Active Directory Users and Computers (ADUC), Group Policy Management Console (GPMC), DNS Manager
+- **Command-Line Tools:** `ping`, `nslookup`, `ipconfig`, `gpupdate`, `gpresult`
 
 ## Skills Demonstrated
 
 - Windows Server 2022 Administration
 - Active Directory Domain Services (AD DS)
-- Virtual Machine Configuration (VirtualBox)
 - Domain Controller Deployment
-- Active Directory User Account Management
-- Active Directory Security Group Management
+- Windows 11 Domain Client Deployment
+- Active Directory User & Group Management
 - Organizational Unit (OU) Management
-- Group Policy Management
-- Domain Password Policy Configuration
-- Account Lockout Policy Configuration
-- User Authentication & Password Management
-- Active Directory Account Unlocking
+- Group Policy Administration
+- Group Policy Preferences & Item-Level Targeting
+- Domain Password & Account Lockout Policies
+- User Authentication & Account Troubleshooting
 - Windows File Sharing
-- NTFS Permission Configuration
-- Share Permission Configuration
+- NTFS & Share Permissions
 - Group-Based Access Control
-- Network Share Configuration
-- Network Drive Mapping
-- UNC Path Navigation
-- Group Policy Troubleshooting
-- File Permission Troubleshooting
-- Basic Server Configuration
+- Network Drive Deployment
+- DNS Administration
+- Forward & Reverse DNS Resolution
+- DNS Record Management (A, CNAME, PTR)
+- DNS & Network Troubleshooting
+- Virtual Machine Configuration
 - Technical Documentation
 
 ## Lab Projects
 
-**Lab 01 – Building an Active Directory Environment**
+### Lab 01 – Building an Active Directory Environment
 
-- Installed Windows Server 2022, configured Active Directory Domain Services, and promoted the server to a domain controller.
+Installed and configured Windows Server 2022, deployed Active Directory Domain Services (AD DS), created the `lab.local` forest, and promoted the server to a Domain Controller.
 
-**Lab 02 – Domain Client Deployment**
+### Lab 02 – Domain Client Deployment
 
-- Installed VirtualBox Guest Additions, configured a Windows 11 virtual machine, and joined the Windows 11 client to the Windows Server 2022 Active Directory domain.
+Configured a Windows 11 Pro virtual machine, established static IPv4 networking between the client and server, joined the workstation to the Active Directory domain, and verified domain authentication.
 
-**Lab 03 – Active Directory User Account Management**
+### Lab 03 – Active Directory User Account Management
 
-- Created and managed Active Directory user accounts by creating users, testing domain logins, configuring account properties, forcing password changes, resetting passwords, disabling accounts, and deleting user accounts while verifying each change from a domain-joined Windows 11 workstation.
+Created and managed Active Directory user accounts while practicing password resets, forced password changes, account disabling, account deletion, and domain authentication testing from Windows 11.
 
-**Lab 04 – Group Policy Management**
+### Lab 04 – Group Policy Management
 
-- Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Configured desktop wallpaper deployment, restricted Control Panel and Command Prompt access, implemented an interactive logon banner, and verified policy application while troubleshooting Group Policy deployment using `gpupdate` and `gpresult`.
+Created Organizational Units (OUs) and Group Policy Objects (GPOs) to centrally manage domain users and computers. Deployed desktop settings, system restrictions, and a login banner while troubleshooting Group Policy application.
 
-**Lab 05 – Domain Password & Account Lockout Policies**
+### Lab 05 – Domain Password & Account Security Policies
 
-- Configured domain-wide password and account security policies through the Default Domain Policy, including password complexity, minimum password length, password history, maximum password age, account lockout threshold, lockout duration, and lockout counter reset settings. Tested the policies from a domain-joined Windows 11 workstation and practiced identifying and unlocking a locked Active Directory user account.
+Configured domain-wide password and account lockout policies through the Default Domain Policy. Tested password requirements, account lockouts, workstation locking, and Active Directory account recovery from a domain-joined workstation.
 
-**Lab 06 – File Sharing & NTFS Permissions**
+### Lab 06 – Windows File Sharing & NTFS Permissions
 
-- Created an Active Directory security group to manage access to an Accounting departmental shared folder. Configured NTFS and share permissions, tested authorized and unauthorized user access from a domain-joined Windows 11 workstation, granted access through security group membership, and mapped the Accounting network share as a `Z:` drive. Troubleshot a permissions issue by identifying the difference between NTFS and share permissions and correcting the user's effective network access.
+Created and secured an Accounting network share using Active Directory security groups, NTFS permissions, and share permissions. Tested authorized and unauthorized access and troubleshot effective network permissions.
 
-## The purpose of this repository is to:
+### Lab 07 – Deploying Network Drives with Group Policy
+
+Automated deployment of the Accounting network drive using Group Policy Preferences. Configured Item-Level Targeting so the drive is automatically mapped only for authorized members of the Accounting Users security group.
+
+### Lab 08 – DNS Administration & Troubleshooting
+
+Configured and tested DNS records including A, CNAME, and PTR records. Practiced forward and reverse DNS resolution using `nslookup` and `ping`, then simulated an incorrect client DNS configuration to diagnose and restore name resolution.
+
+## Repository Goals
+
+The purpose of this repository is to:
 
 - Gain hands-on experience with enterprise IT technologies.
-- Practice troubleshooting and system administration.
-- Improve technical documentation skills.
-- Build a portfolio that demonstrates continuous learning.
-- Expand my knowledge through real-world home lab projects.
+- Practice Windows system and Active Directory administration.
+- Develop structured troubleshooting skills.
+- Improve technical documentation.
+- Apply IT concepts in a practical lab environment.
+- Build a technical portfolio demonstrating continued learning and hands-on experience.
 
-## Future Labs
+## What's Next
 
-This repository will continue to grow as I build new projects and learn additional technologies. Future labs may include topics such as:
+I plan to continue expanding the environment with projects focused on:
 
-- File Sharing & NTFS Permissions
-- Active Directory Security Groups
-- DNS
-- DHCP
-- Windows Client Management
-- File Server Configuration
-- PowerShell Automation
+- DHCP Server Configuration
+- DHCP & DNS Integration
+- PowerShell Active Directory Administration
+- PowerShell User Provisioning Automation
+- Windows Client Troubleshooting
 - Remote Administration
+- Windows Server Backup & Recovery
 - Linux Administration
-- Networking
-- Microsoft Entra ID *(Azure AD)*
+- Networking Fundamentals
+- Microsoft Entra ID
 - Microsoft 365 Administration
 
 ## Feedback
 
-I'm continuously learning and improving my skills. If you have suggestions for improving my documentation or recommendations for future lab projects, feel free to open an issue or reach out.
+I'm continuously learning and expanding this environment as I develop my IT administration and troubleshooting skills. Suggestions for improvements or future lab projects are always welcome.
