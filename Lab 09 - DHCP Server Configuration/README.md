@@ -66,6 +66,8 @@ After completing the configuration, I activate the DHCP scope so that it can beg
 
 ### *Step 6 - Change Windows 11 from Static to DHCP*
 
+![DHCP Connected](img/DHCP_Connected.png)
+
 ## **Challenges**
 - While testing DHCP on the Windows 11 VM, the client initially received an IP address in the `192.168.56.x` range instead of an address from the `10.1.10.x` scope I configured on Windows Server 2022. I ran `ipconfig /all` and noticed that the DHCP server listed was `192.168.56.100` instead of my Windows Server DHCP server at `10.1.10.2`. I realized that the VirtualBox Host-Only network had its own built-in DHCP service enabled. This meant that both VirtualBox and Windows Server 2022 were capable of responding to DHCP requests on the same virtual network, and the Windows 11 client received its lease from the VirtualBox DHCP server instead of the DHCP server I had just configured.
 - To fix the issue, I disabled the VirtualBox DHCP service for the Host-Only network while keeping both virtual machines connected to the same network. I then released and renewed the Windows 11 client's DHCP lease and verified the new configuration using `ipconfig /all`.
