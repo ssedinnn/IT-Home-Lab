@@ -28,6 +28,16 @@ Installing the DHCP Server role allows the Windows Server to automatically provi
 
 After the installation completes, Server Manager indicates that additional DHCP configuration is required before the server can begin providing addresses to clients.
 
+### *Step 3 - Authorize the DHCP Server*
+
+![DHCP Server Authorization](img/DHCP_Authorization.png)
+
+After installing the DHCP Server role, I complete the DHCP post-installation configuration through **Server Manager**. During this process, I authorize the DHCP server within the Active Directory domain.
+
+I then open the **DHCP Management Console** and verify that the `CA-DC-01` DHCP server is available for configuration.
+
+Authorizing a DHCP server in an Active Directory environment helps ensure that only approved DHCP servers can provide network configuration to domain clients. This reduces the risk of an unauthorized DHCP server distributing incorrect network settings.
+
 ## **Challenges**
 
 ## **What I Learned**
