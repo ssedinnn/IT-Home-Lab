@@ -8,6 +8,10 @@
 
 ## **Steps**
 
+### *Step 1 - Review the Current Static Network Configuration*
+
+
+
 ## **Challenges**
 
 ## **What I Learned**
