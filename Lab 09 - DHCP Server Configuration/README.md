@@ -18,6 +18,10 @@ The workstation is currently configured with a static IPv4 address, meaning its 
 
 Reviewing the existing configuration provides a baseline that I can compare against later when the Windows 11 client is changed to obtain its network configuration automatically through DHCP.
 
+### *Step 2 - Install the DHCP Server Role*
+
+
+
 ## **Challenges**
 
 ## **What I Learned**
