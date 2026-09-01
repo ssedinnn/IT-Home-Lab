@@ -50,6 +50,18 @@ The DHCP scope defines the pool of IPv4 addresses that the server is allowed to 
 
 I keep the default lease duration, which determines how long a client is allowed to use an assigned IP address before the lease must be renewed.
 
+### *Step 5 - Configure DHCP Scope Options*
+
+After creating the DHCP scope, I configure the network information that will be automatically provided to DHCP clients.
+
+I configure the DNS server as `10.1.10.2`, which is the IP address of the Windows Server 2022 domain controller and DNS server, and configure `lab.local` as the DNS domain name.
+
+Because the current VirtualBox lab network does not use a router for external network connectivity, I do not configure a default gateway for this scope.
+
+DHCP scope options allow administrators to centrally provide clients with additional network configuration along with their IP address. This reduces the need to manually configure settings such as DNS on each workstation.
+
+After completing the configuration, I activate the DHCP scope so that it can begin providing leases to clients.
+
 ## **Challenges**
 
 ## **What I Learned**
