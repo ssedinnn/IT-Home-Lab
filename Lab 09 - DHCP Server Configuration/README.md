@@ -52,6 +52,8 @@ I keep the default lease duration, which determines how long a client is allowed
 
 ### *Step 5 - Configure DHCP Scope Options*
 
+![Configure DHCP Scope](img/Configure_DHCP_Scope.png)
+
 After creating the DHCP scope, I configure the network information that will be automatically provided to DHCP clients.
 
 I configure the DNS server as `10.1.10.2`, which is the IP address of the Windows Server 2022 domain controller and DNS server, and configure `lab.local` as the DNS domain name.
