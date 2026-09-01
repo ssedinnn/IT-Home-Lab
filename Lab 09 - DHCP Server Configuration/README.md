@@ -40,6 +40,8 @@ Authorizing a DHCP server in an Active Directory environment helps ensure that o
 
 ### *Step 4 - Create an IPv4 DHCP Scope*
 
+![IPv4 DHCP Scope](img/IPv4_DHCP_Scope.png)
+
 
 ## **Challenges**
 
