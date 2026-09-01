@@ -42,6 +42,13 @@ Authorizing a DHCP server in an Active Directory environment helps ensure that o
 
 ![IPv4 DHCP Scope](img/IPv4_DHCP_Scope.png)
 
+In the **DHCP Management Console**, I expand the DHCP server, right-click **IPv4**, and create a new scope named **Lab Network**.
+
+I configure the scope to provide addresses from `10.1.10.10` through `10.1.10.100` using the subnet mask `255.255.255.0` (`/24`).
+
+The DHCP scope defines the pool of IPv4 addresses that the server is allowed to automatically lease to client devices. I intentionally keep the server's static address of `10.1.10.2` outside of the DHCP address pool to prevent DHCP from assigning that address to another device.
+
+I keep the default lease duration, which determines how long a client is allowed to use an assigned IP address before the lease must be renewed.
 
 ## **Challenges**
 
