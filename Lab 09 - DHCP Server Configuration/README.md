@@ -38,6 +38,9 @@ I then open the **DHCP Management Console** and verify that the `CA-DC-01` DHCP 
 
 Authorizing a DHCP server in an Active Directory environment helps ensure that only approved DHCP servers can provide network configuration to domain clients. This reduces the risk of an unauthorized DHCP server distributing incorrect network settings.
 
+### *Step 4 - Create an IPv4 DHCP Scope*
+
+
 ## **Challenges**
 
 ## **What I Learned**
