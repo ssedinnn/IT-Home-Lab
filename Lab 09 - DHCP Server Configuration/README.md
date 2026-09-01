@@ -10,6 +10,7 @@
 
 ### *Step 1 - Review the Current Static Network Configuration*
 
+![ipconfig](img/ipconfig.png)
 
 
 ## **Challenges**
