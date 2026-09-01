@@ -64,6 +64,8 @@ DHCP scope options allow administrators to centrally provide clients with additi
 
 After completing the configuration, I activate the DHCP scope so that it can begin providing leases to clients.
 
+### *Step 6 - Change Windows 11 from Static to DHCP*
+
 ## **Challenges**
 
 ## **What I Learned**
