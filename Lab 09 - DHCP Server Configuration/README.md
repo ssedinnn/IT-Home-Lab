@@ -21,7 +21,6 @@ Reviewing the existing configuration provides a baseline that I can compare agai
 ### *Step 2 - Install the DHCP Server Role*
 
 
-
 ## **Challenges**
 
 ## **What I Learned**
