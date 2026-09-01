@@ -20,6 +20,7 @@ Reviewing the existing configuration provides a baseline that I can compare agai
 
 ### *Step 2 - Install the DHCP Server Role*
 
+![DHCP Installation](img/DHCP_Installation.png)
 
 ## **Challenges**
 
