@@ -102,7 +102,7 @@ This verifies that the DHCP server provided the Windows 11 client with the corre
 
 This also demonstrates how DHCP and DNS work together in a Windows domain environment. DHCP automatically provides the client with its network configuration, while DNS allows the client to locate domain resources using hostnames.
 
-### *Step 8 - Test DHCP Failure and Recovery*
+### *Step 9 - Test DHCP Failure and Recovery*
 
 ![DHCP Deactivated](img/DHCP_Deactivated.png)
 
