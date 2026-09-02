@@ -2,9 +2,34 @@
 
 ## **Objective**
 
+Learn how to install and configure DHCP Server on Windows Server 2022, create and manage an IPv4 DHCP scope, automatically provide network configuration to a domain-joined Windows 11 workstation, verify DHCP leases, and troubleshoot common DHCP issues.
+
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server Operating System:** Windows Server 2022 (Domain Controller)
+- **Client Operating System:** Windows 11 (Domain-joined workstation)
+- **Core Services & Roles:** Active Directory Domain Services (AD DS), DNS Server, DHCP Server
+- **Management Tools:** Server Manager, DHCP Management Console, Command Prompt
+- **Domain:** `lab.local`
+- **Network:** `10.1.10.0/24`
+
 ## **Skills Demonstrated**
+
+- Installing and configuring the Windows Server DHCP role
+- Authorizing a DHCP server in Active Directory
+- Creating and configuring IPv4 DHCP scopes
+- Configuring DHCP address pools and lease settings
+- Configuring DHCP scope options
+- Providing DNS configuration through DHCP
+- Configuring Windows clients to obtain IP addresses automatically
+- Using `ipconfig /release`, `ipconfig /renew`, and `ipconfig /all`
+- Monitoring active DHCP leases
+- Testing DHCP and DNS integration
+- Identifying APIPA (`169.254.x.x`) addresses
+- Simulating and troubleshooting DHCP failures
+- Identifying and resolving competing DHCP servers
+- Troubleshooting VirtualBox Host-Only networking
 
 ## **Steps**
 
@@ -114,19 +139,11 @@ This also demonstrates how DHCP and DNS work together in a Windows domain enviro
 
 After confirming that the Windows 11 client was successfully receiving an IP address from the Windows Server DHCP service, I intentionally created a DHCP failure to practice troubleshooting.
 
-In the Windows Server 2022 VM, I opened **DHCP Manager**, right-clicked the `10.1.10.0 Lab Network` scope, and selected **Deactivate**. Deactivating the scope prevents the DHCP server from assigning new addresses or renewing leases from that scope.
+In the Windows Server 2022 VM, I opened **DHCP Manager**, right-clicked the `10.1.10.0 Lab Network` scope, and selected **Deactivate**. Deactivating the scope prevents the DHCP server from assigning new addresses or renewing leases from that scope. On the Windows 11 VM, I opened **Command Prompt** and ran `ipconfig /release` to release the client's existing DHCP lease. I then ran `ipconfig /renew` to request a new IP address. Because the DHCP scope was deactivated, the client was unable to contact an available DHCP server and the request timed out.
 
-On the Windows 11 VM, I opened **Command Prompt** and ran `ipconfig /release` to release the client's existing DHCP lease. I then ran `ipconfig /renew` to request a new IP address.
+I then used `ipconfig /all` to examine the client's network configuration. Since Windows was configured to obtain an IP address automatically but could not receive one from DHCP, it assigned itself an **Automatic Private IP Addressing (APIPA)** address in the `169.254.x.x` range instead of an address from the `10.1.10.0/24` network. Seeing an APIPA address is a useful troubleshooting indicator because it can indicate that a DHCP-enabled client was unable to successfully obtain a lease from a DHCP server.
 
-Because the DHCP scope was deactivated, the client was unable to contact an available DHCP server and the request timed out.
-
-I then used `ipconfig /all` to examine the client's network configuration. Since Windows was configured to obtain an IP address automatically but could not receive one from DHCP, it assigned itself an **Automatic Private IP Addressing (APIPA)** address in the `169.254.x.x` range instead of an address from the `10.1.10.0/24` network.
-
-Seeing an APIPA address is a useful troubleshooting indicator because it can indicate that a DHCP-enabled client was unable to successfully obtain a lease from a DHCP server.
-
-To resolve the issue, I returned to **DHCP Manager** on Windows Server 2022 and reactivated the DHCP scope. I then returned to the Windows 11 VM and renewed its network configuration.
-
-After the DHCP scope was restored, the Windows 11 client successfully received the IPv4 address `10.1.10.11` from the DHCP server at `10.1.10.2`. The client also received the correct subnet mask, DNS server, DNS suffix, and DHCP lease information.
+To resolve the issue, I returned to **DHCP Manager** on Windows Server 2022 and reactivated the DHCP scope. I then returned to the Windows 11 VM and renewed its network configuration. After the DHCP scope was restored, the Windows 11 client successfully received the IPv4 address `10.1.10.11` from the DHCP server at `10.1.10.2`. The client also received the correct subnet mask, DNS server, DNS suffix, and DHCP lease information.
 
 This test demonstrated how a DHCP failure affects a Windows client and how tools such as `ipconfig /release`, `ipconfig /renew`, and `ipconfig /all` can be used to identify and troubleshoot DHCP connectivity problems. It also demonstrated how an APIPA address can help identify a situation where a DHCP client is unable to obtain a valid lease.
 
@@ -138,4 +155,20 @@ This test demonstrated how a DHCP failure affects a Windows client and how tools
 
 - While troubleshooting further, I checked the running processes on the host computer and discovered that the **VirtualBox DHCP Server** process was still running even though the DHCP server had been disabled in VirtualBox's network settings. After fully stopping VirtualBox and restarting the environment, the updated configuration took effect. I then renewed the Windows 11 client's DHCP lease and verified with `ipconfig /all` that it received the address `10.1.10.11` from the correct DHCP server at `10.1.10.2`. The client also received `10.1.10.2` as its DNS server, confirming that the Windows Server DHCP scope and scope options were being applied successfully.
 
+## **What I Learned**
+
+- I learned how DHCP automatically assigns IP addresses and other network configuration to client devices.
+- I learned how to install and authorize the DHCP Server role within an Active Directory environment.
+- I learned how to create an IPv4 DHCP scope and define the range of addresses available for clients.
+- I learned how DHCP scope options can automatically provide clients with settings such as DNS servers and domain names.
+- I learned how to configure a Windows 11 workstation to obtain its IP address and DNS configuration automatically.
+- I learned how to use `ipconfig /release`, `ipconfig /renew`, and `ipconfig /all` to test and troubleshoot DHCP configuration.
+- I learned how to use the DHCP Management Console to identify active leases and determine which addresses have been assigned to clients.
+- I learned that an APIPA address in the `169.254.x.x` range can indicate that a DHCP-enabled client was unable to obtain a valid lease.
+- I learned how DHCP and DNS work together by allowing clients to automatically receive network configuration while still resolving resources within the Active Directory domain.
+- I learned how multiple DHCP servers on the same network can cause clients to receive configuration from an unintended server.
+- I learned how virtualization networking can affect DHCP testing and how to identify when VirtualBox's built-in DHCP service is interfering with a Windows Server DHCP environment.
+
 ## **Next Steps**
+
+In the next lab, I will continue expanding the networking side of my Active Directory home lab by working with additional Windows Server and network administration features. Future labs will build on the DNS and DHCP services configured in this environment while introducing more troubleshooting and administrative tasks.
