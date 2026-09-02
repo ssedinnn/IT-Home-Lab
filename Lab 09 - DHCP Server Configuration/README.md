@@ -78,6 +78,18 @@ I also verify that the client received `10.1.10.2` as its DNS server, confirming
 
 This demonstrates how DHCP allows administrators to centrally provide network configuration to client devices without manually assigning an IP address and DNS settings to every workstation.
 
+### *Step 7 - Verify the DHCP Lease*
+
+![DHCP Address Lease](img/DHCP_Lease.png)
+
+After the Windows 11 client receives its network configuration, I return to the **DHCP Management Console** on Windows Server 2022 and navigate to the **Address Leases** section of the Lab Network scope.
+
+I verify that the Windows 11 workstation appears as an active DHCP client and confirm the IPv4 address that was leased to the device.
+
+The DHCP lease information allows administrators to identify which devices have received addresses from the DHCP server and view information such as the assigned IP address, client name, and lease expiration.
+
+This confirms that the Windows 11 client successfully communicated with the DHCP server and received an address from the configured scope.
+
 ## **Challenges**
 
 - While testing the DHCP configuration, the Windows 11 client initially received an IP address in the `192.168.56.x` range instead of an address from the `10.1.10.x` DHCP scope configured on Windows Server. Running `ipconfig /all` showed that the client was receiving its lease from `192.168.56.100` rather than my Windows Server DHCP server at `10.1.10.2`.
