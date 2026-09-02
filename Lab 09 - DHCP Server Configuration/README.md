@@ -102,6 +102,34 @@ This verifies that the DHCP server provided the Windows 11 client with the corre
 
 This also demonstrates how DHCP and DNS work together in a Windows domain environment. DHCP automatically provides the client with its network configuration, while DNS allows the client to locate domain resources using hostnames.
 
+### *Step 8 - Test DHCP Failure and Recovery*
+
+![DHCP Deactivated](img/DHCP_Deactivated.png)
+
+![DHCP Failure](img/DHCP_Failure.png)
+
+![DHCP Error](img/DHCP_Error.png)
+
+![DHCP Fixed](img/DHCP_Fixed.png)
+
+After confirming that the Windows 11 client was successfully receiving an IP address from the Windows Server DHCP service, I intentionally created a DHCP failure to practice troubleshooting.
+
+In the Windows Server 2022 VM, I opened **DHCP Manager**, right-clicked the `10.1.10.0 Lab Network` scope, and selected **Deactivate**. Deactivating the scope prevents the DHCP server from assigning new addresses or renewing leases from that scope.
+
+On the Windows 11 VM, I opened **Command Prompt** and ran `ipconfig /release` to release the client's existing DHCP lease. I then ran `ipconfig /renew` to request a new IP address.
+
+Because the DHCP scope was deactivated, the client was unable to contact an available DHCP server and the request timed out.
+
+I then used `ipconfig /all` to examine the client's network configuration. Since Windows was configured to obtain an IP address automatically but could not receive one from DHCP, it assigned itself an **Automatic Private IP Addressing (APIPA)** address in the `169.254.x.x` range instead of an address from the `10.1.10.0/24` network.
+
+Seeing an APIPA address is a useful troubleshooting indicator because it can indicate that a DHCP-enabled client was unable to successfully obtain a lease from a DHCP server.
+
+To resolve the issue, I returned to **DHCP Manager** on Windows Server 2022 and reactivated the DHCP scope. I then returned to the Windows 11 VM and renewed its network configuration.
+
+After the DHCP scope was restored, the Windows 11 client successfully received the IPv4 address `10.1.10.11` from the DHCP server at `10.1.10.2`. The client also received the correct subnet mask, DNS server, DNS suffix, and DHCP lease information.
+
+This test demonstrated how a DHCP failure affects a Windows client and how tools such as `ipconfig /release`, `ipconfig /renew`, and `ipconfig /all` can be used to identify and troubleshoot DHCP connectivity problems. It also demonstrated how an APIPA address can help identify a situation where a DHCP client is unable to obtain a valid lease.
+
 ## **Challenges**
 
 - While testing the DHCP configuration, the Windows 11 client initially received an IP address in the `192.168.56.x` range instead of an address from the `10.1.10.x` DHCP scope configured on Windows Server. Running `ipconfig /all` showed that the client was receiving its lease from `192.168.56.100` rather than my Windows Server DHCP server at `10.1.10.2`.
