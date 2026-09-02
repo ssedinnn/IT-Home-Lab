@@ -90,6 +90,18 @@ The DHCP lease information allows administrators to identify which devices have 
 
 This confirms that the Windows 11 client successfully communicated with the DHCP server and received an address from the configured scope.
 
+### *Step 8 - Verify DNS Resolution After DHCP Configuration*
+
+![DNS Test](img/DNS_Test.png)
+
+After receiving the new network configuration through DHCP, I test whether the Windows 11 workstation can still resolve resources within the Active Directory domain.
+
+I run `nslookup fileserver.lab.local` and verify that the hostname resolves to `10.1.10.2`. I then run `ping fileserver.lab.local` and confirm that the server responds successfully.
+
+This verifies that the DHCP server provided the Windows 11 client with the correct DNS server configuration and that DNS resolution continues to function without manually configuring DNS on the workstation.
+
+This also demonstrates how DHCP and DNS work together in a Windows domain environment. DHCP automatically provides the client with its network configuration, while DNS allows the client to locate domain resources using hostnames.
+
 ## **Challenges**
 
 - While testing the DHCP configuration, the Windows 11 client initially received an IP address in the `192.168.56.x` range instead of an address from the `10.1.10.x` DHCP scope configured on Windows Server. Running `ipconfig /all` showed that the client was receiving its lease from `192.168.56.100` rather than my Windows Server DHCP server at `10.1.10.2`.
