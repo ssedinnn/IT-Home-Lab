@@ -10,7 +10,7 @@
 
 ### *Step 1 — Load the Active Directory PowerShell Module*
 
-![Active Directory PowerShell Module](img/.png)
+![Active Directory PowerShell Module](img/AD_Powershell_Module.png)
 
 In the Windows Server 2022 VM, I opened **Windows PowerShell as Administrator** and ran `Get-Module -ListAvailable ActiveDirectory` to check whether the Active Directory PowerShell module is available on the server.
 
