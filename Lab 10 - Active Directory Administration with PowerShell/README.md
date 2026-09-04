@@ -72,6 +72,7 @@ After running the command successfully, I open **Active Directory Users and Comp
 
 
 ## **Challenges**
+While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
 ## **What I Learned**
 
