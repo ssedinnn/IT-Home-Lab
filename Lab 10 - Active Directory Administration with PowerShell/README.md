@@ -42,6 +42,33 @@ This step also introduced me to the PowerShell pipeline, which allows the output
 
 ### *Step 3 — Create an Active Directory User with PowerShell*
 
+![ADUser_Powershell](img/ADUser_Powershell.png)
+
+![AD_User_ADUC](img/AD_User_ADUC.png)
+
+In the Windows Server 2022 VM, I use the `New-ADUser` command to create a new Active Directory user account directly through PowerShell. I create a test user named **James Hedge** with the logon name `jhedge`.
+
+I use the following command:
+
+`New-ADUser -Name "James Hedge" 
+-GivenName "James" 
+-Surname "Hedge" 
+-SamAccountName "jhedge" 
+-UserPrincipalName "jhedge@lab.local" 
+-Path "OU=Accounting,DC=lab,DC=local" 
+-AccountPassword (Read-Host -AsSecureString "Enter Password") 
+-Enabled $true`
+
+The `New-ADUser` command creates the account, while the additional parameters define information such as the user's first name, last name, logon name, password, and location within Active Directory.
+
+The `-Path` parameter specifies where the account should be created. I use the Distinguished Name `OU=Accounting,DC=lab,DC=local`, which places the new user inside the **Accounting Organizational Unit** within the `lab.local` domain.
+
+The password is entered through `Read-Host -AsSecureString`, which allows me to type the password without displaying it directly in the PowerShell window. I also use `-Enabled $true` so the account is enabled immediately after it is created.
+
+After running the command successfully, I open **Active Directory Users and Computers** and navigate to the **Accounting OU** to verify that the new `James Hedge` user account was created in the correct location.
+
+
+
 ## **Challenges**
 
 ## **What I Learned**
