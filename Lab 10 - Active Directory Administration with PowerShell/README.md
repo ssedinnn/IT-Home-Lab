@@ -40,6 +40,8 @@ Using PowerShell to query Active Directory allows administrators to quickly retr
 
 This step also introduced me to the PowerShell pipeline, which allows the output of one command to be passed into another command for additional processing.
 
+### *Step 3 — Create an Active Directory User with PowerShell*
+
 ## **Challenges**
 
 ## **What I Learned**
