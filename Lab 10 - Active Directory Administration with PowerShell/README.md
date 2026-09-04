@@ -50,14 +50,16 @@ In the Windows Server 2022 VM, I use the `New-ADUser` command to create a new Ac
 
 I use the following command:
 
-`New-ADUser -Name "James Hedge" 
--GivenName "James" 
--Surname "Hedge" 
--SamAccountName "jhedge" 
--UserPrincipalName "jhedge@lab.local" 
--Path "OU=Accounting,DC=lab,DC=local" 
--AccountPassword (Read-Host -AsSecureString "Enter Password") 
--Enabled $true`
+```powershell
+New-ADUser -Name "James Hedge" `
+    -GivenName "James" `
+    -Surname "Hedge" `
+    -SamAccountName "jhedge" `
+    -UserPrincipalName "jhedge@lab.local" `
+    -Path "OU=Accounting,DC=lab,DC=local" `
+    -AccountPassword (Read-Host -AsSecureString "Enter Password") `
+    -Enabled $true
+```
 
 The `New-ADUser` command creates the account, while the additional parameters define information such as the user's first name, last name, logon name, password, and location within Active Directory.
 
