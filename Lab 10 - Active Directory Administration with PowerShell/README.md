@@ -121,6 +121,33 @@ The output confirms that **James Hedge (`jhedge`)** is now a member of the **Acc
 
 ### *Step 6 — Reset a User Password with PowerShell*
 
+![Reset Password Powershell](img/Reset_Password_Powershell.png)
+
+![Reset Password Confirmed](img/Reset_Password_Confirmed.png)
+
+In the Windows Server 2022 VM, I use PowerShell to reset the password for the `jhedge` account. Instead of entering the new password directly into the command, I use `Read-Host -AsSecureString` so PowerShell prompts me to enter it securely.
+
+I use the following command:
+
+```powershell
+Set-ADAccountPassword -Identity jhedge -Reset `
+    -NewPassword (Read-Host -AsSecureString "Enter New Password")
+```
+
+The `Set-ADAccountPassword` command allows me to change the password of an Active Directory account. The `-Identity` parameter specifies the `jhedge` account, while `-Reset` indicates that I am performing an administrative password reset rather than changing the password using the user's existing password.
+
+The `-NewPassword` parameter specifies the new password, and `Read-Host -AsSecureString` prompts me to enter it without displaying the password in plain text in the PowerShell window.
+
+After resetting the password, I configure the account to require a password change the next time the user logs in:
+
+```powershell
+Set-ADUser -Identity jhedge -ChangePasswordAtLogon $true
+```
+
+The `-ChangePasswordAtLogon $true` parameter enables the **User must change password at next logon** setting for the account. This allows an administrator to provide a temporary password while requiring the user to create their own password when they next sign in.
+
+This demonstrates how common account support tasks such as password resets and forced password changes can be performed directly through PowerShell instead of Active Directory Users and Computers.
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
