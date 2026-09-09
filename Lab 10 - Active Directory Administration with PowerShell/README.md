@@ -119,6 +119,8 @@ The `Get-ADGroupMember` command retrieves the members of the **Accounting Users*
 
 The output confirms that **James Hedge (`jhedge`)** is now a member of the **Accounting Users** security group, verifying that the group membership was successfully changed through PowerShell.
 
+### *Step 6 — Reset a User Password with PowerShell*
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
