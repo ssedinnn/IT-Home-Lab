@@ -96,6 +96,8 @@ The output confirms that **James Hedge** now has **Accounting** listed as his de
 
 ### *Step 5 — Manage Active Directory Group Membership with PowerShell*
 
+![Manage Group Powershell](img/Manage_Group_Powershell.png)
+
 In the Windows Server 2022 VM, I use PowerShell to add the `jhedge` account to the existing **Accounting Users** security group. This allows me to manage group membership without opening Active Directory Users and Computers.
 
 I use the following command:
