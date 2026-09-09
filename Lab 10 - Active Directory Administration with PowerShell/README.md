@@ -71,6 +71,8 @@ After running the command successfully, I open **Active Directory Users and Comp
 
 ### *Step 4 — Modifying an Active Directory User with PowerShell*
 
+![Modifying AD User](img/Modifying_AD_User.png)
+
 In the Windows Server 2022 VM, I use the `Set-ADUser` command to modify an existing Active Directory user account. I update the **Department** attribute for the `jhedge` account and set it to **Accounting**.
 
 I use the following command:
