@@ -87,7 +87,7 @@ After making the change, I verify the updated information with:
 
 ```powershell
 Get-ADUser jhedge -Properties Department |
-Select-Object Name, SamAccountName, Department
+    Select-Object Name, SamAccountName, Department
 ```
 
 The `-Properties Department` parameter tells `Get-ADUser` to retrieve the user's **Department** attribute in addition to the properties it normally returns. I then use the pipeline (`|`) to send the result to `Select-Object` and display only the user's name, logon name, and department.
