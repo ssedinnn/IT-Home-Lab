@@ -69,7 +69,28 @@ The password is entered through `Read-Host -AsSecureString`, which allows me to 
 
 After running the command successfully, I open **Active Directory Users and Computers** and navigate to the **Accounting OU** to verify that the new `James Hedge` user account was created in the correct location.
 
+### *Step 4 — Modifying an Active Directory User with PowerShell*
 
+In the Windows Server 2022 VM, I use the `Set-ADUser` command to modify an existing Active Directory user account. I update the **Department** attribute for the `jhedge` account and set it to **Accounting**.
+
+I use the following command:
+
+```powershell
+Set-ADUser jhedge -Department "Accounting"
+```
+
+The `Set-ADUser` command allows me to modify properties of an existing Active Directory user. In this command, `jhedge` identifies the account I want to modify, while the `-Department` parameter specifies which user attribute I want to change.
+
+After making the change, I verify the updated information with:
+
+```powershell
+Get-ADUser jhedge -Properties Department |
+    Select-Object Name, SamAccountName, Department
+```
+
+The `-Properties Department` parameter tells `Get-ADUser` to retrieve the user's **Department** attribute in addition to the properties it normally returns. I then use the pipeline (`|`) to send the result to `Select-Object` and display only the user's name, logon name, and department.
+
+The output confirms that **James Hedge** now has **Accounting** listed as his department, verifying that the account was successfully modified through PowerShell.
 
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
