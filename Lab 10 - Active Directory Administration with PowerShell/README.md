@@ -94,6 +94,29 @@ The `-Properties Department` parameter tells `Get-ADUser` to retrieve the user's
 
 The output confirms that **James Hedge** now has **Accounting** listed as his department, verifying that the account was successfully modified through PowerShell.
 
+### *Step 5 — Manage Active Directory Group Membership with PowerShell*
+
+In the Windows Server 2022 VM, I use PowerShell to add the `jhedge` account to the existing **Accounting Users** security group. This allows me to manage group membership without opening Active Directory Users and Computers.
+
+I use the following command:
+
+```powershell
+Add-ADGroupMember -Identity "Accounting Users" -Members jhedge
+```
+
+The `Add-ADGroupMember` command adds one or more Active Directory objects to a group. The `-Identity` parameter identifies the group I want to modify, while `-Members` identifies the user account I want to add.
+
+I then verify the membership by running:
+
+```powershell
+Get-ADGroupMember -Identity "Accounting Users" |
+    Select-Object Name, SamAccountName
+```
+
+The `Get-ADGroupMember` command retrieves the members of the **Accounting Users** group. I use the pipeline (`|`) to pass the results to `Select-Object` and display only the name and logon name of each member.
+
+The output confirms that **James Hedge (`jhedge`)** is now a member of the **Accounting Users** security group, verifying that the group membership was successfully changed through PowerShell.
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
