@@ -188,7 +188,7 @@ Disabling an account instead of immediately deleting it allows an administrator 
 
 ### *Step 8 — Query Active Directory Objects with PowerShell*
 
-![Query AD Computers](img/Query_AD_Computers.png)
+![Query AD Computers](img/Query_AD_Computer.png)
 
 ![Query AD OU](img/Query_AD_OU.png)
 
