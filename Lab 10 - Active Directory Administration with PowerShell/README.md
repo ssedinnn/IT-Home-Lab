@@ -248,6 +248,36 @@ The `-SearchBase` parameter tells PowerShell where in Active Directory to begin 
 
 The output shows the user accounts stored in the Accounting OU, including the `jhedge` account I created earlier in this lab. This demonstrates how PowerShell can be used to narrow Active Directory searches to specific locations and return only the information needed.
 
+### *Step 9 — Remove an Active Directory User with PowerShell*
+
+In the Windows Server 2022 VM, I use PowerShell to remove the `jhedge` test account that I created earlier in the lab.
+
+I use the following command:
+
+```powershell
+Remove-ADUser -Identity jhedge
+```
+
+The `Remove-ADUser` command deletes a user object from Active Directory. The `-Identity` parameter specifies the account I want to remove.
+
+After running the command, PowerShell displays a confirmation prompt before deleting the account. The prompt also shows the full Distinguished Name of the user object:
+
+```text
+CN=James Hedge,OU=Accounting,DC=lab,DC=local
+```
+
+I confirm the deletion by entering `y`.
+
+After removing the account, I verify that it no longer exists by running:
+
+```powershell
+Get-ADUser jhedge
+```
+
+PowerShell returns an error stating that it cannot find an object with the identity `jhedge` in the `lab.local` domain. In this case, the error confirms that the user account was successfully removed from Active Directory.
+
+This step completes the cleanup of the test user account used throughout the lab.
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
