@@ -186,6 +186,8 @@ Enable-ADAccount -Identity jhedge
 
 Disabling an account instead of immediately deleting it allows an administrator to prevent access while preserving the user's account, group memberships, and other Active Directory information.
 
+### *Step 8 — Query Active Directory Objects with PowerShell*
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
