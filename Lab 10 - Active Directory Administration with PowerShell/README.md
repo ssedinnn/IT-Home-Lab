@@ -148,6 +148,44 @@ The `-ChangePasswordAtLogon $true` parameter enables the **User must change pass
 
 This demonstrates how common account support tasks such as password resets and forced password changes can be performed directly through PowerShell instead of Active Directory Users and Computers.
 
+### *Step 7 — Disable and Re-Enable an Active Directory Account with PowerShell*
+
+![AD User Enabled](img/AD_User_Enabled.png)
+
+![AD User Disabled](img/AD_User_Disabled.png)
+
+In the Windows Server 2022 VM, I use PowerShell to disable and re-enable the `jhedge` Active Directory account. I first check the current status of the account with:
+
+```powershell
+Get-ADUser jhedge | Select-Object Name, Enabled
+```
+
+The `Get-ADUser` command retrieves the `jhedge` account, and I use the pipeline (`|`) with `Select-Object` to display only the user's name and enabled status. The output shows **True**, confirming that the account is currently enabled.
+
+I then disable the account using:
+
+```powershell
+Disable-ADAccount -Identity jhedge
+```
+
+The `Disable-ADAccount` command prevents the account from being used to sign in while keeping the user object and its information in Active Directory. The `-Identity` parameter specifies which account I want to disable.
+
+After disabling the account, I run the previous `Get-ADUser` command again:
+
+```powershell
+Get-ADUser jhedge | Select-Object Name, Enabled
+```
+
+The output now shows **False**, confirming that the `jhedge` account was successfully disabled.
+
+I can re-enable the account using:
+
+```powershell
+Enable-ADAccount -Identity jhedge
+```
+
+Disabling an account instead of immediately deleting it allows an administrator to prevent access while preserving the user's account, group memberships, and other Active Directory information.
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
