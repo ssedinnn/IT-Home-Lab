@@ -2,9 +2,37 @@
 
 ## **Objective**
 
+Learn how to use PowerShell to perform common Active Directory administrative tasks instead of relying only on graphical management tools. This lab focuses on using the Active Directory PowerShell module to query AD objects, create and modify users, manage group membership, reset passwords, disable and enable accounts, and remove users.
+
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server OS:** Windows Server 2022 (Domain Controller)
+- **Client OS:** Windows 11 (Domain-joined workstation)
+- **Domain:** `lab.local`
+- **Domain Controller:** `CA-DC-01`
+- **Active Directory:** Active Directory Domain Services (AD DS)
+- **Management Tools:** Windows PowerShell, Active Directory Users and Computers (ADUC)
+- **PowerShell Module:** ActiveDirectory
+
 ## **Skills Demonstrated**
+
+- Active Directory administration with PowerShell
+- Loading and using the Active Directory PowerShell module
+- Querying Active Directory users, computers, groups, and Organizational Units
+- Creating Active Directory users with `New-ADUser`
+- Understanding and using Distinguished Names
+- Modifying user attributes with `Set-ADUser`
+- Managing security group membership with PowerShell
+- Resetting user passwords securely with `Set-ADAccountPassword`
+- Requiring password changes at next logon
+- Disabling and enabling Active Directory accounts
+- Using `-Filter` to retrieve specific Active Directory objects
+- Using `-SearchBase` to search within a specific Organizational Unit
+- Using the PowerShell pipeline (`|`) and `Select-Object`
+- Removing Active Directory users with `Remove-ADUser`
+- Reading and troubleshooting PowerShell error messages
+- Verifying PowerShell changes through command output and ADUC
 
 ## **Steps**
 
@@ -285,4 +313,24 @@ While creating a new Active Directory user with PowerShell, I initially misspell
 
 ## **What I Learned**
 
+- How PowerShell can be used to perform common Active Directory administrative tasks without relying entirely on graphical tools.
+- How PowerShell commands generally follow a **Verb-Noun** naming structure, such as `Get-ADUser`, `Set-ADUser`, and `Remove-ADUser`.
+- How to use the Active Directory PowerShell module to work with users, groups, computers, and Organizational Units.
+- How parameters can be used to control what a PowerShell command does and which Active Directory object it affects.
+- How the PowerShell pipeline (`|`) passes results from one command into another command for additional processing.
+- How `Select-Object` can be used to display only the properties that are useful for a specific task.
+- How Distinguished Names represent the location of objects within the Active Directory hierarchy.
+- How `-Path` can specify where an object should be created, while `-SearchBase` can specify where PowerShell should search.
+- How `-Filter` can narrow Active Directory queries instead of returning every object.
+- How to securely enter a password using `Read-Host -AsSecureString` instead of placing a password directly in a command.
+- How PowerShell can be used for common account support tasks such as password resets, forced password changes, disabling accounts, and managing group membership.
+- How to use command output to verify that an administrative change was successfully applied.
+- How PowerShell error messages can help identify syntax and parameter mistakes.
+
 ## **Next Steps**
+
+- Build on the PowerShell commands learned in this lab by creating a script that can perform multiple Active Directory tasks automatically.
+- Learn how to use variables and additional PowerShell scripting concepts.
+- Create multiple Active Directory users from a CSV file instead of creating each account individually.
+- Automate user properties, OU placement, passwords, and group membership during account creation.
+- Continue developing PowerShell skills for Active Directory administration and user provisioning.
