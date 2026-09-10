@@ -188,6 +188,66 @@ Disabling an account instead of immediately deleting it allows an administrator 
 
 ### *Step 8 — Query Active Directory Objects with PowerShell*
 
+![Query AD Computers](img/Query_AD_Computers.png)
+
+![Query AD OU](img/Query_AD_OU.png)
+
+![Query AD Groups](img/Query_AD_Groups.png)
+
+![Query AD Disabled Users](img/Query_AD_Disabled_Users.png)
+
+![Query AD Accounting Users](img/Query_Accounting_Users.png)
+
+In the Windows Server 2022 VM, I use PowerShell to query different types of objects and information stored in Active Directory. This allows me to quickly retrieve information about computers, Organizational Units, groups, and users without manually searching through Active Directory Users and Computers.
+
+I first query the computer accounts in the domain:
+
+```powershell
+Get-ADComputer -Filter * |
+    Select-Object Name, Enabled
+```
+
+The `Get-ADComputer` command retrieves computer objects from Active Directory. I use `-Filter *` to retrieve all computer accounts and then pass the results through the pipeline (`|`) to `Select-Object`, which displays only the computer name and enabled status. The output shows both `CA-DC-01` and `DESKTOP-01` as enabled computer accounts.
+
+I then query the Organizational Units within the domain:
+
+```powershell
+Get-ADOrganizationalUnit -Filter * |
+    Select-Object Name, DistinguishedName
+```
+
+The `Get-ADOrganizationalUnit` command retrieves the OUs stored in Active Directory. I display both the OU name and its Distinguished Name. This shows the full Active Directory path for each OU, including the **Accounting OU** at `OU=Accounting,DC=lab,DC=local`.
+
+Next, I query the Active Directory groups:
+
+```powershell
+Get-ADGroup -Filter * |
+    Select-Object Name, GroupScope, GroupCategory
+```
+
+The `Get-ADGroup` command retrieves groups from Active Directory. I use `Select-Object` to display each group's name, scope, and category. This allows me to quickly review information about multiple groups without opening each group individually.
+
+I also use a filter to search specifically for disabled user accounts:
+
+```powershell
+Get-ADUser -Filter 'Enabled -eq $false' |
+    Select-Object Name, SamAccountName, Enabled
+```
+
+Instead of using `-Filter *` to return every user, I use the condition `Enabled -eq $false` to return only accounts where the **Enabled** property is set to False. The output shows the disabled `Guest` and `krbtgt` accounts.
+
+Finally, I limit a user search to the **Accounting OU** by using the `-SearchBase` parameter:
+
+```powershell
+Get-ADUser -Filter * `
+    -SearchBase "OU=Accounting,DC=lab,DC=local" |
+    Select-Object Name, SamAccountName, Enabled
+```
+
+The `-SearchBase` parameter tells PowerShell where in Active Directory to begin the search. Instead of searching the entire domain, this command searches within `OU=Accounting,DC=lab,DC=local` and displays the users located there.
+
+The output shows the user accounts stored in the Accounting OU, including the `jhedge` account I created earlier in this lab. This demonstrates how PowerShell can be used to narrow Active Directory searches to specific locations and return only the information needed.
+
 ## **Challenges**
 While creating a new Active Directory user with PowerShell, I initially misspelled the `-SamAccountName` parameter as `-SameAccountName`, which caused the `New-ADUser` command to fail. I reviewed the PowerShell error message, identified the incorrect parameter name, corrected the spelling, and successfully reran the command.
 
