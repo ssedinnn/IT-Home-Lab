@@ -250,6 +250,8 @@ The output shows the user accounts stored in the Accounting OU, including the `j
 
 ### *Step 9 — Remove an Active Directory User with PowerShell*
 
+![Remove AD User](img/Remove_AD_User.png)
+
 In the Windows Server 2022 VM, I use PowerShell to remove the `jhedge` test account that I created earlier in the lab.
 
 I use the following command:
