@@ -10,6 +10,8 @@
 
 ### *Step 1 — Create a CSV File for New Users*
 
+![Create CSV File](img/Create_CSV_File.png)
+
 In the Windows Server 2022 VM, I create a new folder named `Scripts` on the `C:` drive and create a CSV file named `NewUsers.csv`. This file will act as the data source for the Active Directory accounts that I will provision with PowerShell.
 
 I add the following columns to the CSV:
