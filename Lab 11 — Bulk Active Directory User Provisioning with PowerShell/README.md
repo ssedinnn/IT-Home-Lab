@@ -78,6 +78,33 @@ This accesses the third object in the collection and returns its `FirstName` pro
 
 This demonstrates how CSV data can be stored as PowerShell objects and how individual users and properties can be accessed programmatically. This data can now be processed with a loop rather than manually entering information for each user.
 
+### *Step 3 - Test a Powershell 'foreach' Loop*
+
+![Foreach loop](img/Powershell_Foreach_Loop.png)
+
+In the Windows Server 2022 VM, I use a PowerShell `foreach` loop to process each user stored in the `$users` variable. Before using the loop to create Active Directory accounts, I first test it by displaying information from each CSV record.
+
+I use the following command:
+
+```powershell
+foreach ($user in $users) {
+    Write-Host "Processing user:"
+    Write-Host $user.FirstName
+    Write-Host $user.LastName
+    Write-Host $user.Username
+}
+```
+
+The `foreach` loop processes each object stored inside the `$users` collection one at a time. During each iteration, the current user is temporarily stored in the `$user` variable.
+
+This allows me to access individual properties from each CSV record using values such as `$user.FirstName`, `$user.LastName`, and `$user.Username`.
+
+The `Write-Host` command displays the information in the PowerShell window so I can verify that the loop is correctly reading and processing every user from the CSV file.
+
+The output shows the information for Michael Scott, Pam Beesly, and Jim Halpert, confirming that PowerShell successfully processes all three records.
+
+Testing the loop before making changes to Active Directory allows me to verify that the CSV data and loop logic are working correctly before using the same structure to automatically create multiple user accounts.
+
 ## **Challenges**
 
 ## **What I Learned**
