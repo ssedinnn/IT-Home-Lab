@@ -34,6 +34,10 @@ This allows the same PowerShell commands to be applied to multiple users instead
 
 ### *Step 2 — Import the CSV into PowerShell*
 
+![CSV Import](img/CSV_Import.png)
+
+![CSV Object Properties](img/CSV_Object_Properties.png)
+
 In the Windows Server 2022 VM, I open PowerShell as Administrator and use `Import-Csv` to import the user information stored in `NewUsers.csv`. I store the imported data inside a variable named `$users`.
 
 I use the following command:
