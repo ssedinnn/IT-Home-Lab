@@ -105,6 +105,47 @@ The output shows the information for Michael Scott, Pam Beesly, and Jim Halpert,
 
 Testing the loop before making changes to Active Directory allows me to verify that the CSV data and loop logic are working correctly before using the same structure to automatically create multiple user accounts.
 
+### *Step 4 - Bulk Create Active Directory Users with Powershell*
+
+![AD User Creation Script](img/AD_User_Creation_Script.png)
+
+![AD User Creation Check](img/AD_User_Creation_Check.png)
+
+In the Windows Server 2022 VM, I use a PowerShell `foreach` loop to automatically create the Active Directory users stored in the `$users` collection that was imported from the CSV file.
+
+For each user, I enter a unique temporary password and then use the values from the CSV to populate the Active Directory account information.
+
+I use the following script:
+
+```powershell
+foreach ($user in $users) {
+
+    Write-Host "Creating account for $($user.FirstName) $($user.LastName)"
+
+    $Password = Read-Host -AsSecureString "Enter temporary password for $($user.Username)"
+
+    New-ADUser `
+        -Name "$($user.FirstName) $($user.LastName)" `
+        -GivenName $user.FirstName `
+        -Surname $user.LastName `
+        -SamAccountName $user.Username `
+        -UserPrincipalName "$($user.Username)@lab.local" `
+        -Department $user.Department `
+        -Path "OU=$($user.OU),DC=lab,DC=local" `
+        -AccountPassword $Password `
+        -ChangePasswordAtLogon $true `
+        -Enabled $true
+}
+```
+
+The `foreach` loop processes each user in the `$users` collection one at a time. Instead of manually entering the account information for every user, PowerShell reads values such as the first name, last name, username, department, and OU directly from the CSV file.
+
+The `-Path` parameter dynamically builds the Distinguished Name using the OU value from the CSV, while `-AccountPassword` applies the temporary password entered for each user. I also use `-ChangePasswordAtLogon $true` so each user is required to create a new password during their first login.
+
+After running the script, I open **Active Directory Users and Computers** and navigate to the **Accounting OU**. Michael Scott, Pam Beesly, and Jim Halpert appear in the OU, confirming that the accounts were successfully created through PowerShell.
+
+This demonstrates how PowerShell can use CSV data and a loop to provision multiple Active Directory users more efficiently than creating each account manually.
+
 ## **Challenges**
 
 ## **What I Learned**
