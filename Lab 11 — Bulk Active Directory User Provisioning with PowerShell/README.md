@@ -148,6 +148,10 @@ This demonstrates how PowerShell can use CSV data and a loop to provision multip
 
 ### *Step 5 - Assign Security Group Membership with Powershell*
 
+![AD Security Group Powershell](img/AD_Security_Group_Powershell.png)
+
+![AD Security Group Check](img/AD_Security_Group_Check.png)
+
 In the Windows Server 2022 VM, I use a PowerShell `foreach` loop to automatically add each user from the CSV file to the security group specified in their `Group` column.
 
 I use the following commands:
