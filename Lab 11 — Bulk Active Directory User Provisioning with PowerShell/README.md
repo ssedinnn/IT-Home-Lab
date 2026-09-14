@@ -146,6 +146,40 @@ After running the script, I open **Active Directory Users and Computers** and na
 
 This demonstrates how PowerShell can use CSV data and a loop to provision multiple Active Directory users more efficiently than creating each account manually.
 
+### *Step 5 - Assign Security Group Membership with Powershell*
+
+In the Windows Server 2022 VM, I use a PowerShell `foreach` loop to automatically add each user from the CSV file to the security group specified in their `Group` column.
+
+I use the following commands:
+
+```powershell
+foreach ($user in $users) {
+
+    Add-ADGroupMember `
+        -Identity $user.Group `
+        -Members $user.Username
+
+    Write-Host "Added $($user.Username) to $($user.Group)"
+}
+```
+
+The `Add-ADGroupMember` command adds an Active Directory user to a security group. The `-Identity` parameter uses the value stored in `$user.Group` to determine which group should be modified, while the `-Members` parameter uses `$user.Username` to identify the account that should be added.
+
+Because the command is inside a `foreach` loop, PowerShell processes each user from the CSV file and automatically assigns the appropriate group membership without requiring me to manually add each account individually.
+
+The `Write-Host` command displays a confirmation message after each user is processed. The output confirms that `mscott`, `pbeesly`, and `jhalpert` were all added to the **Accounting Users** security group.
+
+After running the loop, I verify the group membership with:
+
+```powershell
+Get-ADGroupMember -Identity "Accounting Users" |
+    Select-Object Name, SamAccountName
+```
+
+The output shows Michael Scott, Pam Beesly, and Jim Halpert as members of the **Accounting Users** group, confirming that the automated group assignment was successful.
+
+This demonstrates how CSV data and PowerShell can be used together to automate security group membership for multiple Active Directory users.
+
 ## **Challenges**
 
 ## **What I Learned**
