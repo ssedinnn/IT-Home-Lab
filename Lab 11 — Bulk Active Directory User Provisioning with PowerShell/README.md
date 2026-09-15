@@ -184,6 +184,47 @@ The output shows Michael Scott, Pam Beesly, and Jim Halpert as members of the **
 
 This demonstrates how CSV data and PowerShell can be used together to automate security group membership for multiple Active Directory users.
 
+### *Step 6 - Export an Active Directory User Report*
+
+![Powershell Export Script](img/Powershell_Export_Script.png)
+
+![Accounting Users Report](img/Accounting_Users_Report.png)
+
+In the Windows Server 2022 VM, I use PowerShell to retrieve user account information from the **Accounting OU** and export the results into a CSV report. This demonstrates how PowerShell can be used to collect and report Active Directory information.
+
+I use the following command:
+
+```powershell
+Get-ADUser -Filter * `
+    -SearchBase "OU=Accounting,DC=lab,DC=local" `
+    -Properties Department, Enabled |
+    Select-Object Name, SamAccountName, Department, Enabled |
+    Export-Csv "C:\Scripts\AccountingUsersReport.csv" -NoTypeInformation
+```
+
+The `Get-ADUser` command retrieves Active Directory user accounts, while `-Filter *` selects all users within the location specified by `-SearchBase`.
+
+The `-SearchBase` parameter limits the search to the Accounting OU:
+
+`OU=Accounting,DC=lab,DC=local`
+
+I use `-Properties Department, Enabled` to retrieve the **Department** and **Enabled** attributes for each user. The results are then passed through the PowerShell pipeline (`|`) to `Select-Object`, where I select the specific information I want included in the report:
+
+- `Name` — Displays the user's full name.
+- `SamAccountName` — Displays the user's domain logon name.
+- `Department` — Displays the department assigned to the account.
+- `Enabled` — Shows whether the Active Directory account is currently enabled.
+
+Finally, I pipe the selected information into `Export-Csv`, which creates the following report:
+
+`C:\Scripts\AccountingUsersReport.csv`
+
+The `-NoTypeInformation` parameter prevents unnecessary PowerShell object type information from being included in the CSV file.
+
+After running the command, I open `AccountingUsersReport.csv` and verify that the users located in the Accounting OU were successfully exported along with their usernames, departments, and account status.
+
+This step demonstrates how the PowerShell pipeline can retrieve Active Directory objects, select specific properties, and export the resulting information into a reusable administrative report.
+
 ## **Challenges**
 
 ## **What I Learned**
