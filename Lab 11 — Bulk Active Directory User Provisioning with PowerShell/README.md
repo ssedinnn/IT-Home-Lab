@@ -225,6 +225,72 @@ After running the command, I open `AccountingUsersReport.csv` and verify that th
 
 This step demonstrates how the PowerShell pipeline can retrieve Active Directory objects, select specific properties, and export the resulting information into a reusable administrative report.
 
+### Step 7: Prevent Duplicate User Creation
+
+![Prevent Dupe Script](img/Prevent_Dupe_Script.png)
+
+![Dupe Script Check](img/Dupe_Script_Check.png)
+
+In the Windows Server 2022 VM, I update the bulk user creation process to check whether a user account already exists before attempting to create it. This makes the script safer to rerun because existing accounts can be skipped while new accounts can still be created from the CSV file.
+
+I first import the user information from `NewUsers.csv`:
+
+```powershell
+$users = Import-Csv "C:\Scripts\NewUsers.csv"
+```
+
+I then use a `foreach` loop to process each user stored in the `$users` variable:
+
+```powershell
+foreach ($user in $users) {
+
+    $existingUser = Get-ADUser `
+        -Filter "SamAccountName -eq '$($user.Username)'"
+
+    if ($existingUser) {
+        Write-Host "User $($user.Username) already exists. Skipping."
+    }
+    else {
+        Write-Host "Creating account for $($user.FirstName) $($user.LastName)"
+
+        $Password = Read-Host -AsSecureString "Enter temporary password for $($user.Username)"
+
+        New-ADUser `
+            -Name "$($user.FirstName) $($user.LastName)" `
+            -GivenName $user.FirstName `
+            -Surname $user.LastName `
+            -SamAccountName $user.Username `
+            -UserPrincipalName "$($user.Username)@lab.local" `
+            -Department $user.Department `
+            -Path "OU=$($user.OU),DC=lab,DC=local" `
+            -AccountPassword $Password `
+            -ChangePasswordAtLogon $true `
+            -Enabled $true
+    }
+}
+```
+
+For each row in the CSV file, `$user` represents the user currently being processed. I use `Get-ADUser` with `-Filter` to search Active Directory for an account whose `SamAccountName` matches the username stored in `$user.Username`.
+
+The result of the search is stored in the `$existingUser` variable:
+
+`$existingUser = Get-ADUser -Filter "SamAccountName -eq '$($user.Username)'"`
+
+I then use an `if/else` statement to decide what should happen:
+
+- `if ($existingUser)` — If a matching Active Directory account is found, the script displays a message that the user already exists and skips creating another account.
+- `else` — If no matching account is found, the script continues with the user creation process.
+
+Inside the `else` block, `Read-Host -AsSecureString` prompts me to enter a temporary password for the new user without displaying the password in plain text. `New-ADUser` then uses the information from the current CSV row to create the account in the appropriate Organizational Unit.
+
+To test both parts of the `if/else` statement, I add **Dwight Schrute** with the username `dschrute` to the CSV file and run the script again.
+
+The existing accounts `mscott`, `pbeesly`, and `jhalpert` are detected and skipped. When the loop reaches `dschrute`, no existing account is found, so the `else` block runs and prompts me for a temporary password before creating the new account.
+
+After the script completes, I open **Active Directory Users and Computers (ADUC)** and navigate to the **Accounting OU**. I verify that Dwight Schrute was successfully created while the existing accounts remained unchanged.
+
+This step demonstrates how conditional logic can be combined with a `foreach` loop and Active Directory cmdlets to make a bulk user creation script safer and reusable by preventing duplicate accounts while still allowing new users to be provisioned.
+
 ## **Challenges**
 
 ## **What I Learned**
