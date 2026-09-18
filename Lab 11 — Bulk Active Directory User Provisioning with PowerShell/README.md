@@ -311,6 +311,50 @@ Testing the account from the Windows 11 client also confirms that the bulk provi
 
 This step demonstrates how a newly provisioned Active Directory account can be tested from a domain-joined workstation to verify authentication and password security settings.
 
+### *Step 9 - Remove Bulk-Created Test Account*
+
+![Disable Account Script](img/Disable_Account_Disable.png)
+
+![Disable Account Check](img/Disable_Account_Check.png)
+
+![Delete Account Script](img/Delete_Account_Script.png)
+
+![Delete Account Check](img/Delete_Account_Check.png)
+
+In the Windows Server 2022 VM, I use PowerShell to remove the test accounts created during the bulk user provisioning lab. Since the user information is already stored in the CSV file, I can reuse the same data to remove each account instead of deleting the users individually through Active Directory Users and Computers.
+
+I first import the users from the CSV file:
+
+```powershell
+$users = Import-Csv "C:\Scripts\NewUsers.csv"
+```
+
+I then use a `foreach` loop to process each user and remove their Active Directory account:
+
+```powershell
+foreach ($user in $users) {
+    Remove-ADUser -Identity $user.Username -Confirm:$false
+}
+```
+
+The `foreach` loop processes each user stored in `$users`, while `$user.Username` retrieves the username from the current row of the CSV file.
+
+I use `Remove-ADUser` to delete the corresponding account from Active Directory:
+
+`Remove-ADUser -Identity $user.Username`
+
+The `-Identity` parameter tells PowerShell which Active Directory user should be removed. Instead of entering each username manually, the value is retrieved from the **Username** column of the CSV file.
+
+I also use the following parameter:
+
+`-Confirm:$false`
+
+By default, `Remove-ADUser` asks for confirmation before deleting an account. Setting `-Confirm` to `$false` disables the individual confirmation prompts, allowing the loop to remove each test account automatically.
+
+After running the loop, I open **Active Directory Users and Computers (ADUC)** and navigate to the **Accounting OU**. I verify that the bulk-created test accounts have been removed while the original accounts and other Active Directory objects remain in place.
+
+This step demonstrates how the same CSV data used for bulk user provisioning can also be reused with a PowerShell loop to efficiently clean up multiple Active Directory test accounts.
+
 ## **Challenges**
 
 ## **What I Learned**
