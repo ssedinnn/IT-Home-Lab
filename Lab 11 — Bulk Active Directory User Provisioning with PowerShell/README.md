@@ -225,7 +225,7 @@ After running the command, I open `AccountingUsersReport.csv` and verify that th
 
 This step demonstrates how the PowerShell pipeline can retrieve Active Directory objects, select specific properties, and export the resulting information into a reusable administrative report.
 
-### Step 7: Prevent Duplicate User Creation
+### Step 7 - Prevent Duplicate User Creation
 
 ![Prevent Dupe Script](img/Prevent_Dupe_Script.png)
 
@@ -290,6 +290,8 @@ The existing accounts `mscott`, `pbeesly`, and `jhalpert` are detected and skipp
 After the script completes, I open **Active Directory Users and Computers (ADUC)** and navigate to the **Accounting OU**. I verify that Dwight Schrute was successfully created while the existing accounts remained unchanged.
 
 This step demonstrates how conditional logic can be combined with a `foreach` loop and Active Directory cmdlets to make a bulk user creation script safer and reusable by preventing duplicate accounts while still allowing new users to be provisioned.
+
+### *Step 8 - Test a Created User Account*
 
 ## **Challenges**
 
