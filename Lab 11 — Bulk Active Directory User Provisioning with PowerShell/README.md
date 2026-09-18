@@ -2,9 +2,39 @@
 
 ## **Objective**
 
+Learn how to use PowerShell and CSV data to automate the creation and management of multiple Active Directory user accounts. This lab focuses on importing user information from a CSV file, using loops and conditional logic, creating users, assigning group membership, exporting user reports, preventing duplicate accounts, testing user authentication, and performing bulk account cleanup.
+
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server OS:** Windows Server 2022 (Domain Controller)
+- **Client OS:** Windows 11 (Domain-joined workstation)
+- **Domain:** `lab.local`
+- **Domain Controller:** `CA-DC-01`
+- **Active Directory:** Active Directory Domain Services (AD DS)
+- **Management Tools:** Windows PowerShell, Active Directory Users and Computers (ADUC)
+- **PowerShell Module:** ActiveDirectory
+- **Data Source:** CSV files
+
 ## **Skills Demonstrated**
+
+- Bulk Active Directory user provisioning with PowerShell
+- Importing user information with `Import-Csv`
+- Working with PowerShell variables, objects, and object properties
+- Processing multiple users with `foreach` loops
+- Creating Active Directory users with `New-ADUser`
+- Using CSV values to populate user attributes and OU placement
+- Assigning security group membership with `Add-ADGroupMember`
+- Querying and verifying group membership with `Get-ADGroupMember`
+- Exporting Active Directory user information with `Export-Csv`
+- Using the PowerShell pipeline (`|`) and `Select-Object`
+- Using `if/else` conditional logic
+- Checking for existing accounts before user creation
+- Testing domain authentication from a Windows 11 workstation
+- Requiring password changes at next logon
+- Disabling multiple accounts with `Disable-ADAccount`
+- Removing multiple accounts with `Remove-ADUser`
+- Troubleshooting PowerShell and CSV errors
 
 ## **Steps**
 
@@ -366,8 +396,33 @@ By default, `Remove-ADUser` asks for confirmation before deleting an account. Se
 After running the removal loop, I return to **Active Directory Users and Computers (ADUC)** and verify that the bulk-created test accounts have been removed while the original accounts and other Active Directory objects remain in place.
 
 This step demonstrates how the same CSV data used to provision multiple Active Directory users can also be reused to perform bulk account management tasks, including disabling and removing accounts through PowerShell.
+
 ## **Challenges**
+
+- While creating `NewUsers.csv`, I initially saved the file as a text file instead of a CSV file, which prevented `Import-Csv` from finding the expected file. I corrected the file extension and verified that the CSV could be successfully imported into PowerShell.
+- While testing my first `foreach` loop, I also missed a closing quotation mark in a `Write-Host` command, which caused PowerShell to return a syntax error and prevented the loop from running. I reviewed the command, corrected the missing quotation mark, and successfully reran the loop.
 
 ## **What I Learned**
 
+- How CSV files can be used as a data source for Active Directory user provisioning.
+- How `Import-Csv` converts CSV rows into PowerShell objects that can be stored in a variable.
+- How to access individual objects and properties using values such as `$users[0]` and `$user.Username`.
+- How a `foreach` loop can process multiple users and apply the same commands to each account.
+- How to use CSV values with `New-ADUser` to automatically populate account information and OU placement.
+- How to securely enter unique temporary passwords with `Read-Host -AsSecureString`.
+- How to automatically assign users to security groups with `Add-ADGroupMember`.
+- How to use the PowerShell pipeline (`|`), `Select-Object`, and `Export-Csv` to create Active Directory reports.
+- How `if/else` conditional logic can check whether an account already exists before attempting to create it.
+- How duplicate-user detection can make a provisioning script safer to rerun.
+- How to test a PowerShell-created account from a domain-joined Windows workstation.
+- How the same CSV data can be reused to perform bulk account management tasks.
+- How to disable multiple accounts with `Disable-ADAccount` and remove them with `Remove-ADUser`.
+- How PowerShell error messages can help identify problems with file paths and script syntax.
+
 ## **Next Steps**
+
+- Build an employee onboarding and offboarding workflow using PowerShell.
+- Automate additional onboarding tasks such as group membership and access to network resources.
+- Practice Role-Based Access Control (RBAC) using department-based security groups.
+- Learn how to delegate common Active Directory administrative tasks using Delegation of Control.
+- Continue improving PowerShell scripts with validation and error handling.
