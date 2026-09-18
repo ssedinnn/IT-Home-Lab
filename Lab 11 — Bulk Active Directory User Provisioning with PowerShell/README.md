@@ -293,6 +293,24 @@ This step demonstrates how conditional logic can be combined with a `foreach` lo
 
 ### *Step 8 - Test a Created User Account*
 
+![Created User Check](img/Created_User_Check.png)
+
+In the Windows 11 VM, I test one of the user accounts created through the PowerShell bulk provisioning process. I select **Other user** and sign in using the `jhalpert` account and the temporary password assigned when the account was created.
+
+During the bulk user creation process, I configured each new account with the following parameter:
+
+```powershell
+-ChangePasswordAtLogon $true
+```
+
+This setting requires the user to create a new password the first time they sign in. After entering the temporary password for `jhalpert`, Windows prompts me to enter and confirm a new password before allowing the account to continue signing in.
+
+This verifies that the account created through PowerShell can successfully authenticate against the `lab.local` domain and that the **change password at next logon** requirement was correctly applied.
+
+Testing the account from the Windows 11 client also confirms that the bulk provisioning process created a usable domain account rather than only verifying its existence from the server.
+
+This step demonstrates how a newly provisioned Active Directory account can be tested from a domain-joined workstation to verify authentication and password security settings.
+
 ## **Challenges**
 
 ## **What I Learned**
