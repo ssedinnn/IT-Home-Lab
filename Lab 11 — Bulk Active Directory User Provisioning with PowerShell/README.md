@@ -313,7 +313,7 @@ This step demonstrates how a newly provisioned Active Directory account can be t
 
 ### *Step 9 - Remove Bulk-Created Test Account*
 
-![Disable Account Script](img/Disable_Account_Disable.png)
+![Disable Account Script](img/Disable_Account_Script.png)
 
 ![Disable Account Check](img/Disable_Account_Check.png)
 
