@@ -8,6 +8,8 @@
 
 ## **Steps**
 
+### *Step 1 - Create the Department and Offboarding Structure*
+
 ## **Challenges**
 
 ## **What I Learned**
