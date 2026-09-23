@@ -1,6 +1,6 @@
 # IT Home Lab
 
-A collection of hands-on IT home lab projects focused on Windows Server, Active Directory, Group Policy, networking, security, PowerShell, and IT troubleshooting.
+A collection of hands-on IT home lab projects focused on Windows Server, Active Directory, Group Policy, networking, security, PowerShell, automation, and IT troubleshooting.
 
 This repository documents my continued development of practical IT support and system administration skills through a virtualized Windows domain environment.
 
@@ -8,7 +8,7 @@ This repository documents my continued development of practical IT support and s
 
 I built this home lab to gain hands-on experience with technologies and administrative tasks commonly encountered in IT support and Windows enterprise environments.
 
-Using Windows Server 2022 and Windows 11 virtual machines, I have built and expanded an Active Directory environment while practicing user administration, Group Policy, account security, file permissions, network resource deployment, DNS, DHCP, PowerShell administration, and troubleshooting.
+Using Windows Server 2022 and Windows 11 virtual machines, I have built and expanded an Active Directory environment while practicing user administration, Group Policy, account security, file permissions, network resource deployment, DNS, DHCP, PowerShell administration, user provisioning automation, and troubleshooting.
 
 Each lab includes step-by-step documentation, screenshots, challenges encountered, troubleshooting performed, and key concepts learned.
 
@@ -50,6 +50,12 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - PowerShell AD User & Group Management
 - PowerShell Filtering, Pipelines & Object Queries
 - Active Directory Account Creation, Modification & Removal with PowerShell
+- CSV-Based Active Directory User Provisioning
+- PowerShell `foreach` Loops & Conditional Logic
+- Bulk User & Security Group Management
+- Active Directory Reporting with PowerShell
+- Duplicate Account Detection
+- PowerShell User Provisioning Automation
 - Virtual Machine & Host-Only Network Configuration
 - Technical Documentation
 
@@ -99,6 +105,13 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Created and modified Active Directory users, managed security group membership, reset passwords, forced password changes, and disabled, enabled, and removed accounts with PowerShell.
 - Practiced PowerShell pipelines, `Select-Object`, filters, `-SearchBase`, Distinguished Names, and command output verification while troubleshooting PowerShell syntax and parameter errors.
 
+### Lab 11 – Bulk Active Directory User Provisioning with PowerShell
+
+- Used CSV data and PowerShell `foreach` loops to automatically provision multiple Active Directory user accounts with user attributes, OU placement, temporary passwords, and forced password changes.
+- Automated security group membership, queried Active Directory account information, and exported user data into a reusable CSV administrative report.
+- Added `if/else` conditional logic to detect and skip existing accounts, preventing duplicate user creation when rerunning the provisioning script.
+- Tested a PowerShell-created account from a Windows 11 domain client and used the original CSV data to bulk disable and remove the test accounts during cleanup.
+
 ## Repository Goals
 
 The purpose of this repository is to:
@@ -106,7 +119,7 @@ The purpose of this repository is to:
 - Gain hands-on experience with enterprise IT technologies.
 - Practice Windows system and Active Directory administration.
 - Develop structured troubleshooting skills.
-- Build PowerShell and automation skills.
+- Build PowerShell scripting and automation skills.
 - Improve technical documentation.
 - Apply IT concepts in a practical lab environment.
 - Build a technical portfolio demonstrating continued learning and hands-on experience.
@@ -115,10 +128,11 @@ The purpose of this repository is to:
 
 I plan to continue expanding the environment with projects focused on:
 
-- PowerShell User Provisioning Automation
-- Employee Onboarding & Offboarding
+- Automated Employee Onboarding & Offboarding with PowerShell
+- PowerShell Scripting, Validation & Error Handling
 - Role-Based Access Control (RBAC)
 - Active Directory Delegation of Control
+- PowerShell Help Desk Automation
 - Windows Client Troubleshooting
 - Remote Administration
 - Windows Server Backup & Recovery
@@ -129,4 +143,4 @@ I plan to continue expanding the environment with projects focused on:
 
 ## Feedback
 
-I'm continuously learning and expanding this environment as I develop my IT administration, PowerShell, networking, and troubleshooting skills. Suggestions for improvements or future lab projects are always welcome.
+I'm continuously learning and expanding this environment as I develop my IT administration, PowerShell, automation, networking, and troubleshooting skills. Suggestions for improvements or future lab projects are always welcome.
