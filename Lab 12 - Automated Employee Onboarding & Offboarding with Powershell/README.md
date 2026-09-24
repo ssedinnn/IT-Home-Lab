@@ -43,6 +43,46 @@ This creates the following structure for the onboarding process:
 
 With this structure in place, the PowerShell onboarding script can later determine the appropriate OU and security group based on the employee's department. The **Disabled Users OU** will also be used during the offboarding portion of the lab to separate disabled employee accounts from active users.
 
+### *Step 2 - Create the Employee Onboarding Powershell Script*
+
+In the Windows Server 2022 VM, I begin building a reusable PowerShell script for employee onboarding. Instead of entering each administrative command manually into PowerShell, I create a script named `New-Employee.ps1` and save it in the existing `C:\Scripts` folder.
+
+The script is saved at:
+
+`C:\Scripts\New-Employee.ps1`
+
+I start the script by loading the Active Directory PowerShell module:
+
+```powershell
+Import-Module ActiveDirectory
+```
+
+I then use `Read-Host` to collect information about the employee being onboarded:
+
+```powershell
+$FirstName = Read-Host "Enter employee first name"
+$LastName = Read-Host "Enter employee last name"
+$Username = Read-Host "Enter employee username"
+$Department = Read-Host "Enter employee department"
+```
+
+Each value entered by the administrator is stored in a PowerShell variable. For example, the employee's username is stored in `$Username`, while the selected department is stored in `$Department`.
+
+I also add several `Write-Host` commands to display the information that was entered:
+
+```powershell
+Write-Host ""
+Write-Host "Employee Information"
+Write-Host "--------------------"
+Write-Host "Name: $FirstName $LastName"
+Write-Host "Username: $Username"
+Write-Host "Department: $Department"
+```
+
+At this stage, the script only collects and displays employee information and does not make any changes to Active Directory. This allows me to build and test the onboarding workflow in smaller sections before adding commands that create or modify user accounts.
+
+Creating the onboarding process as a `.ps1` file also allows the script to be saved, modified, and reused for future employees instead of rebuilding the PowerShell commands each time.
+
 ## **Challenges**
 
 ## **What I Learned**
