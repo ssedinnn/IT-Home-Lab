@@ -45,6 +45,10 @@ With this structure in place, the PowerShell onboarding script can later determi
 
 ### *Step 2 - Create the Employee Onboarding Powershell Script*
 
+![Onboarding Script Creation](img/Onboarding_Script_Creation.png)
+
+![Onboarding Script Check](img/Onboarding_Script_Check.png)
+
 In the Windows Server 2022 VM, I begin building a reusable PowerShell script for employee onboarding. Instead of entering each administrative command manually into PowerShell, I create a script named `New-Employee.ps1` and save it in the existing `C:\Scripts` folder.
 
 The script is saved at:
