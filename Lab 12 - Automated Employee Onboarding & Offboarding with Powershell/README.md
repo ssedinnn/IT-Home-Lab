@@ -87,6 +87,68 @@ At this stage, the script only collects and displays employee information and do
 
 Creating the onboarding process as a `.ps1` file also allows the script to be saved, modified, and reused for future employees instead of rebuilding the PowerShell commands each time.
 
+### *Step 3 - Automatically Determine OU and Security Group*
+
+![Department Switch Script](img/Department_Switch_Script.png)
+
+![Department Switch Test](img/Department_Switch_Test.png)
+
+In the Windows Server 2022 VM, I expand the `New-Employee.ps1` onboarding script by adding a `switch` statement. This allows the script to automatically determine the correct Organizational Unit and security group based on the department entered by the administrator.
+
+I add the following `switch` statement after collecting the employee information:
+
+```powershell
+switch ($Department) {
+
+    "Accounting" {
+        $OU = "OU=Accounting,DC=lab,DC=local"
+        $Group = "Accounting Users"
+    }
+
+    "HR" {
+        $OU = "OU=HR,DC=lab,DC=local"
+        $Group = "HR Users"
+    }
+
+    "IT" {
+        $OU = "OU=IT,DC=lab,DC=local"
+        $Group = "IT Users"
+    }
+}
+```
+
+The `switch` statement checks the value stored in `$Department` and runs the block of code that matches the department entered by the administrator.
+
+For example, if I enter:
+
+`IT`
+
+the script automatically stores the following values:
+
+```powershell
+$OU = "OU=IT,DC=lab,DC=local"
+$Group = "IT Users"
+```
+
+This means I only need to provide the employee's department instead of manually entering the appropriate OU path and security group for every new employee.
+
+I also update the output section of the script to display the values selected by the `switch` statement:
+
+```powershell
+Write-Host "OU: $OU"
+Write-Host "Security Group: $Group"
+```
+
+After updating the script, I run `New-Employee.ps1` and test the onboarding process using an employee in the **IT** department. The script correctly selects the IT OU and the `IT Users` security group.
+
+I then run the script again using an employee in the **HR** department. This time, PowerShell automatically changes the selected values to the HR OU and the `HR Users` security group.
+
+Testing two different departments verifies that the `switch` statement is making decisions based on the value stored in `$Department` rather than using a hardcoded OU or security group.
+
+At this stage, the script still does not create an Active Directory account. It now collects employee information and automatically determines where the employee should be placed and which department security group should be assigned.
+
+This step demonstrates how a `switch` statement can be used to add decision-making logic to a PowerShell automation script.
+
 ## **Challenges**
 
 ## **What I Learned**
