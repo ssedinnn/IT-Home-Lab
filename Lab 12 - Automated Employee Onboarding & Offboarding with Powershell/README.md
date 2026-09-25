@@ -149,6 +149,59 @@ At this stage, the script still does not create an Active Directory account. It 
 
 This step demonstrates how a `switch` statement can be used to add decision-making logic to a PowerShell automation script.
 
+### *Step 4 - Add Department Input Validation*
+
+In the Windows Server 2022 VM, I improve the `New-Employee.ps1` onboarding script by adding input validation to the existing `switch` statement. This prevents the script from continuing if the administrator enters a department that is not supported by the onboarding workflow.
+
+I add a `default` block to the existing `switch` statement:
+
+```powershell
+switch ($Department) {
+
+    "Accounting" {
+        $OU = "OU=Accounting,DC=lab,DC=local"
+        $Group = "Accounting Users"
+    }
+
+    "HR" {
+        $OU = "OU=HR,DC=lab,DC=local"
+        $Group = "HR Users"
+    }
+
+    "IT" {
+        $OU = "OU=IT,DC=lab,DC=local"
+        $Group = "IT Users"
+    }
+
+    default {
+        Write-Host "Invalid department. Please enter Accounting, HR, or IT."
+        exit
+    }
+}
+```
+
+The `default` block runs when the value stored in `$Department` does not match any of the available cases in the `switch` statement. This works similarly to an `else` statement by providing an action for any value that was not previously matched.
+
+If an unsupported department is entered, the script displays the following message:
+
+`Invalid department. Please enter Accounting, HR, or IT.`
+
+I also use the `exit` command immediately after the message. This stops the script from continuing with an invalid department and prevents later onboarding commands from attempting to use an empty or incorrect OU and security group.
+
+To test the validation, I run `New-Employee.ps1` and enter `Finance` as the employee's department. Since Finance is not one of the configured departments, PowerShell runs the `default` block, displays the invalid department message, and stops the script before displaying the Employee Information section.
+
+I then run the script again and enter `Accounting` as the department. This time, the input matches a valid case and the script continues normally. PowerShell automatically selects:
+
+`OU=Accounting,DC=lab,DC=local`
+
+and:
+
+`Accounting Users`
+
+This verifies that invalid department values are stopped while valid department values continue through the onboarding workflow.
+
+This step demonstrates how input validation can make a PowerShell automation script safer by preventing unsupported information from being processed before changes are made to Active Directory.
+
 ## **Challenges**
 
 ## **What I Learned**
