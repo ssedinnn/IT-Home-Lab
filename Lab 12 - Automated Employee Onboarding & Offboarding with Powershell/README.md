@@ -151,6 +151,10 @@ This step demonstrates how a `switch` statement can be used to add decision-maki
 
 ### *Step 4 - Add Department Input Validation*
 
+![Default Switch Script](img/Default_Switch_Script.png)
+
+![Default Switch Test](img/Default_Switch_Test.png)
+
 In the Windows Server 2022 VM, I improve the `New-Employee.ps1` onboarding script by adding input validation to the existing `switch` statement. This prevents the script from continuing if the administrator enters a department that is not supported by the onboarding workflow.
 
 I add a `default` block to the existing `switch` statement:
