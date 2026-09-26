@@ -208,6 +208,10 @@ This step demonstrates how input validation can make a PowerShell automation scr
 
 ### *Step 5 - Checking for Existing Username*
 
+![Existing User Script](img/Existing_User_Script.png)
+
+![Existing User Test](img/Existing_User_Test.png)
+
 In the Windows Server 2022 VM, I continue improving the `New-Employee.ps1` onboarding script by adding a check for existing Active Directory usernames. Before creating a new employee account, the script now searches Active Directory to determine whether the requested username is already being used.
 
 I add the following command after the department `switch` statement:
