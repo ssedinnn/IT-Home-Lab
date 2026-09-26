@@ -268,6 +268,78 @@ At this stage, the script validates both the employee's department and username 
 
 ### *Step 6 - Create the Active Directory User Account*
 
+In the Windows Server 2022 VM, I expand the `New-Employee.ps1` onboarding script so it can now create the employee's Active Directory account. At this point in the workflow, the employee's department has already been validated, the correct OU and security group have been selected, and the requested username has been checked to make sure it is available.
+
+Before creating the account, I prompt the administrator to enter a temporary password:
+
+```powershell
+$Password = Read-Host -AsSecureString "Enter temporary password"
+```
+
+The `Read-Host` command collects the password while `-AsSecureString` prevents the password from being stored as normal readable text. The resulting secure password is stored in the `$Password` variable and can then be passed to `New-ADUser`.
+
+I use the following command to create the Active Directory account:
+
+```powershell
+New-ADUser `
+    -Name "$FirstName $LastName" `
+    -GivenName $FirstName `
+    -Surname $LastName `
+    -SamAccountName $Username `
+    -UserPrincipalName "$Username@lab.local" `
+    -Department $Department `
+    -Path $OU `
+    -AccountPassword $Password `
+    -ChangePasswordAtLogon $true `
+    -Enabled $true
+```
+
+Instead of manually entering the employee information directly into `New-ADUser`, the command uses the variables collected and generated earlier in the onboarding script.
+
+The `-Name`, `-GivenName`, and `-Surname` parameters configure the employee's name, while `-SamAccountName` uses the username entered by the administrator. The `-UserPrincipalName` parameter combines the username with the `lab.local` domain to create the employee's user principal name.
+
+The `-Department` parameter stores the employee's selected department in their Active Directory account.
+
+I use:
+
+```powershell
+-Path $OU
+```
+
+to determine where the new account should be created. The value of `$OU` was automatically selected earlier by the department `switch` statement. This allows the same `New-ADUser` command to create employees in different Organizational Units without manually changing the OU path each time.
+
+For example, because I select `IT` during this test, `$OU` contains:
+
+`OU=IT,DC=lab,DC=local`
+
+The new employee is therefore automatically created inside the **IT OU**.
+
+The `-AccountPassword` parameter assigns the temporary password stored in `$Password`, while:
+
+```powershell
+-ChangePasswordAtLogon $true
+```
+
+requires the employee to change the temporary password the next time they sign in.
+
+Finally:
+
+```powershell
+-Enabled $true
+```
+
+creates the account in an enabled state so it can be used for domain authentication.
+
+After the `New-ADUser` command completes, the script displays:
+
+`Active Directory account created successfully.`
+
+To test the updated onboarding workflow, I run `New-Employee.ps1` and enter **Giorno Giovanna** as a new employee with the username `ggiovanna` and the **IT** department. The script confirms that the username is available, prompts for a temporary password, and creates the Active Directory account.
+
+I then open **Active Directory Users and Computers (ADUC)** and navigate to the **IT OU**. I verify that the Giorno Giovanna account was successfully created in the OU selected by the script.
+
+This step connects the information gathering, department selection, input validation, and username validation from the previous steps with actual Active Directory account provisioning. The onboarding script can now automatically create an enabled employee account in the appropriate Organizational Unit using the information entered by the administrator.
+
 ## **Challenges**
 
 ## **What I Learned**
