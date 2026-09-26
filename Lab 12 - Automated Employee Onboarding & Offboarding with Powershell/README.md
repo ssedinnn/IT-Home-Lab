@@ -268,6 +268,12 @@ At this stage, the script validates both the employee's department and username 
 
 ### *Step 6 - Create the Active Directory User Account*
 
+![AD User Creation Script](img/AD_User_Creation_Script.png)
+
+![AD User Creation Test](img/AD_User_Creation_Test.png)
+
+![AD User Creation Confirmed](img/AD_User_Creation_Confirmed.png)
+
 In the Windows Server 2022 VM, I expand the `New-Employee.ps1` onboarding script so it can now create the employee's Active Directory account. At this point in the workflow, the employee's department has already been validated, the correct OU and security group have been selected, and the requested username has been checked to make sure it is available.
 
 Before creating the account, I prompt the administrator to enter a temporary password:
