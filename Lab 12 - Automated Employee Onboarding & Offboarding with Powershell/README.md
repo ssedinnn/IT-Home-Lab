@@ -206,6 +206,62 @@ This verifies that invalid department values are stopped while valid department 
 
 This step demonstrates how input validation can make a PowerShell automation script safer by preventing unsupported information from being processed before changes are made to Active Directory.
 
+### *Step 5 - Checking for Existing Username*
+
+In the Windows Server 2022 VM, I continue improving the `New-Employee.ps1` onboarding script by adding a check for existing Active Directory usernames. Before creating a new employee account, the script now searches Active Directory to determine whether the requested username is already being used.
+
+I add the following command after the department `switch` statement:
+
+```powershell
+$ExistingUser = Get-ADUser -Filter "SamAccountName -eq '$Username'"
+```
+
+The `Get-ADUser` command searches Active Directory for a user whose `SamAccountName` matches the username entered by the administrator. The result of the search is stored in the `$ExistingUser` variable.
+
+For example, if the username entered is:
+
+`Sedin`
+
+the filter searches Active Directory for an account with the following value:
+
+`SamAccountName = Sedin`
+
+I then use an `if` statement to determine whether the search returned an existing account:
+
+```powershell
+if ($ExistingUser) {
+    Write-Host "Username $Username already exists in Active Directory."
+    Write-Host "Onboarding stopped."
+    exit
+}
+
+Write-Host "Username $Username is available."
+```
+
+If `$ExistingUser` contains an Active Directory user object, the `if` condition evaluates as true. The script displays a message explaining that the username already exists and then uses `exit` to stop the onboarding process.
+
+If no matching account is found, `$ExistingUser` does not contain a user object. The `if` block is skipped and the script continues to:
+
+```powershell
+Write-Host "Username $Username is available."
+```
+
+An `else` statement is not required in this case because `exit` completely stops the script when an existing account is detected. If PowerShell reaches the username available message, I already know that the existing-user check did not find a matching account.
+
+To test the duplicate username check, I first run the script using `Sedin`, which is already an existing Active Directory username. PowerShell detects the existing account, displays that the username is already in use, and stops the onboarding process before reaching the Employee Information section.
+
+I then run the script again using `ggiovanna`, a username that does not currently exist in Active Directory. PowerShell reports that the username is available and continues through the onboarding workflow. Since I enter `HR` as the department, the script also correctly selects:
+
+`OU=HR,DC=lab,DC=local`
+
+and:
+
+`HR Users`
+
+Testing both an existing and an available username verifies that the script can prevent duplicate Active Directory accounts while allowing new usernames to continue through the onboarding process.
+
+At this stage, the script validates both the employee's department and username before any Active Directory account is created. This adds another safety check to the onboarding workflow and prepares the script for automated account creation in the next step.
+
 ## **Challenges**
 
 ## **What I Learned**
