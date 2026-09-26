@@ -266,6 +266,8 @@ Testing both an existing and an available username verifies that the script can 
 
 At this stage, the script validates both the employee's department and username before any Active Directory account is created. This adds another safety check to the onboarding workflow and prepares the script for automated account creation in the next step.
 
+### *Step 6 - Create the Active Directory User Account*
+
 ## **Challenges**
 
 ## **What I Learned**
