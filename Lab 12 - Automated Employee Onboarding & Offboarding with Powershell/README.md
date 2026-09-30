@@ -370,6 +370,28 @@ Finally, I open **Active Directory Users and Computers**, navigate to the **HR**
 
 Using department security groups allows access to resources to be managed based on the employee's role instead of assigning permissions directly to individual user accounts.
 
+### *Step 8 - Configure and Test Department-Based Resource Access*
+
+![HR Share Creation](img/HR_Share_Creation.png)
+
+![HR Unauthorization Access Test](img/HR_UnAuth_Access_Test.png)
+
+![IT Share Creation](img/IT_Share_Creation.png)
+
+![IT Unauthorization Access Test](img/IT_UnAuth_Access_Test.png)
+
+Using the same group-based permission model configured in an earlier lab, I create additional network shares for the HR and IT departments. Each department share is configured so that access is controlled through its corresponding Active Directory security group.
+
+The department resources are organized so that `Accounting Users` control access to the Accounting share, `HR Users` control access to the HR share, and `IT Users` control access to the IT share. This allows permissions to be assigned based on an employee's department rather than directly to individual user accounts.
+
+After configuring the shares and permissions, I use the Windows 11 domain client to test access with employees from different departments.
+
+While signed in as an HR employee, I successfully access the HR network share and verify that I can create and access files within the folder. I then attempt to access the Accounting share and receive a permission error, confirming that the HR account does not have access to Accounting resources.
+
+I also test the permissions using an IT employee. The IT account successfully accesses the IT network share and its files, while an attempt to access the HR share is denied.
+
+These tests confirm that the department security groups assigned during the onboarding process are correctly controlling access to department resources. Instead of assigning permissions directly to individual employees, access is managed through their security group membership, providing a role-based approach to resource access.
+
 ## **Challenges**
 
 ## **What I Learned**
