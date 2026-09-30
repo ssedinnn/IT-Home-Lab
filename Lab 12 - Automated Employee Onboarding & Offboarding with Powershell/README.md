@@ -346,6 +346,30 @@ I then open **Active Directory Users and Computers (ADUC)** and navigate to the 
 
 This step connects the information gathering, department selection, input validation, and username validation from the previous steps with actual Active Directory account provisioning. The onboarding script can now automatically create an enabled employee account in the appropriate Organizational Unit using the information entered by the administrator.
 
+### *Step 7 - Automatically Assign Department Security Group*
+
+![Security Group Assign Script](img/Security_Group_Assign_Script.png)
+
+![Security Group Assign Test](img/Security_Group_Assign_Test.png)
+
+![Security Group Assign Verified](img/Security_Group_Assign_Verified.png)
+
+After creating the Active Directory account, I update the onboarding script to automatically add the new employee to the security group associated with their department.
+
+I use the following command:
+
+`Add-ADGroupMember -Identity $Group -Members $Username`
+
+The `$Group` variable was previously assigned by the `switch` statement based on the employee's department. This allows the same command to work for Accounting, HR, or IT without manually specifying a security group each time.
+
+The `$Username` variable identifies the newly created Active Directory account that should be added to the group.
+
+To test the updated script, I onboard a new employee named Jotaro Kujo and assign the employee to the HR department. The script creates the account inside the HR OU and automatically adds the user to the `HR Users` security group.
+
+Finally, I open **Active Directory Users and Computers**, navigate to the **HR** OU, and open the properties of the `HR Users` security group. Under the **Members** tab, I verify that Jotaro Kujo was successfully added to the group.
+
+Using department security groups allows access to resources to be managed based on the employee's role instead of assigning permissions directly to individual user accounts.
+
 ## **Challenges**
 
 ## **What I Learned**
