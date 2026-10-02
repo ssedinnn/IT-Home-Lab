@@ -394,6 +394,24 @@ These tests confirm that the department security groups assigned during the onbo
 
 ### *Step 9 - Create the Employee Offboarding Script*
 
+![Offboarding Script Creation](img/Offboarding_Script_Creation.png)
+
+![Offboarding Script Check](img/Offboarding_Script_Check.png)
+
+I create a new PowerShell script named `Remove-Employee.ps1` to begin automating the employee offboarding process. The script first asks the administrator to enter the username of the employee being offboarded.
+
+I use `Get-ADUser` to locate the account in Active Directory and store the returned user object in the `$Employee` variable:
+
+`$Employee = Get-ADUser -Identity $Username -Properties Department`
+
+The `-Identity` parameter searches for the account using the username entered by the administrator. I also retrieve the `Department` property because it is not returned by default and will later be used to determine which department access should be removed.
+
+After retrieving the account, the script displays the employee's name, username, department, and current account status. At this stage, the script only retrieves information and does not make any changes to the account.
+
+To test the script, I enter the username `jkujo`. The script successfully retrieves Jotaro Kujo from Active Directory and displays that the account belongs to the HR department and is currently enabled.
+
+Retrieving and verifying the employee's information before making changes provides a safer starting point for the offboarding process and helps ensure that the correct account is being modified.
+
 ## **Challenges**
 
 ## **What I Learned**
