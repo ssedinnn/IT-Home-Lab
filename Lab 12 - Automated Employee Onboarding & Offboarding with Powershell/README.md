@@ -412,6 +412,8 @@ To test the script, I enter the username `jkujo`. The script successfully retrie
 
 Retrieving and verifying the employee's information before making changes provides a safer starting point for the offboarding process and helps ensure that the correct account is being modified.
 
+### *Step 10 - Add Error Handling and Disable the Employee Account*
+
 ## **Challenges**
 
 ## **What I Learned**
