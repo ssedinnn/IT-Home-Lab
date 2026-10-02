@@ -392,6 +392,8 @@ I also test the permissions using an IT employee. The IT account successfully ac
 
 These tests confirm that the department security groups assigned during the onboarding process are correctly controlling access to department resources. Instead of assigning permissions directly to individual employees, access is managed through their security group membership, providing a role-based approach to resource access.
 
+### *Step 9 - Create the Employee Offboarding Script*
+
 ## **Challenges**
 
 ## **What I Learned**
