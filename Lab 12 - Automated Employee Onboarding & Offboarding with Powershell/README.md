@@ -414,6 +414,30 @@ Retrieving and verifying the employee's information before making changes provid
 
 ### *Step 10 - Add Error Handling and Disable the Employee Account*
 
+![Offboarding ErrorHandle Script](img/Offboarding_ErrorHandle_Script.png)
+
+![Offboarding ErrorHandle Test](img/Offboarding_ErrorHandle_Test.png)
+
+![Offboarding ErrorHandle Check](img/Offboarding_ErrorHandle_Check.png)
+
+I update the employee offboarding script to safely retrieve the employee account and disable it in Active Directory.
+
+I place the `Get-ADUser` command inside a `try` block and use `-ErrorAction Stop` so that an error retrieving the account is handled by the `catch` block instead of allowing the offboarding process to continue.
+
+If the employee cannot be found, the `catch` block displays an error message and uses `exit` to stop the script before any account changes are made.
+
+After successfully retrieving the employee, I disable the account using:
+
+`Disable-ADAccount -Identity $Username`
+
+I then use `Get-ADUser` again to refresh the information stored in the `$Employee` variable. This allows the script to display the employee's updated account status after the change.
+
+To test the offboarding process, I enter the username `jkujo`. The script successfully disables Jotaro Kujo's account and displays the updated employee information with `Enabled: False`.
+
+Finally, I verify the change in **Active Directory Users and Computers**. The account now shows the option **Enable Account**, confirming that Jotaro Kujo's account is currently disabled.
+
+Adding error handling prevents the offboarding process from continuing when the employee account cannot be retrieved, while disabling the account prevents the former employee from authenticating with their domain credentials.
+
 ## **Challenges**
 
 ## **What I Learned**
