@@ -492,6 +492,32 @@ Finally, I open **Active Directory Users and Computers** and verify that Jotaro 
 
 Moving disabled accounts into a separate OU keeps inactive accounts separated from active department users while allowing the accounts to be retained instead of immediately deleting them.
 
+### *Step 13 - Test the Complete Employee Lifecycle*
+
+![Employee Onboarding Test](img/Employee_Onboarding_Test.png)
+
+![Employee Onboarding Check](img/Employee_Onboarding_Check.png)
+
+![Employee Offboarding Test](img/Employee_Offboarding_Test.png)
+
+![Employee Offboarding Check](img/Employee_Offboarding_Check.png)
+
+To finish the lab, I test the complete onboarding and offboarding process using the PowerShell scripts created throughout the lab.
+
+First, I run the `New-Employee.ps1` script and create a new HR employee named **Jodio Joestar** with the username `jjoestar`. The script validates that the username is available, creates the Active Directory account inside the **HR OU**, and automatically adds the employee to the **HR Users** security group.
+
+After the script finishes, I open **Active Directory Users and Computers** and verify that Jodio Joestar was created inside the HR OU. I also open the **HR Users** security group and confirm that the new account was automatically added as a member.
+
+Next, I run the `Remove-Employee.ps1` script using the same username. The offboarding script locates the employee in Active Directory, disables the account, identifies the employee's department, removes the account from the corresponding **HR Users** security group, and moves the account into the **Disabled Users OU**.
+
+Finally, I return to Active Directory Users and Computers and verify that Jodio Joestar is now located inside the Disabled Users OU. I also check the account's group membership and confirm that the employee is no longer a member of the HR Users group.
+
+This final test demonstrates the complete employee account lifecycle:
+
+`Onboard Employee` → `Create AD Account` → `Assign Department Access` → `Offboard Employee` → `Remove Department Access` → `Disable and Move Account`
+
+By combining the onboarding and offboarding scripts, I created a repeatable process for managing employee accounts and department-based access throughout their lifecycle.
+
 ## **Challenges**
 
 ## **What I Learned**
