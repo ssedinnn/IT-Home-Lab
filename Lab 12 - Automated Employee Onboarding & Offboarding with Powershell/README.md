@@ -2,9 +2,39 @@
 
 ## **Objective**
 
+Build an automated employee onboarding and offboarding process using PowerShell and Active Directory. The goal of this lab is to create reusable scripts that can create employee accounts, place users in the correct Organizational Unit, assign department-based security groups, and remove access when an employee is offboarded. This lab also demonstrates role-based access control by using Active Directory security groups to control access to department network shares for Accounting, HR, and IT.
+
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server OS:** Windows Server 2022 (Domain Controller)
+- **Client OS:** Windows 11 (Domain-joined workstation)
+- **Domain:** `lab.local`
+- **Domain Controller:** `CA-DC-01`
+- **Active Directory:** Active Directory Domain Services (AD DS)
+- **Management Tools:** Windows PowerShell, Active Directory Users and Computers (ADUC)
+- **PowerShell Module:** ActiveDirectory
+- **Network Resources:** Department network shares (Accounting, HR, IT)
+- **Access Control:** Active Directory Security Groups, NTFS and Share Permissions
+- **Scripts:** `New-Employee.ps1`, `Remove-Employee.ps1`
+
 ## **Skills Demonstrated**
+
+- PowerShell Scripting
+- Active Directory User Provisioning
+- Employee Onboarding and Offboarding
+- Organizational Unit (OU) Management
+- Active Directory Security Group Management
+- Role-Based Access Control (RBAC)
+- Department-Based Resource Permissions
+- PowerShell Variables and User Input
+- PowerShell `switch` Statements
+- PowerShell `try` / `catch` Error Handling
+- Active Directory Account Disabling
+- Active Directory Object Management
+- Network Share and NTFS Permissions
+- Input Validation and Duplicate Account Detection
+- User Lifecycle Management
 
 ## **Steps**
 
@@ -520,6 +550,27 @@ By combining the onboarding and offboarding scripts, I created a repeatable proc
 
 ## **Challenges**
 
+One challenge I encountered while building the onboarding script was an incorrectly formatted Distinguished Name for the IT OU. I originally entered the OU path incorrectly, which caused `New-ADUser` to return an object name syntax error. I reviewed the Distinguished Name and corrected it to:
+
+`OU=IT,DC=lab,DC=local`
+
+This helped me understand how important the Distinguished Name format is when using PowerShell to reference locations within Active Directory.
+
+I also noticed that the script could continue running after certain PowerShell commands generated an error. This could cause later commands or success messages to run even though an earlier operation was unsuccessful. While building the offboarding script, I learned how `try`, `catch`, and `-ErrorAction Stop` can be used to handle these situations and stop the workflow when an important command fails.
+
+While testing the department network shares, I also had to troubleshoot permissions to make sure employees could access resources for their own department while being denied access to other department shares. Testing with multiple user accounts helped verify that the security groups and permissions were configured correctly.
+
 ## **What I Learned**
 
+- This lab helped me understand how multiple Active Directory administration tasks can be combined into a complete employee lifecycle instead of being performed as separate manual tasks.
+- I learned how PowerShell can collect administrator input, make decisions using `switch` statements, validate information, retrieve Active Directory objects, create users, assign security groups, disable accounts, remove group memberships, and move objects between Organizational Units.
+- I also learned the difference between using an OU to organize and manage Active Directory objects and using security groups to control access to resources. By assigning permissions to department security groups instead of individual users, employee access can be managed based on their role or department.
+- Building both onboarding and offboarding scripts also showed me how automation can make repetitive administrative tasks more consistent while still using validation and error handling to prevent incorrect changes.
+
 ## **Next Steps**
+
+- Add additional error handling to the onboarding and offboarding scripts
+- Add administrator confirmation before performing offboarding actions
+- Create logging for onboarding and offboarding activity
+- Explore Active Directory Delegation of Control and least-privilege administration
+- Continue expanding the lab environment with additional Windows Server and Active Directory administration tasks
