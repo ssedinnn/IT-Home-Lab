@@ -464,6 +464,34 @@ Finally, I open the `IT Users` security group in **Active Directory Users and Co
 
 Removing the employee from their department security group revokes the role-based access that was assigned during onboarding, while disabling the account prevents the employee from authenticating with their domain credentials.
 
+### *Step 12 - Move Disabled Employee to the Disabled Users OU*
+
+![Offboarding Disabled User Moving Script](img/Offboarding_DisabledUserMoved_Script.png)
+
+![Offboarding Disabled User Moving Test](img/Offboarding_DisabledUserMoved_Test.png)
+
+![Offboarding Disabled User Moving Check](img/Offboarding_DisabledUserMoved_Check.png)
+
+I update the employee offboarding script to automatically move the disabled employee account out of their department OU and into the `Disabled Users` OU.
+
+First, I store the Distinguished Name of the destination OU in the `$DisabledOU` variable:
+
+`$DisabledOU = "OU=Disabled Users,DC=lab,DC=local"`
+
+I then use `Move-ADObject` to move the employee's Active Directory object:
+
+`Move-ADObject -Identity $Employee.DistinguishedName -TargetPath $DisabledOU`
+
+The `$Employee.DistinguishedName` property identifies the employee's current Active Directory object, while `$DisabledOU` specifies where the account should be moved.
+
+To test the updated offboarding process, I use Jotaro Kujo (`jkujo`), an HR employee. The script disables the account, removes the employee from the `HR Users` security group, and moves the account into the `Disabled Users` OU.
+
+The script then retrieves the employee information again and confirms that the account remains disabled with `Enabled: False`.
+
+Finally, I open **Active Directory Users and Computers** and verify that Jotaro Kujo is now located inside the `Disabled Users` OU instead of the HR OU.
+
+Moving disabled accounts into a separate OU keeps inactive accounts separated from active department users while allowing the accounts to be retained instead of immediately deleting them.
+
 ## **Challenges**
 
 ## **What I Learned**
