@@ -438,6 +438,32 @@ Finally, I verify the change in **Active Directory Users and Computers**. The ac
 
 Adding error handling prevents the offboarding process from continuing when the employee account cannot be retrieved, while disabling the account prevents the former employee from authenticating with their domain credentials.
 
+### *Step 11 - Remove Department Security Group Access*
+
+![Offboarding Security Group Script](img/Offboarding_SGroup_Script.png)
+
+![Offboarding Security Group Test](img/Offboarding_SGroup_Test.png)
+
+![Offboarding Security Group Script](img/Offboarding_SGroup_Check.png)
+
+I update the employee offboarding script to automatically remove the employee from the security group associated with their department.
+
+I use the employee's existing `Department` property with a `switch` statement to determine which department security group should be removed. Accounting employees are mapped to `Accounting Users`, HR employees are mapped to `HR Users`, and IT employees are mapped to `IT Users`.
+
+After determining the correct group, I remove the employee using:
+
+`Remove-ADGroupMember -Identity $Group -Members $Username -Confirm:$false`
+
+The `$Group` variable identifies the department security group selected by the `switch` statement, while `$Username` identifies the employee being offboarded. I use `-Confirm:$false` so the command can complete without requiring an additional confirmation prompt.
+
+To test the updated offboarding script, I use Giorno Giovanna, an employee assigned to the IT department. The script identifies the employee's department, disables the account, and automatically removes `ggiovanna` from the `IT Users` security group.
+
+The PowerShell output confirms that the employee was removed from `IT Users` and that the account is now disabled with `Enabled: False`.
+
+Finally, I open the `IT Users` security group in **Active Directory Users and Computers** and verify that Giorno Giovanna is no longer listed under the **Members** tab.
+
+Removing the employee from their department security group revokes the role-based access that was assigned during onboarding, while disabling the account prevents the employee from authenticating with their domain credentials.
+
 ## **Challenges**
 
 ## **What I Learned**
