@@ -402,8 +402,9 @@ I create a new PowerShell script named `Remove-Employee.ps1` to begin automating
 
 I use `Get-ADUser` to locate the account in Active Directory and store the returned user object in the `$Employee` variable:
 
-`$Employee = Get-ADUser -Identity $Username -Properties Department`
-
+powershell ```
+$Employee = Get-ADUser -Identity $Username -Properties Department
+```
 The `-Identity` parameter searches for the account using the username entered by the administrator. I also retrieve the `Department` property because it is not returned by default and will later be used to determine which department access should be removed.
 
 After retrieving the account, the script displays the employee's name, username, department, and current account status. At this stage, the script only retrieves information and does not make any changes to the account.
