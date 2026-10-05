@@ -8,6 +8,8 @@
 
 ## **Steps**
 
+### *Step 1 - Create the Help Desk Group and Technician Account*
+
 ## **Challenges**
 
 ## **What I Learned**
