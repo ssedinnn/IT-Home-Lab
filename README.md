@@ -57,6 +57,12 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Duplicate Account Detection
 - PowerShell User Provisioning Automation
 - Virtual Machine & Host-Only Network Configuration
+- Automated Employee Onboarding & Offboarding
+- PowerShell Script Development & Error Handling
+- Role-Based Access Control (RBAC)
+- Department-Based User Provisioning
+- Automated Account Deactivation & Cleanup
+- Active Directory User Lifecycle Management
 - Technical Documentation
 
 ## Lab Projects
@@ -112,6 +118,14 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Added `if/else` conditional logic to detect and skip existing accounts, preventing duplicate user creation when rerunning the provisioning script.
 - Tested a PowerShell-created account from a Windows 11 domain client and used the original CSV data to bulk disable and remove the test accounts during cleanup.
 
+### Lab 12 – Automated Employee Onboarding & Offboarding with PowerShell
+
+- Developed reusable PowerShell scripts (New-Employee.ps1 and Remove-Employee.ps1) to automate employee onboarding and offboarding in Active Directory.
+- Automated user account creation, department-based Organizational Unit (OU) placement, and security group assignments for Accounting, HR, and IT employees using role-based access control (RBAC).
+- Configured departmental network shares and tested group-based permissions to verify that newly provisioned employees could access authorized resources while being restricted from other departments.
+- Automated employee offboarding by disabling accounts, removing security group memberships, and moving former employees into a dedicated Disabled Users OU.
+- Implemented account lookup validation and PowerShell try/catch error handling to improve script reliability. Performed end-to-end testing of the employee lifecycle, from account creation and resource access to account deactivation and cleanup.
+
 ## Repository Goals
 
 The purpose of this repository is to:
@@ -128,9 +142,7 @@ The purpose of this repository is to:
 
 I plan to continue expanding the environment with projects focused on:
 
-- Automated Employee Onboarding & Offboarding with PowerShell
 - PowerShell Scripting, Validation & Error Handling
-- Role-Based Access Control (RBAC)
 - Active Directory Delegation of Control
 - PowerShell Help Desk Automation
 - Windows Client Troubleshooting
