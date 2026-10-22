@@ -26,6 +26,12 @@ This creates the initial structure for testing least-privilege Help Desk adminis
 
 ### *Step 2 - Deploy the Help Desk Workstation and Install RSAT*
 
+![RSAT Installation](img/RSAT_Installation.png)
+
+![Helpdesk Active Directory Users and Computers Access ](img/Helpdesk_ADUC_Access.png)
+
+![Active Directory Users and Computers Access Denied](img/ADUC_Access_Denied.png)
+
 To create a dedicated workstation for Help Desk administration, I set up another **Windows 11 Pro VM** in Oracle VirtualBox named `HelpDesk-01`.
 
 Unlike my original Windows 11 workstation from Lab 02, I no longer need to manually configure the client's IP address or DNS settings. Since I previously configured a DHCP server in Lab 09, the new workstation automatically receives its network configuration from `CA-DC-01` when connected to the correct Host-only network. I verify the network configuration, join `HelpDesk-01` to the `lab.local` domain, and restart the workstation.
@@ -57,6 +63,12 @@ The operation fails with an **Access is denied** error.
 This confirms that although `helpdesk01` can access Active Directory through RSAT, the account does not currently have permission to reset the selected employee's password. This is the expected result because the Help Desk account is a standard domain user, and I have not yet delegated administrative permissions to the **Help Desk Technicians** security group. The test establishes a baseline for comparing the account's permissions before and after configuring Active Directory delegation.
 
 ## **Challenges**
+
+- When I first attempted to install RSAT on the Windows 11 Help Desk workstation, the installation failed with error `0x80240438` because my VirtualBox Host-only network did not provide internet access. I resolved the connectivity issue by temporarily adding a second network adapter configured for NAT.
+
+- Even after restoring internet connectivity, RSAT continued to fail with error `0x800f0950`. I checked Windows Update and installed the available updates, including a newer Windows 11 version. After restarting the VM and running the PowerShell command again, RSAT installed successfully.
+
+- After installing RSAT, I had trouble signing into the `helpdesk01` domain account because the workstation could not connect to the Domain Controller. Using `ipconfig /all`, I discovered that Windows had assigned itself an APIPA address (`169.254.x.x`) instead of receiving an address from my DHCP server. I corrected the VirtualBox network adapter configuration and restarted the VM, restoring domain connectivity.
 
 ## **What I Learned**
 
