@@ -66,7 +66,7 @@ This confirms that although `helpdesk01` can access Active Directory through RSA
 
 ![Help Desk Delegation](img/Help_Desk_Delegation.png)
 
-![Help Desk Password Reset Success](img/Help_Desk_Passsword_Reset_Success.png)
+![Help Desk Password Reset Success](img/Help_Desk_Password_Reset_Success.png)
 
 ![Help Desk Account Deletion Failed](img/Help_Desk_Account_Deletion_Failed.png)
 
