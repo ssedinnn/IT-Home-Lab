@@ -70,33 +70,19 @@ This confirms that although `helpdesk01` can access Active Directory through RSA
 
 ![Help Desk Account Deletion Failed](img/Help_Desk_Account_Deletion_Failed.png)
 
-In the Windows Server 2022 VM, I open **Active Directory Users and Computers (ADUC)** and navigate to the **Accounting** Organizational Unit (OU) under the `lab.local` domain.
+In the Windows Server 2022 VM, I open **Active Directory Users and Computers (ADUC)** and navigate to the **Accounting** Organizational Unit (OU) under the `lab.local` domain. I right-click the Accounting OU and select **Delegate Control** to open the **Delegation of Control Wizard**. I add the **Help Desk Technicians** security group, which contains the `helpdesk01` account created earlier.
 
-I right-click the Accounting OU and select **Delegate Control** to open the **Delegation of Control Wizard**. I add the **Help Desk Technicians** security group, which contains the `helpdesk01` account created earlier.
+Rather than assigning permissions directly to an individual user, I delegate them to the security group. This allows additional Help Desk technicians to receive the same permissions by being added to the group. In the wizard, I select **Reset user passwords and force password change at next logon**, leaving the other administrative tasks unchecked. I then complete the wizard to apply the delegated permissions.
 
-Rather than assigning permissions directly to an individual user, I delegate them to the security group. This allows additional Help Desk technicians to receive the same permissions by being added to the group.
+This grants members of the Help Desk Technicians group permission to reset passwords and require password changes for applicable user accounts within the Accounting OU, without granting full administrative control over the domain. To verify the delegation, I return to the Windows 11 `HelpDesk-01` workstation and open ADUC using the standard domain account `LAB\helpdesk01`.
 
-In the wizard, I select **Reset user passwords and force password change at next logon**, leaving the other administrative tasks unchecked. I then complete the wizard to apply the delegated permissions.
+I navigate to the Accounting OU, right-click the test user **Jacob**, and select **Reset Password**. I enter a temporary password that meets the domain's password policy and submit the request. This time, Active Directory displays a confirmation message stating that **the password for Jacob has been changed**.
 
-This grants members of the Help Desk Technicians group permission to reset passwords and require password changes for applicable user accounts within the Accounting OU, without granting full administrative control over the domain.
+In Step 2, the same operation failed with an **Access is denied** error. After delegating the required permissions, the Help Desk account can successfully perform the password reset. To verify that the account still has limited administrative permissions, I attempt to delete Jacob's user account while signed in as `helpdesk01`.
 
-To verify the delegation, I return to the Windows 11 `HelpDesk-01` workstation and open ADUC using the standard domain account `LAB\helpdesk01`.
+Active Directory prevents the deletion and displays an error stating that I do not have sufficient privileges to delete the account, or that the object is protected from accidental deletion. This confirms that the deletion attempt was unsuccessful. Since I only delegated password-reset permissions, I have not intentionally granted the Help Desk Technicians group permission to delete user accounts.
 
-I navigate to the Accounting OU, right-click the test user **Jacob**, and select **Reset Password**. I enter a temporary password that meets the domain's password policy and submit the request.
-
-This time, Active Directory displays a confirmation message stating that **the password for Jacob has been changed**.
-
-In Step 2, the same operation failed with an **Access is denied** error. After delegating the required permissions, the Help Desk account can successfully perform the password reset.
-
-To verify that the account still has limited administrative permissions, I attempt to delete Jacob's user account while signed in as `helpdesk01`.
-
-Active Directory prevents the deletion and displays an error stating that I do not have sufficient privileges to delete the account, or that the object is protected from accidental deletion.
-
-This confirms that the deletion attempt was unsuccessful. Since I only delegated password-reset permissions, I have not intentionally granted the Help Desk Technicians group permission to delete user accounts.
-
-These tests demonstrate the **principle of least privilege** by allowing Help Desk technicians to perform specific administrative tasks without granting broader permissions such as account deletion or full domain administration.
-
-The Help Desk account can now reset employee passwords within the Accounting OU while remaining restricted from administrative actions outside its delegated responsibilities.
+These tests demonstrate the **principle of least privilege** by allowing Help Desk technicians to perform specific administrative tasks without granting broader permissions such as account deletion or full domain administration. The Help Desk account can now reset employee passwords within the Accounting OU while remaining restricted from administrative actions outside its delegated responsibilities.
 
 ## **Challenges**
 
