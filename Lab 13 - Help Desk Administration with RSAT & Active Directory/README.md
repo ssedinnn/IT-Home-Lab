@@ -92,6 +92,8 @@ These tests demonstrate the **principle of least privilege** by allowing Help De
 
 - After installing RSAT, I had trouble signing into the `helpdesk01` domain account because the workstation could not connect to the Domain Controller. Using `ipconfig /all`, I discovered that Windows had assigned itself an APIPA address (`169.254.x.x`) instead of receiving an address from my DHCP server. I corrected the VirtualBox network adapter configuration and restarted the VM, restoring domain connectivity.
 
+### *Step 4 - Delegate and Test Account Unlock Permissions*
+
 ## **What I Learned**
 
 ## **Next Steps**
