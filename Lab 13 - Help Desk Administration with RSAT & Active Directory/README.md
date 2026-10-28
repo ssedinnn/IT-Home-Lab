@@ -86,6 +86,20 @@ These tests demonstrate the **principle of least privilege** by allowing Help De
 
 ### *Step 4 - Delegate and Test Account Unlock Permissions*
 
+In the Windows 11 `Desktop-01` VM, I simulate an employee account lockout by attempting to sign in as **Jacob** using an incorrect password multiple times. After reaching the account lockout threshold configured in Lab 05, Windows displays a message stating that the account is currently locked out and cannot be used to sign in.
+
+This simulates a common Help Desk situation where an employee becomes locked out of their account after entering an incorrect password too many times. To allow the Help Desk technician to resolve this issue, I switch to the Windows Server 2022 VM and open **Active Directory Users and Computers (ADUC)**.
+
+I right-click the **Accounting** Organizational Unit (OU), select **Delegate Control**, and add the **Help Desk Technicians** security group. In the Delegation of Control Wizard, I select **Create a custom task to delegate** and configure the permissions to apply to user objects within the Accounting OU.
+
+Under **Property-specific** permissions, I select **Write lockoutTime** and complete the wizard. The `lockoutTime` attribute is used by Active Directory to track account lockouts. Delegating write access to this attribute allows the Help Desk Technicians group to clear account lockouts for applicable users without granting full administrative privileges.
+
+I then return to the Windows 11 `HelpDesk-01` workstation, signed in as `LAB\helpdesk01`, and open ADUC using RSAT. I navigate to **Accounting → Jacob → Properties → Account** and locate the **Unlock account** option. I select the checkbox and apply the change to unlock Jacob's account.
+
+Finally, I return to the Windows 11 `Desktop-01` workstation and attempt to sign in as Jacob using the correct password. Windows proceeds to the **Welcome** screen, confirming that Jacob can authenticate again after the account unlock.
+
+This demonstrates how Active Directory permissions can be delegated to a Help Desk security group, allowing technicians to resolve common account lockout issues without requiring Domain Administrator privileges. Combined with the password reset permissions configured in Step 3, the Help Desk account can now perform two common account recovery tasks while maintaining limited administrative access.
+
 ## **Challenges**
 
 - When I first attempted to install RSAT on the Windows 11 Help Desk workstation, the installation failed with error `0x80240438` because my VirtualBox Host-only network did not provide internet access. I resolved the connectivity issue by temporarily adding a second network adapter configured for NAT.
