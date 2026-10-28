@@ -84,6 +84,8 @@ Active Directory prevents the deletion and displays an error stating that I do n
 
 These tests demonstrate the **principle of least privilege** by allowing Help Desk technicians to perform specific administrative tasks without granting broader permissions such as account deletion or full domain administration. The Help Desk account can now reset employee passwords within the Accounting OU while remaining restricted from administrative actions outside its delegated responsibilities.
 
+### *Step 4 - Delegate and Test Account Unlock Permissions*
+
 ## **Challenges**
 
 - When I first attempted to install RSAT on the Windows 11 Help Desk workstation, the installation failed with error `0x80240438` because my VirtualBox Host-only network did not provide internet access. I resolved the connectivity issue by temporarily adding a second network adapter configured for NAT.
@@ -91,8 +93,6 @@ These tests demonstrate the **principle of least privilege** by allowing Help De
 - Even after restoring internet connectivity, RSAT continued to fail with error `0x800f0950`. I checked Windows Update and installed the available updates, including a newer Windows 11 version. After restarting the VM and running the PowerShell command again, RSAT installed successfully.
 
 - After installing RSAT, I had trouble signing into the `helpdesk01` domain account because the workstation could not connect to the Domain Controller. Using `ipconfig /all`, I discovered that Windows had assigned itself an APIPA address (`169.254.x.x`) instead of receiving an address from my DHCP server. I corrected the VirtualBox network adapter configuration and restarted the VM, restoring domain connectivity.
-
-### *Step 4 - Delegate and Test Account Unlock Permissions*
 
 ## **What I Learned**
 
