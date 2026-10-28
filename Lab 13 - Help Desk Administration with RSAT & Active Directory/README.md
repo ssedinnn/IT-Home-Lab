@@ -86,6 +86,14 @@ These tests demonstrate the **principle of least privilege** by allowing Help De
 
 ### *Step 4 - Delegate and Test Account Unlock Permissions*
 
+![Account Locked](img/Account_Locked.png)
+
+![Help Desk Unlock Delegation](img/Help_Desk_Unlock_Delegation.png)
+
+![Help Desk Unlock](img/Help_Desk_Unlock.png)
+
+![Account Unlocked](img/Account_Unlocked.png)
+
 In the Windows 11 `Desktop-01` VM, I simulate an employee account lockout by attempting to sign in as **Jacob** using an incorrect password multiple times. After reaching the account lockout threshold configured in Lab 05, Windows displays a message stating that the account is currently locked out and cannot be used to sign in.
 
 This simulates a common Help Desk situation where an employee becomes locked out of their account after entering an incorrect password too many times. To allow the Help Desk technician to resolve this issue, I switch to the Windows Server 2022 VM and open **Active Directory Users and Computers (ADUC)**.
