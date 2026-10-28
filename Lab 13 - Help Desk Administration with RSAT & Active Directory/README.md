@@ -96,9 +96,7 @@ These tests demonstrate the **principle of least privilege** by allowing Help De
 
 In the Windows 11 `Desktop-01` VM, I simulate an employee account lockout by attempting to sign in as **Jacob** using an incorrect password multiple times. After reaching the account lockout threshold configured in Lab 05, Windows displays a message stating that the account is currently locked out and cannot be used to sign in.
 
-This simulates a common Help Desk situation where an employee becomes locked out of their account after entering an incorrect password too many times. To allow the Help Desk technician to resolve this issue, I switch to the Windows Server 2022 VM and open **Active Directory Users and Computers (ADUC)**.
-
-I right-click the **Accounting** Organizational Unit (OU), select **Delegate Control**, and add the **Help Desk Technicians** security group. In the Delegation of Control Wizard, I select **Create a custom task to delegate** and configure the permissions to apply to user objects within the Accounting OU.
+This simulates a common Help Desk situation where an employee becomes locked out of their account after entering an incorrect password too many times. I right-click the **Accounting** Organizational Unit (OU), select **Delegate Control**, and add the **Help Desk Technicians** security group. In the Delegation of Control Wizard, I select **Create a custom task to delegate** and configure the permissions to apply to user objects within the Accounting OU.
 
 Under **Property-specific** permissions, I select **Write lockoutTime** and complete the wizard. The `lockoutTime` attribute is used by Active Directory to track account lockouts. Delegating write access to this attribute allows the Help Desk Technicians group to clear account lockouts for applicable users without granting full administrative privileges.
 
