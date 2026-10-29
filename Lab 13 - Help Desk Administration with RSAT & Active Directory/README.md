@@ -108,6 +108,17 @@ This demonstrates how Active Directory permissions can be delegated to a Help De
 
 ### *Step 5 - Verify Help Desk Administrative Restrictions*
 
+![Administrator Group Management](img/Administrator_Group_Management.png)
+
+![Help Desk Group Management](img/Help_Desk_Group_Management.png)
+
+![Administrator User Creation](img/Administrator_User_Creation.png)
+
+![Help Desk User Creation](img/Help_Desk_User_Creation.png)
+
+![Administrator HR Password Reset](img/Administrator_HR_Password_Reset.png)
+
+![Help Desk HR Password Reset](img/Help_Desk_HR_Password_Reset.png)
 
 In this step, I compare the permissions of a **Domain Administrator** with those of the `helpdesk01` account to demonstrate how delegation limits what a Help Desk technician can do in Active Directory.
 
