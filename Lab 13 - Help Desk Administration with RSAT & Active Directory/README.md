@@ -2,9 +2,32 @@
 
 ## **Objective**
 
+Learn how to perform common Help Desk administrative tasks in Active Directory using Remote Server Administration Tools (RSAT) and delegated permissions. This lab focuses on configuring a dedicated Help Desk workstation, resetting employee passwords, unlocking accounts, and applying the principle of least privilege to restrict administrative access.
+
 ## **Environment**
 
+- **Hypervisor / Virtualization:** Oracle VirtualBox
+- **Server OS:** Windows Server 2022 (Domain Controller)
+- **Client OS:** Windows 11 Pro (Help Desk and employee workstations)
+- **Domain:** `lab.local`
+- **Domain Controller:** `CA-DC-01`
+- **Workstations:** `HelpDesk-01`, `Desktop-01`
+- **Active Directory:** Active Directory Domain Services (AD DS)
+- **Management Tools:** Remote Server Administration Tools (RSAT), Active Directory Users and Computers (ADUC), Windows PowerShell
+- **Access Control:** Active Directory Security Groups, Delegation of Control, Organizational Units (OUs)
+
 ## **Skills Demonstrated**
+
+- Deploying and configuring a dedicated Windows 11 Help Desk workstation
+- Installing and configuring Remote Server Administration Tools (RSAT)
+- Remotely managing Active Directory using ADUC
+- Creating Help Desk accounts and security groups
+- Delegating administrative permissions to security groups
+- Resetting employee passwords and requiring password changes
+- Troubleshooting and unlocking locked Active Directory accounts
+- Implementing the principle of least privilege
+- Testing and verifying administrative access restrictions
+- Troubleshooting Windows networking and RSAT installation issues
 
 ## **Steps**
 
@@ -140,4 +163,10 @@ This allows Help Desk technicians to perform their assigned responsibilities wit
 
 ## **What I Learned**
 
+This lab helped me understand how Help Desk technicians can manage Active Directory without requiring Domain Administrator privileges. By installing RSAT on a dedicated Windows 11 workstation, I learned how to remotely access Active Directory and perform administrative tasks without signing directly into the Domain Controller. I also learned the importance of **delegating permissions through security groups** rather than assigning them directly to individual accounts. This makes it easier to manage permissions when additional Help Desk technicians join a team.
+
+One of the biggest takeaways was understanding the **principle of least privilege**. By comparing the Domain Administrator account with the Help Desk account, I demonstrated how a technician can reset passwords and unlock accounts within a specific OU while remaining restricted from creating users, modifying security groups, or managing accounts outside their assigned scope. I also gained more experience troubleshooting network connectivity and RSAT installation problems. These issues reinforced the importance of checking network configurations, domain connectivity, and Windows updates when troubleshooting workstation problems.
+
 ## **Next Steps**
+
+In future labs, I plan to expand my Help Desk environment by practicing additional Windows workstation troubleshooting scenarios. This includes diagnosing network connectivity problems, resolving common user issues, and exploring remote support tools to assist employees from the dedicated Help Desk workstation.
