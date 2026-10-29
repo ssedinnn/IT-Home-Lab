@@ -106,6 +106,19 @@ Finally, I return to the Windows 11 `Desktop-01` workstation and attempt to sign
 
 This demonstrates how Active Directory permissions can be delegated to a Help Desk security group, allowing technicians to resolve common account lockout issues without requiring Domain Administrator privileges. Combined with the password reset permissions configured in Step 3, the Help Desk account can now perform two common account recovery tasks while maintaining limited administrative access.
 
+### *Step 5 - Verify Help Desk Administrative Restrictions*
+
+
+In this step, I compare the permissions of a **Domain Administrator** with those of the `helpdesk01` account to demonstrate how delegation limits what a Help Desk technician can do in Active Directory.
+
+First, I open **Active Directory Users and Computers (ADUC)** on the Windows Server 2022 VM using the Domain Administrator account. I navigate to the **Accounting** OU and open the **Accounting Users** security group. Under the **Members** tab, I can see that the administrator has the ability to add or remove users from the group. I then switch to the Windows 11 Help Desk VM and open the same security group using the `helpdesk01` account. However, the **Add** and **Remove** buttons are disabled, preventing the Help Desk technician from modifying group membership.
+
+Next, I compare user account creation permissions. Using the Domain Administrator account, I right-click the **Accounting** OU and select **New > User**, which opens the user creation wizard. When I attempt the same action using the Help Desk account, the option to create a new user is unavailable. Finally, I test whether the Help Desk account can reset passwords outside its delegated OU. Using the Domain Administrator account, I successfully reset the password for **Johnny Joestar**, a user located in the **HR** OU.
+
+I then attempt to reset the same user's password using the `helpdesk01` account. Active Directory displays an **Access is denied** error, confirming that the Help Desk technician does not have permission to reset passwords within the HR OU. These tests demonstrate the **principle of least privilege**. Although the Help Desk account has permission to reset passwords and unlock accounts within the Accounting OU, it cannot create users, manage security group membership, or reset passwords in other OUs.
+
+This allows Help Desk technicians to perform their assigned responsibilities without granting them unnecessary administrative privileges across the domain.
+
 ## **Challenges**
 
 - When I first attempted to install RSAT on the Windows 11 Help Desk workstation, the installation failed with error `0x80240438` because my VirtualBox Host-only network did not provide internet access. I resolved the connectivity issue by temporarily adding a second network adapter configured for NAT.
