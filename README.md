@@ -64,6 +64,14 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Automated Account Deactivation & Cleanup
 - Active Directory User Lifecycle Management
 - Technical Documentation
+- Remote Server Administration Tools (RSAT)
+- Remote Active Directory Administration
+- Active Directory Delegation of Control
+- Least-Privilege Access Control
+- Help Desk Password Reset & Account Unlock Procedures
+- Delegated Administrative Permission Testing
+- Organizational Unit (OU) Permission Boundaries
+- Windows 11 RSAT Installation & Troubleshooting
 
 ## Lab Projects
 
@@ -125,6 +133,15 @@ Each lab includes step-by-step documentation, screenshots, challenges encountere
 - Configured departmental network shares and tested group-based permissions to verify that newly provisioned employees could access authorized resources while being restricted from other departments.
 - Automated employee offboarding by disabling accounts, removing security group memberships, and moving former employees into a dedicated Disabled Users OU.
 - Implemented account lookup validation and PowerShell try/catch error handling to improve script reliability. Performed end-to-end testing of the employee lifecycle, from account creation and resource access to account deactivation and cleanup.
+
+### Lab 13 – Help Desk Administration with RSAT & Active Directory
+
+- Deployed a dedicated Windows 11 Pro Help Desk workstation, joined it to the `lab.local` domain, and installed Remote Server Administration Tools (RSAT) to remotely manage Active Directory.
+- Created a standard Help Desk technician account and security group, then configured Active Directory Delegation of Control to grant limited administrative permissions within the Accounting OU.
+- Delegated and successfully tested employee password resets, forced password changes, and account unlocking without granting Domain Administrator privileges.
+- Verified the principle of least privilege by testing restricted administrative actions, including user account deletion, user creation, security group membership changes, and password resets outside the delegated OU.
+- Compared Domain Administrator and Help Desk permissions to demonstrate role-based administration and Organizational Unit (OU) security boundaries.
+- Troubleshot RSAT installation errors, Windows 11 update requirements, VirtualBox network adapter configuration, DHCP connectivity, and domain authentication issues.
 
 ## Repository Goals
 
