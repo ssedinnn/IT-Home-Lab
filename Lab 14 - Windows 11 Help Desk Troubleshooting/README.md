@@ -11,7 +11,7 @@
 
 ### *Step 1 - Troubleshoot an Incorrect IP Configuration*
 
-![Working Network Configuration](img/Working_Network_Configuration.png)
+![Working Network Connectivity](img/Working_Network_Connectivity.png)
 
 ![Incorrect IP Configuration](img/Incorrect_IP_Configuration.png)
 
