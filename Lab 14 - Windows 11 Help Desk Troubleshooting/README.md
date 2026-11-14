@@ -70,11 +70,11 @@ This troubleshooting scenario demonstrates how an incorrect DNS configuration ca
 
 ![Shared Folder Access Denied](img/Shared_Folder_Access_Denied.png)
 
-![Initial Group Membership Check](img/Initial_Group_Membership_Check.png)
+![Final Group Membership Check](img/Final_Group_Membership_Check.png)
 
 ![Security Group Membership Restored](img/Security_Group_Membership_Restored.png)
 
-![Final Group Membership Check](img/Final_Group_Membership_Check.png)
+![Initial Group Membership Check](img/Initial_Group_Membership_Check.png)
 
 ![Shared Folder Access Restored](img/Shared_Folder_Access_Restored.png)
 
