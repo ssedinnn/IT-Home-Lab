@@ -2,9 +2,35 @@
 
 ## **Objective**
 
+Practice troubleshooting common Windows 11 workstation issues that IT help desk technicians encounter, including network connectivity problems, DNS misconfigurations, shared folder access issues, Group Policy restrictions, and system performance problems.
+
+The goal is to identify the cause of each issue, use Windows troubleshooting tools to investigate, and verify that the workstation is functioning correctly.
+
 ## **Environment**
 
+The following software and tools were used:
+
+- Oracle VirtualBox
+- Windows Server 2022
+- Windows 11
+- Active Directory Domain Services (AD DS)
+- DNS and DHCP
+- Group Policy
+- Command Prompt and PowerShell
+- Task Manager
+- Resource Monitor
+- Event Viewer
+
 ## **Skills Demonstrated**
+
+- Troubleshooting Windows 11 network connectivity and DNS issues.
+- Using `ipconfig`, `ping`, and `nslookup` to diagnose network problems.
+- Investigating shared folder access and Active Directory security group membership.
+- Troubleshooting Group Policy restrictions using `gpresult`.
+- Using Task Manager to identify resource-intensive processes.
+- Investigating CPU usage with Resource Monitor.
+- Reviewing Windows system logs with Event Viewer.
+- Verifying that troubleshooting actions successfully resolve issues.
 
 ## **Steps**
 
@@ -188,6 +214,21 @@ This demonstrates how IT support technicians can troubleshoot performance compla
 
 ## **Challenges**
 
+- While testing shared folder permissions, I noticed that the user could access the Accounting share when they were not a member of the **Accounting Users** group, but received an access denied error after being added to the group. I initially tried signing out and signing back in, but the issue continued. Restarting the Windows 11 VM resolved the problem, and the updated group membership was recognized correctly.
+- During the Group Policy troubleshooting test, I moved the test user out of the Accounting OU to remove the restrictions. After checking the applied policies, I confirmed that the Accounting GPOs were no longer listed and that Control Panel could be opened again. I then moved the user back into the Accounting OU and verified that the restrictions were applied again.
+
 ## **What I Learned**
 
+- How to diagnose common network and DNS configuration problems.
+- How Active Directory group membership affects access to shared resources.
+- Why restarting a workstation can help resolve permission and authentication issues.
+- How to identify which Group Policies are applied to a user.
+- How to investigate high CPU usage and identify the responsible process.
+- How to use Windows troubleshooting tools to investigate and resolve workstation issues.
+
 ## **Next Steps**
+
+- Practice troubleshooting Windows services and startup problems.
+- Explore remote support and remote desktop troubleshooting.
+- Investigate Windows Update failures and software installation issues.
+- Continue practicing realistic IT help desk support scenarios.
