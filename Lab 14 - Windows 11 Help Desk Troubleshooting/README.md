@@ -100,6 +100,47 @@ This troubleshooting scenario demonstrates how Active Directory security group m
 
 I also learned that changes to Active Directory group membership may not immediately appear in a Windows logon session, making it important to verify both the user's permissions and their current security group information when troubleshooting access-related problems.
 
+
+### *Step 4 - Troubleshoot Group Policy Application*
+
+![Group Policy Working](img/Group_Policy_Working.png)
+
+![User Moved Outside Accounting OU](img/User_Moved_Outside_Accounting_OU.png)
+
+![Group Policy Not Applying](img/Group_Policy_Not_Applying.png)
+
+![User Restored To Accounting OU](img/User_Restored_To_Accounting_OU.png)
+
+![Group Policy Restored](img/Group_Policy_Restored.png)
+
+**Ticket:** An Accounting employee reports that the company's computer restrictions are no longer being applied to their workstation.
+
+In the Windows 11 `Desktop-01` VM, I begin by verifying that the employee account **Jacob** is receiving the correct Group Policy settings. I open **Command Prompt** and run `gpresult /r` to display the Group Policy Objects (GPOs) currently applied to the user.
+
+Under **Applied Group Policy Objects**, I confirm that **Lab 04 User Policies** and **Lab 07 Accounting Drive Mapping** are being applied. I also attempt to open **Control Panel**, but Windows displays a restriction message preventing access. This confirms that the employee is initially receiving the expected company policies.
+
+To simulate a Group Policy issue, I switch to the Windows Server 2022 VM and open **Active Directory Users and Computers (ADUC)**. I navigate to the **Accounting** OU, right-click Jacob's account, and move it into the default **Users** container.
+
+Because the **Lab 04 User Policies** GPO is linked to the Accounting OU, moving Jacob outside that OU removes the account from the GPO's scope.
+
+I then return to the Windows 11 workstation, sign out of Jacob's account, and sign back in. I run `gpupdate /force` to refresh Group Policy and `gpresult /r` to check which policies are currently being applied.
+
+This time, **Lab 04 User Policies** and **Lab 07 Accounting Drive Mapping** are missing from the applied GPO list, leaving only the **Default Domain Policy**. I also attempt to open Control Panel again, which now opens successfully without displaying the previous restriction message.
+
+These results confirm that Jacob is no longer receiving the Accounting OU's user-based Group Policy settings.
+
+After identifying the incorrect Organizational Unit placement as the cause of the issue, I return to the Windows Server 2022 VM and move Jacob's account from the **Users** container back into the **Accounting** OU.
+
+I then return to the Windows 11 workstation, sign out and sign back into Jacob's account, and run `gpupdate /force` followed by `gpresult /r` to verify that the policies are being applied again.
+
+Under **Applied Group Policy Objects**, I confirm that both **Lab 04 User Policies** and **Lab 07 Accounting Drive Mapping** have returned. I also attempt to open Control Panel again, and Windows displays the restriction message preventing access.
+
+This confirms that the employee's Group Policy settings have been successfully restored.
+
+This troubleshooting scenario demonstrates how Organizational Unit placement affects Group Policy application in an Active Directory environment. By using `gpresult /r`, `gpupdate /force`, and Active Directory Users and Computers, I was able to identify why the employee was no longer receiving the expected policies and restore the correct configuration.
+
+I also learned the importance of checking a user's OU placement when troubleshooting Group Policy issues, since policies linked to a specific OU do not automatically apply to users located outside its scope.
+
 ## **Challenges**
 
 ## **What I Learned**
