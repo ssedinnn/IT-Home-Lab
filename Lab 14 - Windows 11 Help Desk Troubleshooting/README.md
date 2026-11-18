@@ -141,6 +141,51 @@ This troubleshooting scenario demonstrates how Organizational Unit placement aff
 
 I also learned the importance of checking a user's OU placement when troubleshooting Group Policy issues, since policies linked to a specific OU do not automatically apply to users located outside its scope.
 
+
+### *Step 5 - Troubleshoot Windows 11 Performance Issues*
+
+![Normal System Performance](img/Normal_System_Performance.png)
+
+![High CPU Usage](img/High_CPU_Usage.png)
+
+![Resource Monitor Investigation](img/Resource_Monitor_Investigation.png)
+
+![Event Viewer Investigation](img/Event_Viewer_Investigation.png)
+
+![System Performance Restored](img/System_Performance_Restored.png)
+
+In the Windows 11 VM, I simulate a help desk ticket where an employee reports that their computer is running slowly. My goal is to identify what is consuming system resources, investigate the issue, and restore normal performance.
+
+I first open **Task Manager** and check the workstation's CPU and memory usage. Before simulating the issue, CPU usage is approximately **7%**, while memory usage is **59%**.
+
+Next, I open **PowerShell** and run a temporary background job that repeatedly performs calculations to simulate a resource-intensive process.
+
+```powershell
+$job = Start-Job -ScriptBlock {
+    $end = (Get-Date).AddMinutes(5)
+    while ((Get-Date) -lt $end) {
+        [void][Math]::Sqrt((Get-Random -Minimum 1 -Maximum 1000000))
+    }
+}
+```
+
+After starting the workload, I return to **Task Manager** and sort the running processes by CPU usage. I notice that total CPU usage has increased to approximately **56%**, with **Windows PowerShell** consuming around **49.8%**.
+
+To investigate further, I open **Resource Monitor** using `resmon`. Under the **CPU** section, I identify `powershell.exe` as the process consuming the most CPU resources. This confirms that the temporary PowerShell workload is responsible for the increased CPU usage.
+
+I also open **Event Viewer** using `eventvwr.msc` and navigate to **Windows Logs > System**. I filter the logs to display **Critical**, **Error**, and **Warning** events. I review the recorded events for additional information, although the warnings shown do not establish a direct connection to the simulated performance issue.
+
+After identifying the cause, I return to PowerShell and stop the temporary background job using the following commands:
+
+```powershell
+Stop-Job -Job $job
+Remove-Job -Job $job
+```
+
+Finally, I reopen **Task Manager** to verify that CPU usage has decreased. The workstation now shows approximately **19% CPU usage**, and the PowerShell workload is no longer consuming significant resources.
+
+This demonstrates how IT support technicians can troubleshoot performance complaints using **Task Manager**, **Resource Monitor**, and **Event Viewer** to identify resource-intensive processes, investigate potential causes, and verify that system performance has improved.
+
 ## **Challenges**
 
 ## **What I Learned**
